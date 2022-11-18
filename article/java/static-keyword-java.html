@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+<head>
+  <meta content="ie=edge" http-equiv="x-ua-compatible"/>
+  <meta content="برنامه نویسی جاوا ، کلید واژه ی استاتیک ، متد استاتیک ، فیلد استاتیک ، inner class، کلاس های داخلی" name="keywords"/>
+  <meta content="بررسی کلید واژه ی استاتیک (static) و تعریف فیلد، متد و کلاس های استاتیک در جاوا" name="description"/>
+  <meta charset="UTF-8"/>
+  <meta content="width:device-width, initial-scale=1" name="viewport"/>
+  <title>کلید واژه ی استاتیک (static) در جاوا</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        rel="stylesheet">
+  <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" rel="stylesheet"/>
+
+  <link href="/resources/css/main.css" rel="stylesheet">
+  <link href="/resources/favicon.png" rel="icon" type="image/x-icon">
+
+  <script crossorigin="anonymous"
+          integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+          src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+
+  <script type="text/javascript" src="/resources/js/main.js"></script>
+
+
+</head>
+
+<body>
+<div class="container-fluid content">
+  <div class="page-wrap">
+    <header class="article-header">
+      <h1>کلید واژه ی استاتیک (static) در جاوا</h1>
+      <address>
+        <a class="author text-muted text-decoration-none" rel="author">یونس سلیمانی</a>
+      </address>
+
+      <figure class="figure figure-wrapper">
+        <img class="rounded figure-img"
+             alt="کلید واژه ی static در جاوا" src="/resources/image/java/static_keyword_java_cover.png"/>
+
+      </figure>
+    </header>
+    <article>
+      <div class="container">
+
+        <blockquote>کاربرد: هنگامی که این کلید واژه برای یک عضو از کلاس استفاده بشه عضو مورد نظر وابسته به کلاس میشه و ربطی به نمونه های کلاس نداره و در طی زمان اجرای برنامه بدون نیاز به نمونه سازی در دسترسه</blockquote>
+
+
+        <p>از کلید واژه static برای تعریف Inner class ، فیلد و متد ها استفاده میشه</p>
+
+
+        <h3> متغیر (فیلد) های استاتیک (static):</h3>
+        <p> این متغیر ها وابسته به کلاس هستند و مقدار آنها تا پایان زمان اجرای برنامه میتونه بین تمام نمونه های ایجاد شده از کلاس به اشتراک گذاشته بشه</p>
+
+
+
+        <p><strong>فرم کلی:</strong></p>
+
+        <pre>
+public class ClassName{
+
+            ...
+
+	public static Type variableName  = ...
+            ...
+}
+        </pre>
+
+        <p>صدا زدن متغیر:</p>
+
+        <pre>
+Type type = ClassName.variableName;
+        </pre>
+
+        <p><strong> نکته: با در نظر گرفتن Modifier سطح دسترسی متغیر (public , protected , private) میشه متغیر رو در کلاس های دیگه نیز صدا زد </strong></p>
+
+        <h3>متد های استاتیک (static):</h3>
+
+        <p>این متد ها مانند فیلد های استاتیک وابسته به کلاس هستند و بدون نیاز به نمونه سازی با استفاده از اسم کلاس صداشون می زنیم</p>
+
+        <p><strong> فرم کلی: </strong></p>
+
+        <pre>
+public class ClassName {
+
+	public static void methodName(Type0 p0, Type1 p1, … , TypeN pN){
+			...
+	}
+
+}
+      </pre>
+
+        <p><strong> صدا زدن متد:</strong></p>
+
+        <pre>
+Type0 type0 = new Type0();
+Type1 type1 = new Type1();
+…
+TypeN typeN = new TypeN();
+ClassName.methodName(type0, type1,  … , typeN)
+        </pre>
+
+
+        <p><strong>نکته: تمام اعضای کلاس Math در جاوا استاتیکن Math.PI، Math.sin(p0, p1) و ...</strong></p>
+
+          <h3>مثال از متد و فیلد استاتیک در جاوا:</h3>
+          <p><strong> Circle.java </strong></p>
+        <pre>
+public class Circle {
+    double radius;
+
+    private static int numberOfObjects = 0;
+
+    public Circle(){
+        this.radius = 1;
+        numberOfObjects ++;
+    }
+
+    public Circle(double radius){
+        this.radius = radius;
+        numberOfObjects++;
+    }
+
+
+    public double getArea(){
+        return radius * radius * Math.PI;
+    }
+
+    public static int getNumberOfObjects(){
+        return Circle.numberOfObjects;
+    }
+
+}
+        </pre>
+
+        <p><strong> TestCircle.java </strong></p>
+
+        <pre>
+public class TestCircle {
+
+    public static void main(String[] args){
+        System.out.println("Before creating new instance from Circle number of objects are " + Circle.getNumberOfObjects());
+
+        Circle c0 = new Circle(4);
+        System.out.println("After creating c0: (radius: " + c0.radius + ", " + "area: " + c0.getArea() + ")"
+                + "  number of objects are " + Circle.getNumberOfObjects());
+
+        Circle c1 = new Circle();
+
+        System.out.println("After creating c1: (radius: " + c1.radius + ", " + "area: " + c1.getArea() + ")"
+                + "  number of objects are " + Circle.getNumberOfObjects());
+    }
+}
+        </pre>
+
+
+        <p>در مثال بالا یک فیلد استاتیک داریم به اسم numberOfObjects که تعداد نمونه های ایجاد شده از کلاس Circle رو میشماره و با متد استاتیک getNumberOfObjects این فیلد رو صدا میزنیم نمونه ها ی ساخته شده از کلاس Circle هرکدوم خصوصیات و ویژگی های مختص به خودشونو دارن اما متغیر numberOfObjects دارای مقداریست که بین هر دو نمونه از کلاس Circle به اشتراک وجود داره</p>
+
+
+        <h3> کلاس های استاتیک (static):</h3>
+
+          <p> میشه از کلید واژه ی استاتیک برای inner class ها نیز استفاده کرد </p>
+
+        <p><strong> نکته: فقط کلاس های داخلی در جاوا یا همون Inner Class ها رو میشه به صورت استاتیک تعریف کرد </strong></p>
+
+        <p><strong> فرم کلی: </strong></p>
+
+
+        <pre>
+public class ClassName {
+            ...
+
+	public static class InnerClassName {
+            ...
+	}
+
+}
+        </pre>
+
+
+        <p>هنگامی که بخوایم از InnerClassName نمونه ی جدید درست کنیم به صورت زیر عمل می کنیم:</p>
+
+        <pre>
+ ClassName.InnerClassName myInnerClass = new ClassName.InnerClassName();
+        </pre>
+
+
+        <h3>خلاصه:</h3>
+        <p>-کلید واژه ی استاتیک در جاوا برای اعضای داخل کلاس استفاده میشه</p>
+
+        <p>- اعضای استاتیک وابسته به نمونه های ساخته شده از کلاس نیستن و در طول زمان اجرای برنامه در دسترسن</p>
+
+        <p>- فیلدها ، متد ها و کلاس های داخل کلاس رو میتونیم به صورت استاتیک تعریف کنیم</p>
+
+        <p>- مقدار یک فیلد استاتیک میتونه بین تمام کلاس های پروژه تا زمان اجرای برنامه به اشتراک گذاشته بشه</p>
+
+        <p>- برای صدا زدن فیلد ها و متد های کلاس نام کلاس رو مینویسیم ، نقطه میزاریم و اسم متد یا فیلد رو می نویسیم</p>
+
+        <p>- برای نمونه سازی از کلاس های استاتیک new رو می نویسیم نام کلاس اصلی رو می نویسیم نقطه میزاریم و نام کلاس استاتیک داخل کلاس اصلی رو مینویسیم و مانند سایر کلاس ها نمونه سازی یا همون شی سازی می کنیم</p>
+
+
+        <p>موفق باشید</p>
+
+      </div>
+    </article>
+  </div>
+  <div id="footer_container"> </div>
+</div>
+</body>
+</html>

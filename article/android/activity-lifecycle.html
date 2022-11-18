@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+<head>
+  <meta content="ie=edge" http-equiv="x-ua-compatible"/>
+  <meta content="برنامه نویسی اندروید, اکتیویتی, چرخه ی اکتیویتی, activity " name="keywords"/>
+  <meta content="بررسی چرخه ی یک اکتیویتی و متد های اکتیویتی در اندروید" name="description"/>
+  <meta charset="UTF-8"/>
+  <meta content="width:device-width, initial-scale=1" name="viewport"/>
+  <title>چرخه ی یک Activity در اندروید</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        rel="stylesheet">
+  <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" rel="stylesheet"/>
+
+  <link href="/resources/css/main.css" rel="stylesheet">
+  <link href="/resources/favicon.png" rel="icon" type="image/x-icon">
+
+  <script crossorigin="anonymous"
+          integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+          src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+
+  <script type="text/javascript" src="/resources/js/main.js"></script>
+
+
+</head>
+
+<body>
+<div class="container-fluid content">
+  <div class="page-wrap">
+    <header class="article-header">
+      <h1>چرخه ی یک Activity در اندروید</h1>
+      <address>
+        <a class="author text-muted text-decoration-none" rel="author">یونس سلیمانی</a>
+      </address>
+
+      <figure class="figure figure-wrapper">
+        <img class="rounded figure-img"
+             alt="چرخه ی یک اکتیویتی در اندروید" src="/resources/image/android/activity_lifecycle_cover.png"/>
+      </figure>
+    </header>
+    <article>
+      <div class="container">
+
+
+        <h3>پیش نیاز:</h3>
+        <h4>قسمت های یک برنامه ی اندرویدی:</h4>
+
+        <p>یه برنامه ی اندرویدی سه قسمت کلی داره که هنگام شروع برنامه به ترتیب اجرا میشن:</p>
+
+
+        <p class="text-ltr"><strong>Application -> Activity ->  Fragment</strong></p>
+
+        <p class="text-ltr">------------------------------------------------------</p>
+
+        <p class="text-ltr">1 * Application</p>
+
+        <p class="text-ltr">-------------------------------------------------------</p>
+
+        <p class="text-ltr">m * Activity</p>
+
+        <p class="text-ltr">1 <= m</p>
+
+        <p class="text-ltr">-------------------------------------------------------</p>
+
+        <p class="text-ltr">n * Fragment</p>
+
+        <p class="text-ltr">0 <= n</p>
+
+        <p class="text-ltr">------------------------------------------------------</p>
+
+
+        <p>در یک برنامه ی اندرویدی تنها یک Application داریم و حداقل یک Activity </p>
+
+        <p>داشتن یک یا چند Fragment اختیاریه البته استفاده از Fragment ها باعث میشه برنامه انعطاف‌پذیر تر باشه</p>
+
+        <p><strong>توضیح:</strong></p>
+
+        <p>یک برنامه ی اندرویدی می تونه یک یا چند اکتیویتی داشته باشه اکتیویتی ها به عنوان مجری اصلی کد های ما به حساب میان (مثل متد main در برنامه های کنسولی جاوا) پس از Application به اولین اکتیویتی که شروع به فعالیت میکنه main activity گفته میشه</p>
+
+        <h3>وضعیت های یک اکتیویتی :</h3>
+
+        <figure class="figure figure-wrapper">
+          <img class="rounded figure-img"
+               alt="چرخه ی یک اکتیویتی" src="/resources/image/android/activity_lifecycle.png"/>
+        </figure>
+
+        <p>در سیستم عامل اندروید یک اکتیویتی دارای شش وضعیت کلیه </p>
+
+        <p>وقتی در هر وضعیتی از چرخه قرار داریم وضعیت متقارنش وجود داره که اگر Activity وارد وضعیت جدید نشه و باز بخواد شروع به اجرا شدن کنه از وضعیت متقارن خودش شروع میکنه به اجرا شدن.</p>
+
+        <p>متقارن هر وضعیت:</p>
+
+        <pre>
+onDestroy() -&gt; onCreate()
+onStop() -&gt; onStart()
+onPause() -&gt; onResume()
+        </pre>
+
+        <p>
+          <strong>نکته: برای onPause و onStop حالت استثنا هم وجود داره در این حالت اکتیویتی از onCreate شروع به اجرا شدن می کنه و این حالت زمانی اتفاق میفته که حافظه ی گوشی کمه و برنامه هایی با اولویت بالاتر به حافظه نیاز دارن تو این شرایط اکتیویتی به وضعیت onPause یا onStop میره بعد برای اجرا به onCreate برمیگرده</strong>
+        </p>
+
+        <pre>
+onPause() -&gt; onCreate()
+onStop() -&gt; onCreate()
+        </pre>
+
+        <p>البته وضعیت های دیگه ای هم برای یک اکتیویتی وجود داره مثل onRestart , onSavedInstanceState و... که بین این 6 وضعیت اصلی قرار دارن برای خلاصه نویسی و کوتاه کردن کلام و قابل فهم تر بودن همین شش وضعیتو به اختصار بیان کردم</p>
+
+        <p> در تصویر نمونه ی override کردن هر وضعیت برای اجرای کد به زبان کاتلین نوشته شده دیگه خودتون به عنوان برنامه نویس باید تصمیم بگیرید کد هاتونو تو کدوم وضعیت اجرا کنید...</p>
+
+      </div>
+    </article>
+  </div>
+  <div id="footer_container"> </div>
+</div>
+</body>
+</html>

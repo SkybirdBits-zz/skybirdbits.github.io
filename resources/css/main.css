@@ -1,0 +1,169 @@
+a, p, h1, h2,h3 ,h4, h5, h6, blockquote, strong {
+    font-family: Samim;
+    padding: 8px;
+    direction: rtl;
+}
+
+h1, h2, h3, h4, h5, h6{
+    padding: 16px;
+    font-weight: bold;
+}
+
+blockquote {
+    font-style: italic;
+}
+
+ p{
+ font-weight: normal;
+ margin: 8px;
+ text-align: justify;
+}
+
+pre {
+  background-color: #f9f9f9;
+  direction: ltr;
+  spellcheck: false;
+  overflow-x: auto;
+  overflow-y: hidden;
+  height: auto;
+  padding: 16px;
+}
+
+footer{
+    background-color: #f9f9f9;
+    min-height: 120px;
+    margin-top: 128px;
+    margin-bottom: 16px;
+
+}
+
+hr{
+    display: block;
+    border: 0;
+    border-top: 1px solid #212121;
+}
+
+.nav-tabs .nav-item .nav-link{
+  background-color: #bcbcbc;
+  color: #212121;
+  min-width: 128px;
+  align-content: center;
+  display: flex;
+  justify-content: center;
+  margin: 2px;
+  margin-bottom: 0px;
+
+}
+
+.nav-tabs .nav-item .nav-link.active{
+   color: #f9f9f9;
+   background-color: #8c8c8c;
+   display: flex;
+   justify-content: center;
+   margin: 2px;
+   margin-bottom: 0px;
+}
+
+.tab-content {
+  padding: 16px;
+  margin: 4px;
+  min-width: 100%;
+  width: 100%;
+}
+
+.tab-content .tab-pane {
+  background-color: #fff;
+  color: #0080ff;
+  min-height: 100%;
+  height: 100%;
+}
+
+.figure {
+width: 100%;
+height: auto;
+display: flex;
+justify-content: center;
+margin-top: 32px;
+
+}
+
+.figure .figure-img {
+    max-height: 690px;
+    width: 100%;
+
+}
+
+.article-header{
+    word-wrap: break-word;
+    padding: 8px;
+}
+
+.page-wrap{
+    max-width: 732px;
+    margin: 0 auto;
+}
+
+.author{
+    color: #757575;
+    font-family: Samim;
+}
+
+.content{
+    min-height: 56vh;
+}
+
+.item-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card .card-img-top{
+    min-height: 200px;
+    max-height: 200px;
+    pointer-events: none;
+}
+
+.card .card-body{
+    background-color: #f9f9f9;
+}
+
+.card .card-body .card-text {
+    min-height: 150px;
+    max-height: 150px;
+    color: #212121;
+}
+
+
+.text-ltr{
+  direction: ltr;
+}
+
+@font-face {
+  font-family: Samim;
+  src: url('/resources/font/Samim.eot');
+  src: url('/resources/font/Samim.eot?#iefix') format('embedded-opentype'),
+       url('/resources/font/Samim.woff2') format('woff2'),
+       url('/resources/font/Samim.woff') format('woff'),
+       url('/resources/font/Samim.ttf') format('truetype');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: Samim;
+  src: url('/resources/font/Samim-Bold.eot');
+  src: url('/resources/font/Samim-Bold.eot?#iefix') format('embedded-opentype'),
+       url('/resources/font/Samim-Bold.woff2') format('woff2'),
+       url('/resources/font/Samim-Bold.woff') format('woff'),
+       url('/resources/font/Samim-Bold.ttf') format('truetype');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: Samim;
+  src: url('/resources/font/Samim-Medium.eot');
+  src: url('/resources/font/Samim-Medium.eot?#iefix') format('embedded-opentype'),
+       url('/resources/font/Samim-Medium.woff2') format('woff2'),
+       url('/resources/font/Samim-Medium.woff') format('woff'),
+       url('/resources/font/Samim-Medium.ttf') format('truetype');
+  font-weight: 500;
+}

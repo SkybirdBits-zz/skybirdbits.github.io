@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+<head>
+    <meta content="ie=edge" http-equiv="x-ua-compatible"/>
+    <meta content="حلقه ها، حلقه ی for ، حلقه ی while ، حلقه ی do-while، کلید واژه های break و continue" name="keywords"/>
+    <meta content="بررسیی loop ها در زبان برنامه نویسی جاوا به همراه مثال" name="description"/>
+    <meta charset="UTF-8"/>
+    <meta content="width:device-width, initial-scale=1" name="viewport"/>
+    <title>حلقه (Loop) ها در جاوا</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+          rel="stylesheet">
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" rel="stylesheet"/>
+
+    <link href="/resources/css/main.css" rel="stylesheet">
+    <link href="/resources/favicon.png" rel="icon" type="image/x-icon">
+
+    <script crossorigin="anonymous"
+            integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+            src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+
+    <script src="/resources/js/main.js" type="text/javascript"></script>
+
+
+</head>
+
+<body>
+<div class="container-fluid content">
+    <div class="page-wrap">
+        <header class="article-header">
+            <h1>حلقه (Loop) ها در جاوا</h1>
+            <address>
+                <a class="author text-muted text-decoration-none" rel="author">یونس سلیمانی</a>
+            </address>
+
+            <figure class="figure figure-wrapper">
+                <img alt="حلقه ها در جاوا"
+                     class="rounded figure-img" src="/resources/image/java/java_loops_cover.png"/>
+
+            </figure>
+        </header>
+        <article>
+            <div class="container">
+
+
+                <blockquote>تعریف: برای تکرار یک عمل از حلقه استفاده میکنیم</blockquote>
+
+                <p>یک حلقه در جاوا تا زمانی که شرط برقرار باشه به تکرار ادامه میده و تعریف یک شرط برای حلقه ضروریه</p>
+
+                <p>در جاوا سه حلقه ی for ، while , do-while داریم</p>
+
+
+                <h3>حلقه ی for :</h3>
+
+                <p>حلقه ی for در جاوا دارای چهار بخشه:</p>
+
+
+                <figure class="figure figure-wrapper">
+                    <img alt="ساختار حلقه ی for در جاوا" class="rounded figure-img" src="/article/resources/image/java/java_for_loop_structure.png">
+                </figure>
+
+                <p>۱- تعریف متغیر ها از یک نوع دلخواه اختصاص دادن مقدار به هر متغیر در صورت لزوم این عمل یکبار تکرار
+                    میشه (اختیاری)</p>
+                <p>۲- بررسی شرط (condition) پس از هر بار تکرار حلقه (الزامی)</p>
+                <p>۳- بیان یک یا چند statement که تا زمان تکرار حلقه اجرا بشه (اختیاری)</p>
+                <p>۴- بدنه ی حلقه و اجرای کد های داخل آن</p>
+
+
+                <p><strong>مثال:</strong></p>
+                <p>مثال زیر اعداد یک تا صد رو نمایش میده</p>
+
+                <pre>
+for (int i=1; i&lt;= 100; i++){
+    System.out.print(i + " ");
+}
+                </pre>
+
+                <p><strong> مثال: </strong></p>
+                <p>مثال زیر مجموع اعداد صفر تا صد رو نمایش میده</p>
+
+                <pre>
+int sum = 0;
+for (int i=1; i&lt;= 100; i++){
+    sum += i;
+}
+
+System.out.println("Sum of 0 to 100 is " + sum);
+                </pre>
+
+
+                <p><strong> مثال: </strong></p>
+                <p>مثال زیر یک عدد رو از کاربر میگیره و فاکتوریل آن را حساب کرده و نمایش میده</p>
+
+
+                <pre>
+Scanner input = new Scanner(System.in);
+
+System.out.print("Enter a number to compute factorial: ");
+
+int fact = input.nextInt();
+
+System.out.print(fact + "! is ");
+
+int result = 1;
+
+for (int i = fact; i &gt; 0; i--) {
+
+    if (i &gt; 1)
+        System.out.print(i + " * ");
+    else
+        System.out.print(i + " = ");
+
+    result *= i;
+
+}
+
+System.out.println(result);
+                </pre>
+
+                <h3>کلید واژه ی break و continue:</h3>
+                <p>این کلید واژه ها داخل بدنه ی حلقه مورد استفاده قرار میگیرن</p>
+
+                <p><strong>۱- کلید واژه ی break:</strong></p>
+                <p> برای شکستن حلقه و جلو گیری از ادامه ی تکرار استفاده میشه</p>
+
+                <p><strong>۲-کلید واژه ی continue:</strong></p>
+                <p><strong>برای جلو گیری از اجرای بقیه کد ها در داخل حلقه استفاده میشه</strong></p>
+
+                <p><strong>###حلقه ی while:</strong></p>
+
+                <p><strong>حلقه ی while در جاوا داری دو بخشه</strong></p>
+
+                <figure class="figure figure-wrapper">
+                    <img alt="ساختار حلقه ی while در جاوا" class="rounded figure-img" src="/resources/image/java/java_while_loop_structure.png">
+                </figure>
+
+
+                <p><strong>۱- بررسی شرط (condition) برای تکرار حلقه</strong></p>
+                <p><strong>۲- بدنه ی حلقه و اجرای کد های داخل آن پس از هر بار تکرار</strong></p>
+
+
+                <p><strong> مثال:</strong></p>
+                <p>در مثال زیر برنامه یک عدد بین 0 تا 10 به صورت تصادفی ایجاد میکنه و کاربر باید عدد رو حدس بزنه در این
+                    مثال از کلید واژه ی break استفاده شده</p>
+
+
+                <pre>
+Scanner input = new Scanner(System.in);
+
+int num = (int)(Math.random() * 10);
+
+int answer = -1;
+
+
+System.out.println("Guess the number generated by random:");
+
+ while (answer != num){
+     answer = input.nextInt();
+
+     if (answer == num)
+         break;
+     else if (answer&gt; num)
+         System.out.println("Your answer " + answer + " is too high guess again");
+     else
+         System.out.println("Your answer " + answer + " is too low guess again");
+ }
+
+ System.out.println("Congratulations! you guessed correct");
+                </pre>
+
+
+                <p>در داخل حلقه به بررسی جواب میپردازیم اگر جواب برابر با عدد ساخته شده بود تکرار رو متوقف میکنه و از
+                    حلقه خارج میشه اگه جواب بزرگتر از عدد ساخته شده بود پیغام بزرگ بودن مقدار پاسخ نمایش میده و کاربر
+                    دوباره باید پاسخ بده و اگه جواب کوچیکتر بود پیغام کوچیکتر بودن مقدار پاسخ میده و کاربر باید دوباره
+                    پاسخ بده</p>
+
+                <h3>حلقه ی do-while:</h3>
+                <p>این حلقه مثل while است با این تفاوت که ابتدا کد های داخل بدنه ی حلقه اجرا میشن بعد حلقه شروع به تکرار
+                    میکنه</p>
+
+
+                <p><strong> مثال: </strong></p>
+                <p>در برنامه ی زیر کاربر عدد رو وارد میکنه و پس وارد کردن همه ی اعداد دلخواه با صفر از حلقه خارج شده و
+                    برنامه مجموع اعداد وارد شده رو نمایش میده</p>
+
+
+                <pre>
+int data;
+int sum = 0;
+
+Scanner input = new Scanner(System.in);
+
+do {
+
+    System.out.print("Enter a data (the input ends with 0): ");
+    data = input.nextInt();
+    sum += data;
+
+}while (data != 0);
+
+System.out.println("The sum is " + sum);
+                </pre>
+
+                <h3>خلاصه:</h3>
+                <p>-در جاوا سه نوع کلی حلقه داریم for ، while و do-while</p>
+                <p>-وجود شرط برای هر سه حلقه ضروریه</p>
+                <p>کلید واژه های break و continue برای شکستن حلقه و صرف نظر کردن از بقیه ی کدهای داخل حلقه</p>
+                <p>-در do-while ابتدا کد های داخل بدنه اجرا میشه بعد حلقه تکرار میشه</p>
+
+
+
+                <div class="mt-5">
+                    <p>امیدوارم این مطلب بدردتون خورده باشه</p>
+                    <p>خوش شانس باشید </p>
+                </div>
+
+                <div class="bg-light p-3 mt-4">
+                    <h5>مطالب مرتبط:</h5>
+                    <span>
+                        <a class="text-decoration-none"
+                           href="/article/java/java-selectors.html">دستورات شرطی در جاوا</a>
+                    </span>
+                </div>
+            </div>
+        </article>
+    </div>
+    <div id="footer_container"></div>
+</div>
+</body>
+</html>

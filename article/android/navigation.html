@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+<head>
+  <meta content="ie=edge" http-equiv="x-ua-compatible"/>
+  <meta content="برنامه نویسی کاتلین ، navigation در اندروید ، nav graph در اندروید ، nav host در اندروید" name="keywords"/>
+  <meta content="اموزش ایجاد navigation در اندروید به همراه استفاده از کتابخانه های navigation" name="description"/>
+  <meta charset="UTF-8"/>
+  <meta content="width:device-width, initial-scale=1" name="viewport"/>
+
+  <title>استفاده از نویگیشن در اندروید</title>
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        rel="stylesheet">
+  <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" rel="stylesheet"/>
+
+    <link href="/resources/css/main.css" rel="stylesheet">
+    <link href="/resources/favicon.png" rel="icon" type="image/x-icon">
+
+    <script crossorigin="anonymous"
+            integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+            src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+
+    <script type="text/javascript" src="/resources/js/main.js"></script>
+
+
+
+</head>
+<body>
+
+<div class="container-fluid content">
+
+  <div class="page-wrap">
+
+    <header class="article-header">
+      <h1>
+        استفاده از Navigation در اندروید
+      </h1>
+
+      <address>
+        <a class="author text-muted text-decoration-none" rel="author">یونس سلیمانی</a>
+      </address>
+
+      <figure class="figure figure-wrapper">
+
+        <img alt="نویگیشن در اندروید"
+             class="rounded figure-img"
+             src="/article/resources/image/android/navigation_cover.png">
+
+      </figure>
+
+    </header>
+
+    <article>
+
+
+      <div class="container">
+
+        <blockquote>
+          <strong>کاربرد:</strong>برای جابه جایی کاربر در قسمت های مختلف برنامه (معمولا جا به جایی بین Fragment ها) از Navigation استفاده می کنیم
+        </blockquote>
+
+        <p>
+          <strong>
+            توجه: هنگام استفاده از navigation توصیه میشه سیاست تک activity و چند فرگمنتی را به کار ببرید
+            یعنی تنها یک activity داریم و کاربر فقط بین fragment ها جا به جا میشه
+          </strong>
+        </p>
+
+
+        <p>
+          <strong>
+            توجه: در این مقاله فرض بر این شده با Fragment, Activity و مباحث پایه ای آشنایی دارید
+          </strong>
+        </p>
+
+
+        <p>
+          خب بریم ببینیم چه خبره!
+        </p>
+
+        <p>
+          <strong>مزایای استفاده از Navigation:</strong>
+        </p>
+
+        <p>۱-کنترل تراکنش بین fragment ها</p>
+        <p>۲-کنترل عملگر های Up و Back در برنامه</p>
+        <p>۳-تهیه ی منابع استاندارد برای استفاده از انیمیشن ها</p>
+        <p>۴-اجرا و کنترل Deep Link</p>
+        <p>۵-قابلیت استفاده از پلاگین Safe-Args برای پاس دادن داده ها بین Fragment ها به صورت امن</p>
+        <p>۶-پشتیبانی مناسب از ViewModel </p>
+
+        <h3>پلاگین ها و کتابخونه های مورد نیاز:</h3>
+
+        <p><strong>افزودن Navigation به پروژه: </strong></p>
+        <p>RootProject -> app -> build.gradle</p>
+        <pre>dependencies{
+     ...
+    implementation "androidx.navigation:navigation-fragment-ktx:2.5.1"
+    implementation "androidx.navigation:navigation-ui-ktx:2.5.1"
+}
+
+        </pre>
+
+        <p>
+          <strong>
+            افزودن پلاگین safe-args به پروژه برای فرستادن متغیر ها به عنوان argument از یک فرگمنت به فرگمنت دیگه هنگام استفاده از Navigation:
+          </strong>
+        </p>
+
+        <p>
+          RootProject -> build.gradle
+        </p>
+
+        <pre>dependencies {
+   ...
+   classpath "androidx.navigation.safeargs.kotlin:androidx.navigation.safeargs.kotlin.gradle.plugin:$nav_version"
+
+}
+
+        </pre>
+
+        <pre>plugins {
+   ...
+   id 'androidx.navigation.safeargs.kotlin' version '2.5.1' apply false
+}
+        </pre>
+
+
+        <p>RootProject -> app -> build.gradle</p>
+
+        <pre>plugins{
+  ...
+  id 'androidx.navigation.safeargs.kotlin'
+}
+        </pre>
+
+        <p>
+          <strong>برای جا به جایی بین فرگمنت ها با Navigation باید کار های زیر را انجام بدیم:</strong>
+        </p>
+
+        <p><strong>- ایجاد فایل Navigation Graph و ترسیم مسیر های بین فرگمنت ها</strong></p>
+        <p><strong>- تعریف NavHost معمولا در main_activity تعریفش می کنیم</strong></p>
+        <p><strong>- جابه جایی با استفاده از NavController (معمولا NavController رو با استفاده از متد findNavController در Fragment , Activity یا View صدا می زنیم)</strong></p>
+
+        <h2>قسمت های کلیدی Navigation:</h2>
+
+        <h3>I- Navigation Graph</h3>
+
+        <p>یک فایل xml که تمامی مقصد ها و مسیر های بین فرگمنت ها رو داخلش ترسیم میکنیم این فایل باید در مسیر زیر ایجاد بشه:</p>
+        <p>RootProject -> app -> src -> main -> res -> navigation</p>
+
+        <p><strong>عناصر Navigation Graph:</strong></p>
+
+        <h4>1- navigation:</h4>
+
+        <p>عنصر navigation ریشه ی Navigation Graph است بقیه ی عناصر فرزندان این عنصر هستند این عنصر باید دارای دو فیلد id و startDestination باشه</p>
+
+        <pre>&lt;navigation
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="..."
+        app:startDestination="..."&gt;
+
+          ...
+
+        &lt;/navigation&gt;
+        </pre>
+
+        <p>فیلد id شامل ای دی برای navigation است</p>
+        <p>فیلد startDestination شامل آی دی فرگمنتیه که به عنوان نقطه ی شروع در نظر گرفته میشه</p>
+
+
+
+        <h4>2- fragment:</h4>
+        <p>با استفاده از این عنصر destination ها رو تعریف میکنیم</p>
+        <p><strong>نکته: به این عنصر destination هم گفته میشه</strong></p>
+
+
+
+        <pre>&lt;fragment
+      android:id="..."
+      android:name="..."
+      android:label="..."
+      tools:layout="..." /&gt;
+
+        </pre>
+
+        <p>فیلد id شامل آی دی برای fragment است</p>
+
+        <p>فیلد name شامل اسم کلاس Fragment مورد نظر است</p>
+        <p>فیلد label شامل اسم برچسب برای destination است</p>
+        <p>در فیلد layout که اختیاریه ادرس فایل xml مربوط به Fragment در layout رو میدیم</p>
+
+
+        <h4>3- action:</h4>
+
+        <p> زمانی که میخوایم یک مسیر بین fragment ها تعریف کنیم این عنصر رو به عنوان فرزند fragment اولی تعریف میکنیم</p>
+
+
+        <pre>
+&lt;fragment
+        ... &gt;
+
+    ...
+
+    &lt;action
+            android:id="..."
+            app:destination="..."&gt;
+
+        ...
+
+    &lt;/action&gt;
+&lt;/fragment&gt;
+        </pre>
+
+        <p>فیلد id شامل آی دی برای action است</p>
+        <p>فیلد destination شامل آی دی fragment دومی است</p>
+
+        <p><strong>نکته: برای این عنصر فیلد های انیمیشنی ام وجود داره که هنگام جا به جایی بین فرگمنت ها میشه از انیمیشن استفاده کرد ولی ما برای اختصار ازشون صرف نظر کردیم</strong></p>
+
+        <h4>4- argument:</h4>
+        <p> زمانی که کاربر میخواد بین فرگمنت ها جا به جا بشه با این عنصر میتونیم داده های primary, string و object هایی از جنس parcelable رو از فرگمنت اولی به فرگمنت دومی منتقل کنیم
+          این عنصرو باید به عنوان فرزند action تعریف کنیم</p>
+
+        <pre>
+&lt;action
+        ... &gt;
+
+    &lt;argument
+            android:name="..."
+            app:argType="..." app:nullable="..." /&gt;
+
+&lt;/action&gt;
+        </pre>
+
+
+        <p>فیلد name شامل اسم دلخواه برای داده مورد نظر است</p>
+        <p>فیلد argType شامل نوع داده ایست که میخوایم از اولی به دومی منتقل کنیم</p>
+        <p>با فیلد nullable تعیین میکنیم که داده ی مورد نظر برای انتقال میتونه null باشه یا خیر که نوعش boolean هست</p>
+
+        <p><strong>مثال:</strong></p>
+
+        <p>فرض کنید دوتا Fragment داریم و میخوایم کاربر از اولی به دومی جا به جا بشه فرگمنت اول رو به عنوان نقطه ی شروع در نظر میگیرم</p>
+        <p>ابتدا یک فایل با اسم دلخواه در مسیر زیر ایجاد میکنیم</p>
+
+        <p>Root Project -> resources -> navigation -> filename.xml</p>
+
+        <p>سپس مانند نمونه ی زیر destination ها و مسیر های بینشونو تعریف میکنیم:</p>
+
+        <pre>&lt;navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/destination0"&gt;
+
+  &lt;fragment
+    android:id="@+id/firstFragment"
+    android:name="packageName.FirstFragment"
+    android:label="FirstFragment Label"
+    tools:layout="@layout/fragment_first"&gt;
+
+    &lt;action
+      android:id="@+id/from_FirstFragment_to_SecondFragment"
+      android:destination="@fragment1"&gt;
+
+      &lt;argument
+        android:name="argName"
+        app:argType="object"
+        app:nullable="false"/&gt;
+
+     &lt;/action&gt;
+
+  &lt;/fragment&gt;
+
+  &lt;fragment
+    android:id="@+id/secondFragment"
+    android:name="packagename.SecondFragment"
+    android:label="Fragment1 Label"
+    tools:layout="@layout/fragment_second"/&gt;
+
+&lt;/navigation&gt;
+        </pre>
+
+        <p>اگه کد هاتون مثل بالا باشه مانند تصویر زیر را باید در تب design ببینید</p>
+
+
+        <figure class="figure figure-wrap">
+          <img alt="تصویر navigation graph در اندروید"
+               class="rounded figure-img" src="/article/resources/image/android/navigation_graph_sample.png">
+        </figure>
+
+        <p>
+          همانطور که مشاهده می کنید firstFragment به عنوان startDestination تعریف شده و علامت خانه است فلش از firstFragment به secondFragment هم مسیریه که با عنصر action تعریف کردیم
+        </p>
+
+        <p>
+          <strong>نکته: میتونید بجای نوشتن کد های xml به صورت ویژوال هم در قسمت design این کارا رو بکنید اما برای درک درست تر بهتره که با xml مسیر ها و destination ها رو تعریف کنید</strong>
+        </p>
+
+        <h3>II- NavHost</h3>
+
+        <p>به عنوان میزبان fragment ها زمانی که کاربر بخواد از یک فرگمنت به فرگمنت دیگه ای جا به جا بشه فرگمنت اولی از NavHost خارج میشه و فرگمنت دومی برای نمایش داخل NavHost جایگزین میشه معمولا NavHost رو داخل main_activity تعریف میکنند</p>
+
+        <pre>
+&lt;androidx.fragment.app.FragmentContainerView
+        android:id="..."
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        app:navGraph="..."
+        app:defaultNavHost="true" /&gt;
+        </pre>
+
+
+        <p>
+          فیلد id شامل آیدی برای NavHost است
+        </p>
+
+        <p>
+          فیلد name شامل اسم کلاس NavHostFragment است
+        </p>
+        <p>
+          فیلد navGraph شامل اسم Navigation Graph تعریف شده در پوشه ی navigation است
+        </p>
+
+        <p>
+          فیلد defaultNavHost میگه NavHost تعریف شده به عنوان پیشفرض در نظر گرفته بشه
+        </p>
+
+        <h4>III- NavController</h4>
+
+        <p>
+          وظیفه ی مدیریت جا به جایی کاربر بین fragment ها رو داره وقتی بخوایم کاربر از یک فرگمنت به فرگمنت دیگه ای جا به جا بشه با استفاده از این کلاس میتونیم این جا به جایی رو انجام بدیم این کلاس رو میتونیم با استفاده از متد ()findNavController در activity, fragment یا view صدا بزنیم و ازش استفاده کنیم
+          <br/>
+          اگر در Navigation Graph داخل عنصر fragment حداقل یک عنصر action تعریف کنیم اندروید استادیو خودکار کلاس FragmentDirections مربوط به فرگمنت مورد نظرو میسازه این کلاس متد های مرتبط با عنصر های action ایجاد شده رو برای جا به جایی با استفاده از متد navigate در کلاس NavController را در بر داره
+        </p>
+
+        <p><strong>مثال:</strong></p>
+
+        <p>برای اینکه بخوایم کاربر با زدن یک کلید از یک فرگمنت به فرگمنت دیگه ای بره مثل زیر عمل می کنیم</p>
+
+        <pre>class FirstFragment: Fragment(){
+
+      ...
+
+      override fun onCreateView(
+          inflater: LayoutInflater,
+          container: ViewGroup?,
+          savedInstanceState: Bundle?
+      ): View? {
+
+            ...
+
+
+          button.setOnClickListener {
+              val action = FirstFragmentDirections.fromFirstFragmentToSecondFragment(arg0 , arg1, ... argn)
+              findNavController().navigate(action)
+          }
+
+          return view
+      }
+
+      ...
+
+}
+        </pre>
+
+
+        <p>
+          در اینجا کلاس FirstFragmentDirections  خودکار توسط اندروید استادیو ساخته شده همونطور که گفته شد این کلاس زمانی ساخته میشه که حداقل یک عنصر اکشن داخل عنصر fragment مورد نظر در فایل Navigation Graph تعریف کرده باشیم متد fromFirstFragmentToSecondFragment هم بر اساس id که برای action تعریف میکنیم ایجاد میشه اگه بخوایم داخل عنصر action عنصر argument  تعریف کنیم این متد حاوی پارامتر هایی میشه که از جنس argument های تعریف شده داخل عنصر اکشن هستند
+        </p>
+
+
+        <p>
+          تا اینجای کار با موارد ضروری جهت پیاده‌سازی Navigation در پروژه اشنا شدیم امیدوارم بدردتون بخوره
+          روزاتون پر کد کداتون پر پول 😎
+        </p>
+
+        <div class="bg-light p-3">
+
+        <h5>مطالب مرتبط:</h5>
+
+        <a class="text-decoration-none" href="/article/fa/android/data-binding.html">استفاده از Data Binding در اندروید</a>
+
+        </div>
+
+      </div>
+
+    </article>
+
+  </div>
+
+  <div id="footer_container">
+
+  </div>
+
+</div>
+
+</body>
+
+</html>
