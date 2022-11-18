@@ -23,8 +23,6 @@
 
     <script type="text/javascript" src="/resources/js/main.js"></script>
 
-
-
 </head>
 <body>
 
@@ -42,10 +40,9 @@
       </address>
 
       <figure class="figure figure-wrapper">
-
         <img alt="نویگیشن در اندروید"
              class="rounded figure-img"
-             src="/article/resources/image/android/navigation_cover.png">
+             src="/resources/image/android/navigation_cover.png">
 
       </figure>
 
@@ -156,16 +153,17 @@
 
         <p>عنصر navigation ریشه ی Navigation Graph است بقیه ی عناصر فرزندان این عنصر هستند این عنصر باید دارای دو فیلد id و startDestination باشه</p>
 
-        <pre>&lt;navigation
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:id="..."
-        app:startDestination="..."&gt;
+        <pre>
+&lt;navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="..."
+    app:startDestination="..."&gt;
 
-          ...
+      ...
 
-        &lt;/navigation&gt;
+&lt;/navigation&gt;
         </pre>
 
         <p>فیلد id شامل ای دی برای navigation است</p>
@@ -179,12 +177,12 @@
 
 
 
-        <pre>&lt;fragment
-      android:id="..."
-      android:name="..."
-      android:label="..."
-      tools:layout="..." /&gt;
-
+        <pre>
+&lt;fragment
+  android:id="..."
+  android:name="..."
+  android:label="..."
+  tools:layout="..." /&gt;
         </pre>
 
         <p>فیلد id شامل آی دی برای fragment است</p>
