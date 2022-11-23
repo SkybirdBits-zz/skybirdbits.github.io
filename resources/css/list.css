@@ -1,0 +1,15 @@
+.list{
+    padding: 4px;
+    background-color: #e0e0e0;
+}
+
+.list-item{
+    display: block;
+    text-decoration: none;
+    color: rgba(33,33,33, 0.64);
+    margin-right: 32px;
+}
+
+.list-item:hover{
+    color: rgba(33,33,33, 1);
+}

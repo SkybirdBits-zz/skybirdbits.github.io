@@ -1,0 +1,31 @@
+
+a, p, h1, h2,h3 ,h4, h5, h6, blockquote, strong {
+    font-family: Samim;
+    padding: 4px;
+    direction: rtl;
+}
+
+h1, h2, h3, h4, h5, h6{
+    padding: 16px;
+    font-weight: bold;
+}
+
+blockquote {
+    font-style: italic;
+}
+
+ p{
+ font-weight: normal;
+ margin: 8px;
+ text-align: justify;
+}
+
+pre {
+  background-color: #f9f9f9;
+  direction: ltr;
+  spellcheck: false;
+  overflow-x: auto;
+  overflow-y: hidden;
+  height: auto;
+  padding: 16px;
+}

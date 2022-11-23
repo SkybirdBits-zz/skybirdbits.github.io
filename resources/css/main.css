@@ -1,81 +1,12 @@
-a, p, h1, h2,h3 ,h4, h5, h6, blockquote, strong {
-    font-family: Samim;
-    padding: 8px;
-    direction: rtl;
-}
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@import url("/skybirdbits.github.io/resources/css/md-bt.css");
+@import url("/skybirdbits.github.io/resources/css/text.css");
+@import url("/skybirdbits.github.io/resources/css/list.css");
+@import url("/skybirdbits.github.io/resources/css/utils.css");
 
-h1, h2, h3, h4, h5, h6{
-    padding: 16px;
-    font-weight: bold;
-}
-
-blockquote {
-    font-style: italic;
-}
-
- p{
- font-weight: normal;
- margin: 8px;
- text-align: justify;
-}
-
-pre {
-  background-color: #f9f9f9;
-  direction: ltr;
-  spellcheck: false;
-  overflow-x: auto;
-  overflow-y: hidden;
-  height: auto;
-  padding: 16px;
-}
-
-footer{
-    background-color: #f9f9f9;
-    min-height: 120px;
-    margin-top: 128px;
-    margin-bottom: 16px;
-
-}
-
-hr{
-    display: block;
-    border: 0;
-    border-top: 1px solid #212121;
-}
-
-.nav-tabs .nav-item .nav-link{
-  background-color: #bcbcbc;
-  color: #212121;
-  min-width: 128px;
-  align-content: center;
-  display: flex;
-  justify-content: center;
-  margin: 2px;
-  margin-bottom: 0px;
-
-}
-
-.nav-tabs .nav-item .nav-link.active{
-   color: #f9f9f9;
-   background-color: #8c8c8c;
-   display: flex;
-   justify-content: center;
-   margin: 2px;
-   margin-bottom: 0px;
-}
-
-.tab-content {
-  padding: 16px;
-  margin: 4px;
-  min-width: 100%;
-  width: 100%;
-}
-
-.tab-content .tab-pane {
-  background-color: #fff;
-  color: #0080ff;
-  min-height: 100%;
-  height: 100%;
+main{
+    position: relative;
+    min-height: 74vh;
 }
 
 .figure {
@@ -90,7 +21,6 @@ margin-top: 32px;
 .figure .figure-img {
     max-height: 690px;
     width: 100%;
-
 }
 
 .article-header{
@@ -104,7 +34,7 @@ margin-top: 32px;
 }
 
 .author{
-    color: #757575;
+    color: #e0e0e0;
     font-family: Samim;
 }
 
@@ -117,26 +47,28 @@ margin-top: 32px;
     flex-wrap: wrap;
 }
 
-.card .card-img-top{
-    min-height: 200px;
-    max-height: 200px;
-    pointer-events: none;
-}
-
-.card .card-body{
-    background-color: #f9f9f9;
-}
-
-.card .card-body .card-text {
-    min-height: 150px;
-    max-height: 150px;
-    color: #212121;
+.offcanvas-body{
+    direction: rtl;
+    min-width: 100%;
+    padding: 0px;
+    margin: 0px;
 }
 
 
-.text-ltr{
-  direction: ltr;
+footer, nav, .offcanvas-header{
+    background-color: #212121;
+    min-height: 80px;
+    height: 80px;
 }
+
+footer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: between;
+    align-items: center;
+    margin-top: 128px;
+}
+
 
 @font-face {
   font-family: Samim;
