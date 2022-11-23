@@ -1,9 +1,9 @@
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
-@import url("/skybirdbits.github.io/resources/css/md-bt.css");
-@import url("/skybirdbits.github.io/resources/css/text.css");
-@import url("/skybirdbits.github.io/resources/css/list.css");
-@import url("/skybirdbits.github.io/resources/css/utils.css");
-@import url("/skybirdbits.github.io/resources/css/article.css");
+@import url("/resources/css/md-bt.css");
+@import url("/resources/css/text.css");
+@import url("/resources/css/list.css");
+@import url("/resources/css/utils.css");
+@import url("/resources/css/article.css");
 
 main{
     position: relative;
