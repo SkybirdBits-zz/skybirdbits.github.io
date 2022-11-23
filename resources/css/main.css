@@ -3,6 +3,7 @@
 @import url("/skybirdbits.github.io/resources/css/text.css");
 @import url("/skybirdbits.github.io/resources/css/list.css");
 @import url("/skybirdbits.github.io/resources/css/utils.css");
+@import url("/skybirdbits.github.io/resources/css/article.css");
 
 main{
     position: relative;
@@ -21,30 +22,6 @@ margin-top: 32px;
 .figure .figure-img {
     max-height: 690px;
     width: 100%;
-}
-
-.article-header{
-    word-wrap: break-word;
-    padding: 8px;
-}
-
-.page-wrap{
-    max-width: 732px;
-    margin: 0 auto;
-}
-
-.author{
-    color: #e0e0e0;
-    font-family: Samim;
-}
-
-.content{
-    min-height: 56vh;
-}
-
-.item-container{
-    display: flex;
-    flex-wrap: wrap;
 }
 
 .offcanvas-body{
