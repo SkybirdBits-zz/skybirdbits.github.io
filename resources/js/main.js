@@ -1,5 +1,16 @@
+const linkCoursesRepo = [
+   "https://skybirdbits.github.io/resources/json/java-links.json",
+   "https://skybirdbits.github.io/resources/json/kotlin-links.json",
+   "https://skybirdbits.github.io/resources/json/android-links.json",
+   "https://skybirdbits.github.io/resources/json/web-links.json"
+]
+
+let allArticleObjects = [];
+
+const articleListViewContainer = document.getElementById('article_container');
+
 function loadFooter(){
-    $('#footer_container').load('/ui-components/shared_footer.html')
+    $('#footer_container').load('/ui-components/shared_footer.html');
 }
 
 $(function(){
@@ -17,88 +28,116 @@ $(function(){
     loadFooter();
 });
 
-const javaLinks = new Map([
-    ["/article/java/selectors.html", "دستورات شرطی در جاوا"],
-    ["/article/java/switch-statement-jdk-17.html", "دستور switch در jdk-17"],
-    ["/article/java/loops.html", "حلقه ها در جاوا"],
-    ["/article/java/static-keyword.html", "کلیدواژه ی استاتیک در جاوا"]
-]);
-
-const kotlinLinks = new Map([
-    ["/article/kotlin/extension-function.html", "تابع اکستنشن در کاتلین"],
-    ["/article/kotlin/anonymous-function-and-lambda.html", "عبارت لامبدا و توابع بی نام در کاتلین"]
-]);
-
-const androidLinks =new Map([
-    ["/article/android/data-binding.html","دیتا بایندینگ در اندروید"],
-    ["/article/android/navigation.html", "نویگیشن در اندروید"],
-    ["/article/android/data-binding-navigation-sample.html","پروژه ی عملی از دیتابایندینگ و نویگیشن در اندروید"],
-    ["/article/android/activity-lifecycle.html", "چرخه ی حیات اکتیویتی در اندروید"]
-]);
-
-const webLinks = new Map([
-    ["/article/web/streaming-spring-boot.html", "ویدیو استریمینگ در اسپرینگ بوت"]
-]);
-
-const java = {id: 'java_article', links: javaLinks, isExpanded: false};
-const kotlin = {id: "kotlin_article",links: kotlinLinks, isExpanded: false};
-const android = {id: "android_article",links: androidLinks, isExpanded: false};
-const web = {id: "web_article", links: webLinks, isExpanded: false};
-
-const courses = [java, kotlin, android, web];
-
-$(function(){
-   for(var i =0; i<courses.length; i++){
-        var course = courses[i];
-
-        var parent = document.getElementById(course.id);
-
-
-        var btExpand = parent.querySelector('button');
-
-        var linkContainer = parent.querySelector('div');
-
-        course.links.forEach(function(value, key){
-            var anchor = document.createElement('a');
-            anchor.href = key;
-            anchor.innerHTML = value;
-            anchor.classList.add("list-item");
-            linkContainer.appendChild(anchor);
-        });
-
-        if(btExpand != null){
-            var icon = btExpand.querySelector('span');
-            icon.style.transform = getTransformRotation(90);
-        }
-   }
-});
-
-
-function toggleExpandState(btn){
-    for(var i=0; i<courses.length; i++){
-            var course = courses[i];
-
-            var parent = document.getElementById(course.id);
-            var btExpand = parent.querySelector('button');
-
-            if(btExpand.id == btn.id){
-                var icon = btExpand.querySelector('span');
-                rotate(icon , course);
-                course.isExpanded = !course.isExpanded;
-                break;
-            }
-    }
-}
-
-function rotate(icon , course){
-    if(!course.isExpanded){
+function rotate(icon , articleObject){
+    if(!articleObject.isExpanded){
         icon.style.transform = getTransformRotation(0);
     }else{
         icon.style.transform = getTransformRotation(90);
     }
+
+    articleObject.isExpanded = !articleObject.isExpanded;
 }
 
 function getTransformRotation(degree){
     return 'rotate('+ degree +'deg)';
 }
 
+
+function readJsonFile(url, onResponseOkListener){
+    var request = new XMLHttpRequest();
+    request.overrideMimeType = "application/json";
+    request.open("GET", url , true);
+    request.onreadystatechange = function(){
+        if(request.readyState == 4 && request.status == "200"){
+            onResponseOkListener(request.responseText);
+        }
+    }
+
+    request.send();
+}
+
+//retrieve links stored in json files inside path: /resources/json
+function retrieveLinks(){
+    for(var i =0; i<linkCoursesRepo.length; i++){
+        readJsonFile(linkCoursesRepo[i],function(data){
+            var article = JSON.parse(data);
+            var articleObject = {id: article.id, title: article.title, links: article.links, isExpanded: false};
+            allArticleObjects.push(articleObject);
+
+            var articleListView = createArticleListView(articleObject);
+
+            articleListViewContainer.appendChild(articleListView);
+
+        });
+    }
+}
+
+//create list view for an article to show its related links
+function createArticleListView(articleObject){
+    var parent = document.createElement('div');
+
+    var btExpand = createExpandableButton(articleObject);
+
+    var chapterListContainer = document.createElement('div');
+    chapterListContainer.classList.add('collapse');
+    chapterListContainer.id = articleObject.id;
+
+    var unorderedList = document.createElement('ul');
+    unorderedList.classList.add('list');
+
+    var links = articleObject.links;
+    for(var i =0; i<links.length; i++){
+        var item = createListItem(articleObject.links[i]);
+        unorderedList.appendChild(item);
+    }
+
+    chapterListContainer.appendChild(unorderedList);
+
+    parent.appendChild(btExpand);
+    parent.appendChild(chapterListContainer);
+
+    return parent;
+}
+
+
+function createExpandableButton(articleObject){
+    var btExpand = document.createElement('button');
+    btExpand.classList.add('md-bt-expandable');
+    btExpand.dataset.bsTarget = ('#' + articleObject.id);
+    btExpand.dataset.bsToggle = 'collapse'
+
+    console.log(btExpand.dataset.bsTarget)
+
+    var icon = document.createElement('span');
+    icon.classList.add('material-icons');
+    icon.innerHTML = 'arrow_drop_down'
+    icon.style.transform = getTransformRotation(90);
+
+    var text = document.createElement('span');
+    text.innerHTML = articleObject.title;
+
+    btExpand.appendChild(icon);
+    btExpand.appendChild(text);
+
+    btExpand.addEventListener('click', function(){
+            rotate(icon, articleObject);
+    });
+
+    return btExpand;
+}
+
+
+function createListItem(link){
+   var item = document.createElement('li');
+   item.classList.add('list-item');
+
+   var anchor = document.createElement('a');
+   anchor.classList.add('list-item-link');
+   anchor.href = link.href;
+   anchor.innerHTML = link.subject;
+   item.appendChild(anchor);
+
+   return item;
+}
+
+retrieveLinks();

@@ -1,15 +1,27 @@
-.list{
-    padding: 4px;
-    background-color: #e0e0e0;
+.list-container{
+    background-color: #1976d2;
+    border-radius: 8px;
+
+    height: auto;
+    padding: 8px;
 }
 
-.list-item{
+.list-container .list{
+    padding: 8px;
+
+}
+
+.list .list-item {
+    margin-right: 24px;
+    color: rgba(249,249,249, 0.80);
+}
+
+.list .list-item .list-item-link{
     display: block;
     text-decoration: none;
-    color: rgba(33,33,33, 0.64);
-    margin-right: 32px;
+    color: rgba(249,249,249, 0.80);
 }
 
-.list-item:hover{
-    color: rgba(33,33,33, 1);
+.list .list-item .list-item-link:hover{
+    color: rgba(249,249,249, 1);
 }

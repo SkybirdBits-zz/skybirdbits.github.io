@@ -7,7 +7,7 @@
 
 main{
     position: relative;
-    min-height: 74vh;
+    min-height: 64vh;
 }
 
 .figure {
@@ -29,6 +29,7 @@ margin-top: 32px;
     min-width: 100%;
     padding: 0px;
     margin: 0px;
+    background: #ffee58;
 }
 
 

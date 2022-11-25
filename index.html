@@ -5,13 +5,15 @@
 
     <meta content="ie=edge" http-equiv="x-ua-compatible"/>
     <meta content="width:device-width, initial-scale=1" name="viewport"/>
-    <meta name="keywords" content="برنامه نویسی، برنامه نویسی جاوا، برنامه نویسی کاتلین، برنامه نویسی اندروید، آموزش برنامه نویسی"/>
-    <meta name="description" content="صفحه ی اصلی آموزش برنامه نویسی از این صفحه میتونید به گشت و گذار در مقاله های اموزشی سایت بپردازید">
+    <meta content="برنامه نویسی، برنامه نویسی جاوا، برنامه نویسی کاتلین، برنامه نویسی اندروید، آموزش برنامه نویسی"
+          name="keywords"/>
+    <meta content="صفحه ی اصلی آموزش برنامه نویسی از این صفحه میتونید به گشت و گذار در مقاله های اموزشی سایت بپردازید"
+          name="description">
 
-    <link href="/resources/favicon.png" rel="icon" type="image/x-icon">
+    <link href="resources/favicon.png" rel="icon" type="image/x-icon">
 
 
-    <link href="/resources/css/main.css" rel="stylesheet"/>
+    <link href="resources/css/main.css" rel="stylesheet"/>
     <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
           integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" rel="stylesheet"/>
 
@@ -23,7 +25,6 @@
             integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
             src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 
-    <script src="/resources/js/main.js"></script>
 
     <title>خانه</title>
 </head>
@@ -31,99 +32,68 @@
 
 <div class="container-fluid">
 
-    <div aria-labelledby="sidebar_label" class="offcanvas offcanvas-end " id="sidebar" tabindex="-1">
-        <div class="offcanvas-header">
-            <a class="text-decoration-none link-light" href="https://skybirdbits.github.io" id="sidebar_label">
-                <span>Skybirdbits</span>
-            </a>
+    <header>
 
-            <h5 class="md-text-gray300">لیست مقاله ها</h5>
+        <div aria-labelledby="sidebar_label" class="offcanvas offcanvas-end " id="sidebar" tabindex="-1">
+            <div class="offcanvas-header">
+                <a class="text-decoration-none link-light" href="https://skybirdbits.github.io" id="sidebar_label">
+                    <span>Skybirdbits</span>
+                </a>
 
-            <button aria-label="close" class="material-icons md-bt md-bt-dark" data-bs-dismiss="offcanvas" type="button">
-                arrow_forward
-            </button>
+                <h5 class="md-text-gray300">لیست مقاله ها</h5>
 
+                <button aria-label="close" class="material-icons md-bt md-bt-dark" data-bs-dismiss="offcanvas"
+                        type="button">
+                    arrow_forward
+                </button>
+            </div>
+
+            <div class="offcanvas-body">
+
+                <div class="list-container" id="article_container">
+                </div>
+
+            </div>
         </div>
 
-        <div class="offcanvas-body">
-
-            <div class="bg-light">
-            </div>
-
-            <div id="java_article" class="mt-4">
-
-                    <button id="bt_java_course" onclick="toggleExpandState(this)" aria-controls="#java_chapters" aria-expanded="false"
-                            class="md-bt-expandable"
-                            data-bs-target="#java_chapters" data-bs-toggle="collapse">
-                        <span class="material-icons">arrow_drop_down</span>
-                        <span>جاوا</span>
-                    </button>
-
-                <div class="list collapse" id="java_chapters"></div>
-            </div>
-
-            <div id="kotlin_article" class="mt-4">
-                <button id="bt_kotlin_course" onclick="toggleExpandState(this)" aria-controls="#kotlin_chapters" aria-expanded="false" class="md-bt-expandable"
-                        data-bs-target="#kotlin_chapters" data-bs-toggle="collapse">
-                    <span class="material-icons">arrow_drop_down</span>
-                    <span>کاتلین</span>
+        <nav class="navbar navbar-dark sticky-top p-3 rtl">
+            <div class="container-fluid">
+                <button class="md-bt md-bt-navbar-toggle material-icons" data-bs-target="#sidebar"
+                        data-bs-toggle="offcanvas"
+                        type="button">
+                    menu
                 </button>
-
-                    <div class="list collapse" id="kotlin_chapters"></div>
+                <a class="navbar-brand" href="https://skybirdbits.github.io" id="brand">
+                    <span>Skybirdbits</span>
+                </a>
             </div>
-
-            <div id="android_article" class="mt-4">
-                <button id="bt_android_course" onclick="toggleExpandState(this)" aria-controls="#android_chapters" aria-expanded="false" class="md-bt-expandable"
-                        data-bs-target="#android_chapters" data-bs-toggle="collapse">
-                    <span class="material-icons">arrow_drop_down</span>
-                    <span>اندروید</span>
-                </button>
-
-                <div class="list collapse" id="android_chapters"></div>
-            </div>
-
-            <div id="web_article" class="mt-4">
-                <button id="bt_web_course" onclick="toggleExpandState(this)" aria-controls="#web_chapters" aria-expanded="false" class="md-bt-expandable"
-                        data-bs-target="#web_chapters" data-bs-toggle="collapse">
-                    <span class="material-icons md-dark">arrow_drop_down</span>
-                    <span>وب</span>
-                </button>
-
-                <div class="list collapse" id="web_chapters"></div>
-            </div>
-
-
-        </div>
-    </div>
+        </nav>
+    </header>
 
     <main>
-            <nav class="navbar navbar-dark sticky-top p-3 rtl">
-                <div class="container-fluid">
-                    <button class="md-bt md-bt-navbar-toggle material-icons" data-bs-target="#sidebar" type="button"
-                            data-bs-toggle="offcanvas">
-                        menu
-                    </button>
-                    <a id="brand" class="navbar-brand" href="https://skybirdbits.github.io">
-                        <span>Skybirdbits</span>
-                    </a>
-                </div>
-            </nav>
 
-        <div class="container-fluid">
-            <h4>
-                آموزش برنامه نویسی
-            </h4>
-            <p>
-                این وبسایت برای آموزش زبان برنامه نویسی کاتلین و جاوا ایجاد شده و احتمالا در آینده به آموزش ها اضافه بشه.
-                هدف از ایجاد این وبسایت کمک به بهبود توانایی همدیگه در زمینه ی برنامه نویسیه.
-                این وبسایت به صورت فرانت اند ساخته شده و متن بازه، اگه دوست داشتید میتونید کدهاشو ببینید و در بهبودش کمک کنید و در آخر خوشحال میشیم عضو گروه تلگرامیمون بشید.
-            </p>
+        <div class="container-fluid rtl">
+            <div class="page-wrap">
+                <h4>
+                    آموزش برنامه نویسی
+                </h4>
+                <p>
+                    این وبسایت برای آموزش زبان برنامه نویسی کاتلین و جاوا ایجاد شده و احتمالا در آینده به آموزش ها اضافه
+                    بشه.
+                    هدف از ایجاد این وبسایت کمک به بهبود توانایی همدیگه در زمینه ی برنامه نویسیه.
+                    این وبسایت به صورت فرانت اند ساخته شده و متن بازه، اگه دوست داشتید میتونید کدهاشو ببینید و در بهبودش کمک
+                    کنید و در آخر خوشحال میشیم عضو گروه تلگرامیمون بشید.
+                </p>
+            </div>
         </div>
+
+
     </main>
 
     <div id="footer_container"></div>
 
 </div>
+<script src="resources/js/main.js"></script>
 
 </body>
 </html>

@@ -20,15 +20,20 @@
 .md-bt-expandable{
     display: flex;
     width: 100%;
-    background-color: rgba(255, 235, 59, 0.75);
+    background-color: transparent;
     border: none;
     text-align: start;
+    font-size: 1.1em;
+    color: rgba(249,249,249, 0.80);
     padding: 8px;
+    margin: 0;
+    border-radius: 4px;
 
 }
 
 .md-bt-expandable:focus{
-    background-color: rgba(255, 235, 59, 1);
+     background-color: #004ba0;
+     color: color: rgba(249,249,249, 1);
 }
 
 .md-bt.md-bt-navbar-toggle{
