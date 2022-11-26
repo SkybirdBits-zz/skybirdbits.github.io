@@ -1,7 +1,116 @@
-#skybirdbits
+<div dir="rtl" class="font-family: Samim;">
+<p align="center">
+    <a href="https://skybirdbits.github.io">
+        <img width="200" height="200" src="https://skybirdbits.github.io/resources/logo.png"/>
+    </a>
+</p>
 
-https://skybirdbits.github.io
+<h3 align="center">Skybirdbits</h3>
 
-این وبسایت برای اشتراک گذاری مقالات در زمینه ی برنامه نویسی ایجاد شده
-هدف از ایجاد وبسایت به صورت متن باز این بود که هم سورس کد ها با کاربرا به اشتراک گذاشته بشه هم مطالب مرتبط در دسترس عموم قرار داده بشه به امید اینکه در زمینه ی یادگیری علوم کامپیوتر کمکی به مردم شده باشه
-اگه در توسعه ی وبسایت مایل به همکاری بودید میتونید درخواست بدید
+
+<div align="center">
+
+#### صفحات وب آموزش برنامه نویسی به صورت متن باز
+
+#### <a href="https://github.com/skybirdbits/skybirdbits.github.io">سورس کد</a>
+
+#### <a href="https://skybirdbits.github.io">ادرس سایت</a>
+
+</div>
+
+
+### توضیحات
+تمام سورس های صفحات این وبسایت متن بازه از اونجایی که گیت هاب زبان های بک اند رو پشتیبانی نمیکه و صفحات به صورت استاتیک بارگذاری میشن برای همین رو اوردم به فایل های Json روند کار اینجوریه هر صفحه ای که گذاشته میشه لینکش داخل فایل Json بروز میکنیم و به صورت دینامیک در قسمت لیست مقالات اضافه میشه میتونید توی توسعه ی وبسایت مشارکت داشته باشید
+ادرس صفحات در فایل های json جمع‌آوری شده اگر خواستید میتونید از مطالب در پروژه هاتون استفاده کنید.
+
+#### لینک فایل های Json
+<div dir="ltr">
+
+https://skybirdbits.github.io/resources/json/java-links.json    
+
+https://skybirdbits.github.io/resources/json/kotlin-links.json
+
+https://skybirdbits.github.io/resources/json/android-links.json
+
+https://skybirdbits.github.io/resources/json/web-links.json
+</div>
+
+### نقشه ی سایت
+
+این وبسایت به چهار دسته ی کلی تقسیم میشه
+
+1- article: صفحات سایت در اینجا قرار دارن
+
+2- resources: منابع مورد استفاده در سایت
+
+3- ui-components: قطعات ui که به صورت دینامیکی به صفحات اضافه و کم میشن
+
+4- index.html: نقطه ی شروع سایت 
+
+
+<br/>
+
+<div dir="ltr">
+
+```text
+skybirdbits.github.io/
+│
+├── article/
+│   ├── (pages)*.html   
+│   │
+├── resources/
+│   ├── css/
+│   │   ├── article.css
+│   │   ├── list.css
+│   │   ├── main.css
+│   │   ├── md-bt.css
+│   │   ├── text.css
+│   │   └── utils.css
+│   │
+│   ├── font/
+│   │   ├── Samim.eot
+│   │   ├── Samim.ttf
+│   │   ├── Samim.woff
+│   │   ├── Samim.woff2
+│   │   ├── Samim-Bold.eot
+│   │   ├── Samim-Bold.woff
+│   │   ├── Samim-Bold.woff2
+│   │   ├── Samim-Medium.eot
+│   │   ├── Samim-Medium.ttf
+│   │   ├── Samim-Medium.woff
+│   │   └── Samim-Medium.woff2
+│   │
+│   ├── image/
+│   │   └── (images)* 
+│   │      
+│   ├── js/
+│   │   └── main.js
+│   │
+│   └──json/
+│       ├── android-links.json
+│       ├── java-links.json
+│       ├── kotlin-links.json
+│       └── web-links.json
+│
+├── ui-components/
+│   └── shared_footer.html
+│
+└── index.html
+```
+</div>
+
+
+<div>
+
+#### ارتباط با ما
+##### <a href="https://t.me/skybirdbits">تلگرام</a>
+
+#### گروه و کانال تلگرام 
+
+##### <a href="https://t.me/java_kotlin_dev_gp">گروه جاوا کاتلین</a> 
+##### <a href="https://t.me/java_kotlin_dev">کانال جاوا کاتلین</a>
+
+
+</div>
+
+</div>
