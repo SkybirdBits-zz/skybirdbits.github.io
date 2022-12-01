@@ -187,4 +187,4 @@ function base(){
     loadAllArticleLinkLists();
 }
 
-export {initSidebar , loadAllArticleLinkLists , createAndLoadFooterItems};
+export {initSidebar , loadAllArticleLinks , createAndLoadFooterItems};
