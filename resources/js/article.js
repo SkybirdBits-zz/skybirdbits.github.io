@@ -16,7 +16,6 @@ function createCodeViews(){
 
         let codeHead = createCodeViewHead(function(){
              let text = collectTextCodes(codeViewContents);
-             console.log(text);
              navigator.clipboard.writeText(text);
              $('.copy-message').animate({bottom: "0px"}, 512);
              $('.copy-message').delay(3000).animate({bottom: "-128px"}, 512);
