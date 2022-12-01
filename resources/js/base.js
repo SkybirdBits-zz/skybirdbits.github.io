@@ -1,10 +1,10 @@
 import * as fileloader from './fileloader.js'
 
 const linkCoursesRepo = [
-   "/skybirdbits.github.io/resources/json/java-links.json",
-   "/skybirdbits.github.io/resources/json/kotlin-links.json",
-   "/skybirdbits.github.io/resources/json/android-links.json",
-   "/skybirdbits.github.io/resources/json/web-links.json"
+   "https://skybirdbits.github.io/resources/json/java-links.json",
+   "https://skybirdbits.github.io/resources/json/kotlin-links.json",
+   "https://skybirdbits.github.io/resources/json/android-links.json",
+   "https://skybirdbits.github.io/resources/json/web-links.json"
 ]
 
 function initSidebar(){
@@ -40,7 +40,8 @@ function loadAllArticleLinks(){
             var article = {
                             id: articleData.id,
                             title: articleData.title,
-                            links: articleData.links, isExpanded: false
+                            links: articleData.links,
+                            isExpanded: false
                            };
 
             var articleListView = createArticleListView(article);
