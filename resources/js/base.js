@@ -1,4 +1,4 @@
-import loadJson as fileloader from './fileloader.js'
+import * as fileloader from './fileloader.js'
 
 const linkCoursesRepo = [
    "/skybirdbits.github.io/resources/json/java-links.json",
