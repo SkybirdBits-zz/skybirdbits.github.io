@@ -1,6 +1,6 @@
 import {createCodeViews} from './article.js';
 import {initSidebar , loadAllArticleLinks , createAndLoadFooterItems} from './base.js';
-import {loadStylesheet, loadJavaScript} as fileloader from './fileloader.js';
+import * as fileloader from './fileloader.js';
 
 fileloader.loadStylesheet(
 "https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" ,
