@@ -53,7 +53,7 @@
 
                 <p><strong>مثال:</strong></p>
 
-                <pre>
+                <div class="code-container">
 int myInteger = ...
 
         switch(myInteger){
@@ -77,7 +77,7 @@ int myInteger = ...
             }
         }
 
-</pre>
+</div>
 
 
                 <h3>JDK >= 1.8: </h3>
@@ -87,7 +87,7 @@ int myInteger = ...
 
                 <p><strong>مثال:</strong></p>
 
-                <pre>
+                <div class="code-container">
 String myString = ...
 
         switch(myString){
@@ -111,7 +111,7 @@ String myString = ...
                 ...
             }
         }
-</pre>
+</div>
 
                 <p>در JDK 17 چه اتفاقی برای سوییچ افتاده؟ بیایید باهم بررسی کنیم :)</p>
 
@@ -126,7 +126,7 @@ String myString = ...
 
                 <p><strong>مثال:</strong></p>
 
-                <pre>
+                <div class="code-container">
     String myString = ...
 
     MyType myType = switch(myString){
@@ -151,7 +151,7 @@ String myString = ...
                             yield myValue;
                         }
                     };
-                </pre>
+                </div>
 
 
                 <p>نکته: در این مثال myValue از نوع MyType هست و MyType متغیر فرضیه</p>
@@ -163,7 +163,7 @@ String myString = ...
 
                 <p><strong>مثال:</strong></p>
 
-                <pre>
+                <div class="code-container">
             String myString = ...
 
            MyType myType = switch(myString){
@@ -190,7 +190,7 @@ String myString = ...
                                    yield myValue;
                                }
                            };
-</pre>
+</div>
 
 
                 <p>در کد بالا:</p>
@@ -211,7 +211,7 @@ String myString = ...
 
                 <p><strong>مثال:</strong></p>
 
-                <pre>
+                <div class="code-container">
  String myString = ...
 
             MyType myType = switch(myString){
@@ -238,7 +238,7 @@ String myString = ...
                                     yield myValue;
                                 }
                             };
-        </pre>
+                </div>
 
 
                 <p> جاوا تا این نسخه بروزرسانی های مختلفی درونش به وجود اومده که بهبود سوییچ یکی از این بروزرسانی ها در
@@ -247,10 +247,15 @@ String myString = ...
             </div>
         </article>
     </div>
-    <div id="footer_container"></div>
 </div>
 
-<script src="/resources/js/main.js" type="text/javascript"></script>
+<footer></footer>
+
+<div class="copy-message">
+    <span class="copy-message-text">کپی شد!</span>
+</div>
+
+<script src="/resources/js/main.js" type="module"></script>
 
 </body>
 </html>

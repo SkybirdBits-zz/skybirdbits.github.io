@@ -10,15 +10,8 @@
     <meta content="width:device-width, initial-scale=1" name="viewport"/>
     <title>دستورات شرطی (selector ها) در جاوا</title>
 
-    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
-          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" rel="stylesheet"/>
-
     <link href="/resources/css/main.css" rel="stylesheet">
     <link href="/resources/favicon.png" rel="icon" type="image/x-icon">
-
-    <script crossorigin="anonymous"
-            integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
-            src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 
 </head>
 
@@ -46,10 +39,10 @@
                 <h5>متغیر های بولین (boolean) در جاوا : </h5>
                 <p>متغیر boolean در جاوا دارای دو مقدار true یا false است و به صورت زیر تعریف میشه:</p>
 
-                <pre>
+                <div class="code-container">
 boolean v0 = true;
 boolean v1 = false;
-                </pre>
+                </div>
 
                 <h3>۱- دستور شرطی if–else:</h3>
                 <blockquote>
@@ -59,7 +52,7 @@ boolean v1 = false;
 
                 <p><strong> فرم کلی: </strong></p>
 
-                <pre>
+                <div class="code-container">
 if(condition == true){
 
 	...
@@ -68,7 +61,8 @@ if(condition == true){
 
 	...
 
-}</pre>
+}
+                </div>
 
 
                 <p>در عبارت بالا اگر شرط داخل پرانتز برابر با true بود کد های داخل بدنه ی if رو اجرا میکنه </p>
@@ -76,7 +70,7 @@ if(condition == true){
                 <p>کلید واژه ی else به معنی در غیر این صورت، یعنی در غیر اینصورت کد های داخل بدنه ی else رو اجرا کن</p>
 
                 <p> برای کوتاهی میتونیم شرط داخل پرانتز رو به صورت زیر بنویسیم</p>
-                <pre>
+                <div class="code-container">
 if(condition){
 
     ...
@@ -85,12 +79,13 @@ if(condition){
 
     ...
 
-}</pre>
+}
+                </div>
 
 
                 <p>هچنین میتونیم چند شرط رو بررسی کنیم:</p>
 
-                <pre>
+                <div class="code-container">
 if(condition0){
 
     ...
@@ -111,14 +106,15 @@ if(condition0){
 
     ...
 
-}</pre>
+}
+                </div>
 
 
                 <p><strong> مثال: </strong></p>
                 <p>در این مثال میخوایم نسبت قد به وزن رو حساب کنیم و بررسی کنیم که کاربر اضافه وزن داره یا کاهش وزن یا
                     وزنش متعادله</p>
 
-                <pre>
+                <div class="code-container">
 Scanner input = new Scanner(System.in);
 
 System.out.println("Enter a weight: ");
@@ -140,12 +136,13 @@ if (bmi &lt; 18.5){
     System.out.println("Overweight");
 }else {
     System.out.println("Obese");
-}</pre>
+}
+                </div>
 
 
                 <h5>if های تو در تو :</h5>
                 <p> میتونیم داخل هر if یک if دیگه بیان کنیم</p>
-                <pre>
+                <div class="code-container">
 if(condition0){
 	...
 	if(condition1){
@@ -157,7 +154,8 @@ if(condition0){
 
 }else {
 	...
-}</pre>
+}
+                </div>
 
                 <h3>۲- عملگر های منطقی :</h3>
                 <p>عملگر های منطقی برای تغییر مقدار boolean است</p>
@@ -166,43 +164,47 @@ if(condition0){
                 <h5>۱- عملگر ! :</h5>
                 <p>مقدار عبارت boolean رو معکوس میکنه مثلا اگ مقدار یک عبارت true باشه با این عملگر false میشه </p>
 
-                <pre>
+                <div class="code-container">
 boolean condition0 = true;
 
 if(!condition0){
     ...
-}</pre>
+}
+                </div>
 
 
                 <h5>۲- عملگر && :</h5>
                 <p>معنی and (و) میده، فرض کنید چندتا شرط داریم میخوایم بررسی کنیم اگه همه true بودن عبارت داخل بدنه ی if اجرا بشه به صورت زیر عمل میکنیم:</p>
 
-                <pre>
+                <div class="code-container">
 if(condition0 && condition1 && ... && conditionN) {
         ...
-}</pre>
+}
+                </div>
 
                 <h5>۳- عملگر || :</h5>
                 <p>معنی or (یا) میده، فرض کنید چندتا شرط داریم میخوایم بررسی کنیم اگه یکیشون true بود کد های داخل {}
                     مربوط به if اجرا بشه به صورت زیر عمل میکنیم:</p>
 
 
-                <pre>
+                <div class="code-container">
 if(condition0 || condition1 || ... || conditionN){
     ...
-}</pre>
+}
+                </div>
 
                 <h5>۴- عملگر ^ :</h5>
                 <p>معنی or اختصاصی میده فرض کنید دو عبارت شرطی داریم میخوایم بررسی کنیم فقط یکیش درست باشه ولی هردو درست
                     نباشه به صورت زیر عمل میکنیم:</p>
 
-                <pre>
+                <div class="code-container">
 if(condition0 ^ condition1){
 	...
-}</pre>
+}
+                </div>
 
                 <p><strong> مثال: </strong></p>
-                <pre>
+                <div class="code-container">
 Scanner input = new Scanner(System.in);
 
 System.out.println("Enter a number: ");
@@ -215,7 +217,8 @@ if (num % 2 == 0 || num % 3 == 0)
     System.out.println("Number is divisible by 2 or 3");
 
 if (num % 2 == 0 ^ num % 3 == 0)
-    System.out.println("Number is divisible by 2 or 3 but not both");</pre>
+    System.out.println("Number is divisible by 2 or 3 but not both");
+                </div>
 
 
                 <h3>دستور switch :</h3>
@@ -223,7 +226,7 @@ if (num % 2 == 0 ^ num % 3 == 0)
                     سوییچ (switch) در جاوا استفاده کنیم</p>
 
                 <p><strong> مثال: </strong></p>
-                <pre>
+                <div class="code-container">
 Scanner input = new Scanner(System.in);
 System.out.println("Enter number of day week (between 1 - 7");
 int dayNumber = input.nextInt();
@@ -239,7 +242,7 @@ switch (dayNumber){
     default:
         System.out.println("Day is not in range");
 }
-                </pre>
+                </div>
 
                 <p>در مثال بالا کاربر عدد یکی از روز های هفته رو وارد میکنه اگه مطابق با هرکدوم از case ها بود
                      برنامه اسم اون روزو نمایش میده از کلید واژه ی break برای خارج شدن از switch در جاوا استفاده میشه، چون بعد از برابر بودن متغیر با یک case، علاوه بر کد های مربوط به case برابر با متغیر کد های مربوط به case های بعدی هم به صورت خودکار اجرا میشن
@@ -248,7 +251,7 @@ switch (dayNumber){
 
                 <h3>عبارت شرطی:</h3>
                 <p><strong> مثال: </strong></p>
-                <pre>
+                <div class="code-container">
 
 Scanner input = new Scanner(System.in);
 System.out.println("Enter number1: ");
@@ -260,7 +263,7 @@ int num2 = input.nextInt();
 int max = (num1 &gt; num2) ? num1 : num2;
 
 System.out.println("number 1 is " + num1 + " number 2 is " + num2 + " maximum is " + max);
-                </pre>
+                </div>
 
 
                 <p>مثال بالا یک برنامه ی ساده است که از کاربر دو عدد میگیره و عدد بزرگ‌تر رو نمایش میده</p>
@@ -281,7 +284,13 @@ System.out.println("number 1 is " + num1 + " number 2 is " + num2 + " maximum is
             </div>
         </article>
     </div>
-    <div id="footer_container"></div>
+</div>
+
+
+<footer></footer>
+
+<div class="copy-message">
+    <span class="copy-message-text">کپی شد!</span>
 </div>
 
 <script src="/resources/js/main.js" type="text/javascript"></script>

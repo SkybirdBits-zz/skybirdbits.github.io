@@ -9,15 +9,8 @@
 
     <title>توابع بی نام و عبارت لاندا در کاتلین</title>
 
-    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
-          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" rel="stylesheet"/>
-
     <link href="/resources/css/main.css" rel="stylesheet">
     <link href="/resources/favicon.png" rel="icon" type="image/x-icon">
-
-    <script crossorigin="anonymous"
-            integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
-            src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 
 </head>
 <body>
@@ -60,44 +53,38 @@
                 <p>
                     فرض کنید تو جاوا تابعی رو صدا میزنیم اگه مقداریو برگردونه میتونیم به متغیر اختصاص بدیم:
                 </p>
-                <pre>
-            <code>
-    private String myMethod(){
-        return "This is a result type of String"
-    }
+                <div class="code-container">
+private String myMethod(){
+    return "This is a result type of String"
+}
 
-    //correct
-    String result = myMethod();
-    </code>
-        </pre>
+//correct
+String result = myMethod();
+                </div>
 
                 <p>
                     اگه مقداریو بر نگردونه چیزی رو نمیتونیم به متغیر اختصاص بدیم و دچار خطای کامپایل میشیم:
                 </p>
 
-                <pre>
-            <code>
-    private void myMethod(){
-        ...
-    }
+                <div class="code-container">
+private void myMethod(){
+    ...
+}
 
-    //compile error
-    String result = myMethod()
-            </code>
-        </pre>
+//compile error
+String result = myMethod()
+                </div>
 
                 <p> در کاتلین void هم یک مقدار داره از نوع Unit :</p>
 
-                <pre>
-            <code>
-    private fun myMethod(){
-    ...
-    }
+                <div class="code-container">
+private fun myMethod(){
+...
+}
 
-    //correct
-    val result = myMethod()
-            </code>
-                </pre>
+//correct
+val result = myMethod()
+                </div>
 
 
                 <h2>
@@ -134,15 +121,13 @@
                     </strong>
                 </p>
 
-                <pre>
-            <code>
-    val myLambda: (T0, T1 , ... , Tn) -> Type = {
-        t0, t1, ... tn ->
-        ...
-        type
-    }
-            </code>
-        </pre>
+                <div class="code-container">
+val myLambda: (T0, T1 , ... , Tn) -> Type = {
+    t0, t1, ... tn ->
+    ...
+    type
+}
+                </div>
 
                 <p>
                     در بالا T0 , T1 ... Tn پارامتر هاییست که می‌خوایم عبارت داشته باشه و t0, t1, ...,tn اسامی دلخواهیه
@@ -156,15 +141,13 @@
                     سپس عبارتو‌ مانند تابع معمولی به صورت زیر صدا می‌زنیم:
                 </p>
 
-                <pre>
-            <code>
-    val t0 = T0()
-    val t1 = T1()
-    ...
-    val tn = Tn()
-    val type = myLambda(t0, t1, ..., tn)
-            </code>
-        </pre>
+                <div class="code-container">
+val t0 = T0()
+val t1 = T1()
+...
+val tn = Tn()
+val type = myLambda(t0, t1, ..., tn)
+                </div>
 
                 <p>
                     <strong>
@@ -172,13 +155,11 @@
                     </strong>
                 </p>
 
-                <pre>
-            <code>
-    val myLambda: () -> String = {
-        "Hello From Lambda"
-    }
-            </code>
-        </pre>
+                <div class="code-container">
+val myLambda: () -> String = {
+    "Hello From Lambda"
+}
+                </div>
 
 
                 <p>
@@ -189,11 +170,9 @@
                     صدا زدن عبارت به صورت تابع:
                 </p>
 
-                <pre>
-            <code>
+                <div class="code-container">
 val result: String = myLambda()
-            </code>
-        </pre>
+                </div>
 
                 <p>
                     <strong>
@@ -202,13 +181,11 @@ val result: String = myLambda()
                 </p>
 
 
-                <pre>
-            <code>
-    val myLambda: (String) -> String = {
-        it -> "Hello $it, From Lambda!"
-    }
-            </code>
-        </pre>
+                <div class="code-container">
+val myLambda: (String) -> String = {
+    it -> "Hello $it, From Lambda!"
+}
+                </div>
 
 
                 <p>
@@ -222,13 +199,11 @@ val result: String = myLambda()
                 </p>
 
 
-                <pre>
-            <code>
-    val name = "Joe"
-    val result: String = myLambda(name)
-    println(result)
-            </code>
-        </pre>
+                <div class="code-container">
+val name = "Joe"
+val result: String = myLambda(name)
+println(result)
+                </div>
 
                 <p>
                     <strong>
@@ -236,14 +211,12 @@ val result: String = myLambda()
                     </strong>
                 </p>
 
-                <pre>
-            <code>
-    val myLambda: (String , Int) -> String = {
-        name , age ->
-        "My name is $name, I'm $age years old, this is a message from lambda expmression"
-    }
-            </code>
-        </pre>
+                <div class="code-container">
+val myLambda: (String , Int) -> String = {
+    name , age ->
+    "My name is $name, I'm $age years old, this is a message from lambda expmression"
+}
+                </div>
 
                 <p>
                     <strong>
@@ -256,14 +229,12 @@ val result: String = myLambda()
                     صدا زدن عبارت به صورت تابع:
                 </p>
 
-                <pre>
-            <code>
-    val name = "Joe"
-    val age = 24
-    val result: String = myLambda(name, age)
-    println(result)
-            </code>
-        </pre>
+                <div class="code-container">
+val name = "Joe"
+val age = 24
+val result: String = myLambda(name, age)
+println(result)
+                </div>
 
 
                 <p>
@@ -283,13 +254,11 @@ val result: String = myLambda()
                     کنیم میخواهیم نتیجه رو از داخل مقدار عبارت برگردونیم:
                 </p>
 
-                <pre>
-            <code>
+                <div class="code-container">
     val myLambda: () -> String = mylambda@{
         return@mylambda "Hello From Lambda"
     }
-            </code>
-        </pre>
+                </div>
 
 
                 <p>
@@ -319,23 +288,19 @@ val result: String = myLambda()
                     تعریف تابع:
                 </p>
 
-                <pre>
-            <code>
+                <div class="code-container">
     val myAnonymous = fun(){
         println("Hello From Anonymous")
     }
-            </code>
-        </pre>
+                </div>
 
                 <p>
                     صدا زدن تابع:
                 </p>
 
-                <pre>
-            <code>
-    myAnonymous()
-            </code>
-        </pre>
+                <div class="code-container">
+myAnonymous()
+                </div>
 
                 <p>
                     <strong>
@@ -346,24 +311,20 @@ val result: String = myLambda()
                 <p>
                     تعریف تابع:
                 </p>
-                <pre>
-            <code>
-    val myAnonymous = fun(name: String): String{
+                <div class="code-container">
+val myAnonymous = fun(name: String): String{
 
-        return "Hello $name from Anonymous"
-    }
-            </code>
-        </pre>
+    return "Hello $name from Anonymous"
+}
+                </div>
 
                 <p>صدا زدن تابع:</p>
 
-                <pre>
-            <code>
-    val name = "Joe"
-    val message = myAnonymous(name)
-    println(message)
-            </code>
-        </pre>
+                <div class="code-container">
+val name = "Joe"
+val message = myAnonymous(name)
+println(message)
+                </div>
 
                 <p>
                     <strong>
@@ -374,26 +335,22 @@ val result: String = myLambda()
                 <p>
                     تعریف تابع:
                 </p>
-                <pre>
-            <code>
+                <div class="code-container">
     val myAnonymous = fun(name: String, age: Int): String {
 
         return "Hello my name is $name, I'm $age years old this is a message from anonymous"
 
     }
-            </code>
-        </pre>
+                </div>
 
                 <p>صدا زدن تابع:</p>
 
-                <pre>
-            <code>
-    val name = "Joe"
-    val age = 24
-    val message = myAnonymous(name , age)
-    println(message)
-            </code>
-        </pre>
+                <div class="code-container">
+val name = "Joe"
+val age = 24
+val message = myAnonymous(name , age)
+println(message)
+                </div>
 
                 <p>
                     یکی از ویژگی هایی که کاتلینو با جاوا متمایز کرده قدرت functionality کاتلینه؛ در این مقاله با توابع
@@ -403,13 +360,15 @@ val result: String = myLambda()
             </div>
         </article>
     </div>
-
-    <div id="footer_container">
-
-    </div>
 </div>
 
-<script type="text/javascript" src="/resources/js/main.js"></script>
+<footer></footer>
+
+<div class="copy-message">
+    <span class="copy-message-text">کپی شد!</span>
+</div>
+
+<script type="module" src="/resources/js/main.js"></script>
 
 </body>
 </html>

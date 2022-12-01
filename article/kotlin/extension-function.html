@@ -10,16 +10,8 @@
 
     <title>اکستنشن ها در کاتلین</title>
 
-    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
-          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" rel="stylesheet"/>
-
     <link href="/resources/css/main.css" rel="stylesheet">
     <link href="/resources/favicon.png" rel="icon" type="image/x-icon">
-
-
-    <script crossorigin="anonymous"
-            integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
-            src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 
 </head>
 <body>
@@ -83,15 +75,13 @@
                 فرم کلی:
             </p>
 
-            <pre>
-                <code>
-    fun &lt;T&gt; MyClass&lt;T&gt;.myFunction(...){
+            <div class="code-container">
+fun &lt;T&gt; MyClass&lt;T&gt;.myFunction(...){
 
-        ....
+    ....
 
-    }
-                </code>
-            </pre>
+}
+            </div>
 
 
             <p>
@@ -105,12 +95,10 @@
                 برای صدا زدن Extension Function ها مثل توابع معمولی عمل میکنیم
             </p>
 
-            <pre>
-                <code>
-    val myClass = MyClass&lt;T&gt;()
-    myClass.myFunction(...)
-                </code>
-            </pre>
+            <div class="code-container">
+val myClass = MyClass&lt;T&gt;()
+myClass.myFunction(...)
+            </div>
 
             <p>
                 <strong>
@@ -118,16 +106,13 @@
                 </strong>
             </p>
 
-            <pre>
-                <code>
+            <div class="code-container">
     fun String.isPalindrome(): Boolean{
        return if (length <= 1) true
         else if (this[0] != this[length -1]) false
         else substring(1, length -1).isPalindrome()
     }
-                </code>
 
-                <code>
     fun main(){
       val s0 = "moon"
       val s1 = "noon"
@@ -139,8 +124,7 @@
       println("is $s2 palindrome? ${s2.isPalindrome()}")
       println("is $s3 palindrome? ${s3.isPalindrome()}")
     }
-                </code>
-            </pre>
+            </div>
 
             <p>
                 در مثال بالا یک function به کلاس String اضافه کردیم که بررسی میکنه یک String متقارن است یا خیر
@@ -175,12 +159,10 @@
                 فرم کلی:
             </p>
 
-            <pre>
-                <code>
-    val &lt;T&gt; MyClass&lt;T&gt;.myProperty: Int
-        get(){...}
-                </code>
-            </pre>
+            <div class="code-container">
+val &lt;T&gt; MyClass&lt;T&gt;.myProperty: Int
+    get(){...}
+            </div>
 
             <p>
                 کاملا شبیه extension function هاست extension property ها نمی‌تونن دارای مقدار اولیه باشن همون‌طور که
@@ -191,21 +173,19 @@
                 <strong>مثال:</strong>
             </p>
 
-            <pre>
-                <code>
-    val Int.even: Boolean get(){
-        return this % 2 == 0
-    }
+            <div class="code-container">
+val Int.even: Boolean get(){
+    return this % 2 == 0
+}
 
-    fun main(){
-      val num0 = 24
-      val num1 = 7
+fun main(){
+  val num0 = 24
+  val num1 = 7
 
-      println("is $num0 even? ${num0.even}")
-      println("is $num1 even? ${num1.even}")
-    }
-                </code>
-            </pre>
+  println("is $num0 even? ${num0.even}")
+  println("is $num1 even? ${num1.even}")
+}
+            </div>
 
             <p>
                 در بالا یک property به کلاس Int اضافه کردیم که بررسی میکنه عدد زوجه یا نه
@@ -221,15 +201,13 @@
                 اگه کلاسی داری Companion object باشه میتونیم Extension ها رو به صورت Companion تعریف کنیم:
             </p>
 
-            <pre>
-                <code>
-    MyClass.Companion.myFunction(){
+            <div class="code-container">
+MyClass.Companion.myFunction(){
 
-    //...
+//...
 
-    }
-                </code>
-            </pre>
+}
+            </div>
 
 
             <p>
@@ -237,15 +215,12 @@
             </p>
 
 
-            <pre>
-                <code>
-    MyClass.myFunction()
-                </code>
-            </pre>
+            <div class="code-container">
+MyClass.myFunction()
+            </div>
 
 
             <h2>خلاصه:</h2>
-
 
             <p>
                 در کاتلین Extension ها تاثیری روی کلاس ندارن وقتی برای یک کلاس extension تعریف میکنیم فقط بیان میکنیم که
@@ -261,32 +236,30 @@
             </p>
 
 
-            <pre>
-                <code>
-    //Extension Function
-    fun MyClass.myExtensionFunction(){
-        //...
-    }
+            <div class="code-container">
+//Extension Function
+fun MyClass.myExtensionFunction(){
+    //...
+}
 
-    //Extension Property
-    val MyClass.myExtensionProperty: List&lt;String&gt; get(){
-        //...
-    }
+//Extension Property
+val MyClass.myExtensionProperty: List&lt;String&gt; get(){
+    //...
+}
 
-    //Companion object extension
-    fun MyClass.Companion.myExtensionCompanionFunction(){
-        //...
-    }
+//Companion object extension
+fun MyClass.Companion.myExtensionCompanionFunction(){
+    //...
+}
 
-    val myObject = MyClass()
+val myObject = MyClass()
 
-    myObject.myExtensionFunction()
+myObject.myExtensionFunction()
 
-    val list = myObject.myExtensionProperty
+val list = myObject.myExtensionProperty
 
-    MyClass.myExtensionCompanionFunction()
-                </code>
-            </pre>
+MyClass.myExtensionCompanionFunction()
+            </div>
 
 
             <p>
@@ -297,11 +270,16 @@
 
     </div>
 
-    <div id="footer_container" >
-    </div>
 </div>
 
-<script type="text/javascript" src="/resources/js/main.js"></script>
+
+<footer></footer>
+
+<div class="copy-message">
+    <span class="copy-message-text">کپی شد!</span>
+</div>
+
+<script type="module" src="/resources/js/main.js"></script>
 
 </body>
 </html>

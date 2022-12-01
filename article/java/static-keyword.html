@@ -8,15 +8,8 @@
   <meta content="width:device-width, initial-scale=1" name="viewport"/>
   <title>کلید واژه ی استاتیک (static) در جاوا</title>
 
-  <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
-        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" rel="stylesheet"/>
-
   <link href="/resources/css/main.css" rel="stylesheet">
   <link href="/resources/favicon.png" rel="icon" type="image/x-icon">
-
-  <script crossorigin="anonymous"
-          integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
-          src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 
 </head>
 
@@ -51,7 +44,7 @@
 
         <p><strong>فرم کلی:</strong></p>
 
-        <pre>
+        <div class="code-container">
 public class ClassName{
 
             ...
@@ -59,13 +52,13 @@ public class ClassName{
 	public static Type variableName  = ...
             ...
 }
-        </pre>
+        </div>
 
         <p>صدا زدن متغیر:</p>
 
-        <pre>
+        <div class="code-container">
 Type type = ClassName.variableName;
-        </pre>
+        </div>
 
         <p><strong> نکته: با در نظر گرفتن Modifier سطح دسترسی متغیر (public , protected , private) میشه متغیر رو در کلاس های دیگه نیز صدا زد </strong></p>
 
@@ -75,7 +68,7 @@ Type type = ClassName.variableName;
 
         <p><strong> فرم کلی: </strong></p>
 
-        <pre>
+        <div class="code-container">
 public class ClassName {
 
 	public static void methodName(Type0 p0, Type1 p1, … , TypeN pN){
@@ -83,24 +76,24 @@ public class ClassName {
 	}
 
 }
-      </pre>
+      </div>
 
         <p><strong> صدا زدن متد:</strong></p>
 
-        <pre>
+        <div class="code-container">
 Type0 type0 = new Type0();
 Type1 type1 = new Type1();
 …
 TypeN typeN = new TypeN();
 ClassName.methodName(type0, type1,  … , typeN)
-        </pre>
+        </div>
 
 
         <p><strong>نکته: تمام اعضای کلاس Math در جاوا استاتیکن Math.PI، Math.sin(p0, p1) و ...</strong></p>
 
           <h3>مثال از متد و فیلد استاتیک در جاوا:</h3>
           <p><strong> Circle.java </strong></p>
-        <pre>
+        <div class="code-container">
 public class Circle {
     double radius;
 
@@ -126,11 +119,11 @@ public class Circle {
     }
 
 }
-        </pre>
+        </div>
 
         <p><strong> TestCircle.java </strong></p>
 
-        <pre>
+        <div class="code-container">
 public class TestCircle {
 
     public static void main(String[] args){
@@ -146,7 +139,7 @@ public class TestCircle {
                 + "  number of objects are " + Circle.getNumberOfObjects());
     }
 }
-        </pre>
+        </div>
 
 
         <p>در مثال بالا یک فیلد استاتیک داریم به اسم numberOfObjects که تعداد نمونه های ایجاد شده از کلاس Circle رو میشماره و با متد استاتیک getNumberOfObjects این فیلد رو صدا میزنیم نمونه ها ی ساخته شده از کلاس Circle هرکدوم خصوصیات و ویژگی های مختص به خودشونو دارن اما متغیر numberOfObjects دارای مقداریست که بین هر دو نمونه از کلاس Circle به اشتراک وجود داره</p>
@@ -161,7 +154,7 @@ public class TestCircle {
         <p><strong> فرم کلی: </strong></p>
 
 
-        <pre>
+        <div class="code-container">
 public class ClassName {
             ...
 
@@ -170,14 +163,14 @@ public class ClassName {
 	}
 
 }
-        </pre>
+        </div>
 
 
         <p>هنگامی که بخوایم از InnerClassName نمونه ی جدید درست کنیم به صورت زیر عمل می کنیم:</p>
 
-        <pre>
+        <div class="code-container">
  ClassName.InnerClassName myInnerClass = new ClassName.InnerClassName();
-        </pre>
+        </div>
 
 
         <h3>خلاصه:</h3>
@@ -199,10 +192,15 @@ public class ClassName {
       </div>
     </article>
   </div>
-  <div id="footer_container"> </div>
 </div>
 
-<script type="text/javascript" src="/resources/js/main.js"></script>
+<footer></footer>
+
+<div class="copy-message">
+    <span class="copy-message-text">کپی شد!</span>
+</div>
+
+<script type="module" src="/resources/js/main.js"></script>
 
 </body>
 </html>
