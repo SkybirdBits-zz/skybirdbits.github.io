@@ -12,39 +12,35 @@
   <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" rel="stylesheet"/>
 
-    <link href="/resources/css/main.css" rel="stylesheet">
+    <link href="/skybirdbits.github.io/resources/css/main.css" rel="stylesheet">
     <link href="/resources/favicon.png" rel="icon" type="image/x-icon">
 
-    <script crossorigin="anonymous"
-            integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
-            src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 </head>
 <body>
 
-<div class="container-fluid content">
+
+<div class="container-fluid">
 
   <div class="page-wrap">
+      <header class="article-header">
+          <h1>
+              استفاده از Navigation در اندروید
+          </h1>
 
-    <header class="article-header">
-      <h1>
-        استفاده از Navigation در اندروید
-      </h1>
+          <address>
+              <a class="author text-muted text-decoration-none" rel="author">یونس سلیمانی</a>
+          </address>
 
-      <address>
-        <a class="author text-muted text-decoration-none" rel="author">یونس سلیمانی</a>
-      </address>
+          <figure class="figure figure-wrapper">
+              <img alt="نویگیشن در اندروید"
+                   class="rounded figure-img"
+                   src="/resources/image/android/navigation_cover.png">
 
-      <figure class="figure figure-wrapper">
-        <img alt="نویگیشن در اندروید"
-             class="rounded figure-img"
-             src="/resources/image/android/navigation_cover.png">
+          </figure>
 
-      </figure>
-
-    </header>
+      </header>
 
     <article>
-
 
       <div class="container">
 
@@ -86,13 +82,14 @@
 
         <p><strong>افزودن Navigation به پروژه: </strong></p>
         <p>RootProject -> app -> build.gradle</p>
-        <pre>dependencies{
+
+        <div class="code-container">
+dependencies{
      ...
     implementation "androidx.navigation:navigation-fragment-ktx:2.5.1"
     implementation "androidx.navigation:navigation-ui-ktx:2.5.1"
 }
-
-        </pre>
+        </div>
 
         <p>
           <strong>
@@ -104,36 +101,37 @@
           RootProject -> build.gradle
         </p>
 
-        <pre>dependencies {
+        <div class="code-container">
+dependencies {
    ...
    classpath "androidx.navigation.safeargs.kotlin:androidx.navigation.safeargs.kotlin.gradle.plugin:$nav_version"
 
 }
+        </div>
 
-        </pre>
-
-        <pre>plugins {
+        <div class="code-container">
+plugins {
    ...
    id 'androidx.navigation.safeargs.kotlin' version '2.5.1' apply false
-}
-        </pre>
+}</div>
 
 
         <p>RootProject -> app -> build.gradle</p>
 
-        <pre>plugins{
+        <div class="code-container">
+plugins{
   ...
   id 'androidx.navigation.safeargs.kotlin'
 }
-        </pre>
+        </div>
 
         <p>
           <strong>برای جا به جایی بین فرگمنت ها با Navigation باید کار های زیر را انجام بدیم:</strong>
         </p>
 
-        <p><strong>- ایجاد فایل Navigation Graph و ترسیم مسیر های بین فرگمنت ها</strong></p>
-        <p><strong>- تعریف NavHost معمولا در main_activity تعریفش می کنیم</strong></p>
-        <p><strong>- جابه جایی با استفاده از NavController (معمولا NavController رو با استفاده از متد findNavController در Fragment , Activity یا View صدا می زنیم)</strong></p>
+        <p>- ایجاد فایل Navigation Graph و ترسیم مسیر های بین فرگمنت ها</p>
+        <p>- تعریف NavHost معمولا در main_activity تعریفش می کنیم</p>
+        <p>- جابه جایی با استفاده از NavController (معمولا NavController رو با استفاده از متد findNavController در Fragment , Activity یا View صدا می زنیم)</p>
 
         <h2>قسمت های کلیدی Navigation:</h2>
 
@@ -148,7 +146,7 @@
 
         <p>عنصر navigation ریشه ی Navigation Graph است بقیه ی عناصر فرزندان این عنصر هستند این عنصر باید دارای دو فیلد id و startDestination باشه</p>
 
-        <pre>
+        <div class="code-container">
 &lt;navigation
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -159,7 +157,7 @@
       ...
 
 &lt;/navigation&gt;
-        </pre>
+        </div>
 
         <p>فیلد id شامل ای دی برای navigation است</p>
         <p>فیلد startDestination شامل آی دی فرگمنتیه که به عنوان نقطه ی شروع در نظر گرفته میشه</p>
@@ -172,13 +170,13 @@
 
 
 
-        <pre>
+        <div class="code-container">
 &lt;fragment
   android:id="..."
   android:name="..."
   android:label="..."
   tools:layout="..." /&gt;
-        </pre>
+        </div>
 
         <p>فیلد id شامل آی دی برای fragment است</p>
 
@@ -192,21 +190,16 @@
         <p> زمانی که میخوایم یک مسیر بین fragment ها تعریف کنیم این عنصر رو به عنوان فرزند fragment اولی تعریف میکنیم</p>
 
 
-        <pre>
-&lt;fragment
-        ... &gt;
-
+        <div class="code-container">
+&lt;fragment ... &gt;
     ...
-
     &lt;action
-            android:id="..."
-            app:destination="..."&gt;
-
+        android:id="..."
+        app:destination="..."&gt;
         ...
-
     &lt;/action&gt;
 &lt;/fragment&gt;
-        </pre>
+        </div>
 
         <p>فیلد id شامل آی دی برای action است</p>
         <p>فیلد destination شامل آی دی fragment دومی است</p>
@@ -217,16 +210,16 @@
         <p> زمانی که کاربر میخواد بین فرگمنت ها جا به جا بشه با این عنصر میتونیم داده های primary, string و object هایی از جنس parcelable رو از فرگمنت اولی به فرگمنت دومی منتقل کنیم
           این عنصرو باید به عنوان فرزند action تعریف کنیم</p>
 
-        <pre>
-&lt;action
-        ... &gt;
+        <div class="code-container">
+&lt;action ... &gt;
 
     &lt;argument
-            android:name="..."
-            app:argType="..." app:nullable="..." /&gt;
+        android:name="..."
+        app:argType="..."
+        app:nullable="..." /&gt;
 
 &lt;/action&gt;
-        </pre>
+        </div>
 
 
         <p>فیلد name شامل اسم دلخواه برای داده مورد نظر است</p>
@@ -242,7 +235,8 @@
 
         <p>سپس مانند نمونه ی زیر destination ها و مسیر های بینشونو تعریف میکنیم:</p>
 
-        <pre>&lt;navigation xmlns:android="http://schemas.android.com/apk/res/android"
+        <div class="code-container">
+&lt;navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_nav_graph"
@@ -274,7 +268,7 @@
     tools:layout="@layout/fragment_second"/&gt;
 
 &lt;/navigation&gt;
-        </pre>
+        </div>
 
         <p>اگه کد هاتون مثل بالا باشه مانند تصویر زیر را باید در تب design ببینید</p>
 
@@ -296,7 +290,7 @@
 
         <p>به عنوان میزبان fragment ها زمانی که کاربر بخواد از یک فرگمنت به فرگمنت دیگه ای جا به جا بشه فرگمنت اولی از NavHost خارج میشه و فرگمنت دومی برای نمایش داخل NavHost جایگزین میشه معمولا NavHost رو داخل main_activity تعریف میکنند</p>
 
-        <pre>
+        <div class="code-container">
 &lt;androidx.fragment.app.FragmentContainerView
         android:id="..."
         android:layout_width="match_parent"
@@ -304,7 +298,7 @@
         android:name="androidx.navigation.fragment.NavHostFragment"
         app:navGraph="..."
         app:defaultNavHost="true" /&gt;
-        </pre>
+        </div>
 
 
         <p>
@@ -334,7 +328,8 @@
 
         <p>برای اینکه بخوایم کاربر با زدن یک کلید از یک فرگمنت به فرگمنت دیگه ای بره مثل زیر عمل می کنیم</p>
 
-        <pre>class FirstFragment: Fragment(){
+        <div class="code-container">
+class FirstFragment: Fragment(){
 
       ...
 
@@ -345,7 +340,6 @@
       ): View? {
 
             ...
-
 
           button.setOnClickListener {
               val action = FirstFragmentDirections.fromFirstFragmentToSecondFragment(arg0 , arg1, ... argn)
@@ -358,7 +352,7 @@
       ...
 
 }
-        </pre>
+        </div>
 
 
         <p>
@@ -371,16 +365,23 @@
           روزاتون پر کد کداتون پر پول 😎
         </p>
 
-        <div class="bg-light p-3">
+        <div class="related-articles">
 
-        <h5>مطالب مرتبط:</h5>
+            <div class="d-block">
+                <h5>مطالب مرتبط:</h5>
 
-            <span>
+                <div class="d-flex flex-wrap">
+                    <span class="p-1">
                 <a class="text-decoration-none" href="data-binding.html">استفاده از Data Binding در اندروید</a>
-            </span>
-            <span>
-                <a class="text-decoration-none" href="data-binding-navigation-sample.html">استفاده از Data Binding و Navigation در یک پروژه ی اندرویدی</a>
-            </span>
+                    </span>
+                    <span class="p-1">
+                            <a class="text-decoration-none" href="data-binding-navigation-sample.html">پیاده سازی Data Binding و Navigation در یک پروژه ی اندرویدی</a>
+                     </span>
+
+                </div>
+
+            </div>
+
         </div>
 
       </div>
@@ -389,14 +390,17 @@
 
   </div>
 
-  <div id="footer_container">
-
-  </div>
-
 </div>
 
+<footer>
 
-<script type="text/javascript" src="/resources/js/main.js"></script>
+</footer>
+
+<div class="copy-message">
+    <span class="copy-message-text">کپی شد!</span>
+</div>
+
+<script type="module" src="https://skybirdbits.github.io/resources/js/main.js"></script>
 
 </body>
 
