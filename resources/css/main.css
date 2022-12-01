@@ -1,9 +1,11 @@
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
-@import url("/resources/css/md-bt.css");
-@import url("/resources/css/text.css");
-@import url("/resources/css/list.css");
-@import url("/resources/css/utils.css");
-@import url("/resources/css/article.css");
+@import url("https://fonts.googleapis.com/css?family=JetBrains+Mono");
+@import url("/skybirdbits.github.io/resources/css/bt.css");
+@import url("/skybirdbits.github.io/resources/css/text.css");
+@import url("/skybirdbits.github.io/resources/css/base.css");
+@import url("/skybirdbits.github.io/resources/css/utils.css");
+@import url("/skybirdbits.github.io/resources/css/article.css");
+
 
 main{
     position: relative;
@@ -26,25 +28,15 @@ margin-top: 32px;
 
 .offcanvas-body{
     direction: rtl;
-    min-width: 100%;
     padding: 0px;
     margin: 0px;
-    background: #ffee58;
 }
 
 
-footer, nav, .offcanvas-header{
+nav, .offcanvas-header{
     background-color: #212121;
     min-height: 80px;
     height: 80px;
-}
-
-footer{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: between;
-    align-items: center;
-    margin-top: 128px;
 }
 
 

@@ -14,13 +14,10 @@
   <link href="/resources/css/main.css" rel="stylesheet">
   <link href="/resources/favicon.png" rel="icon" type="image/x-icon">
 
-  <script crossorigin="anonymous"
-          integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
-          src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 </head>
 
 <body>
-<div class="container-fluid content">
+<div class="container-fluid">
   <div class="page-wrap">
     <header class="article-header">
       <h1>چرخه ی Activity در اندروید</h1>
@@ -85,11 +82,11 @@
 
         <p>متقارن هر وضعیت:</p>
 
-        <pre>
+        <div class="code-container">
 onDestroy() -&gt; onCreate()
 onStop() -&gt; onStart()
 onPause() -&gt; onResume()
-        </pre>
+        </div>
 
         <p>
           <strong>نکته: برای onPause و onStop حالت استثنا هم وجود داره در این حالت اکتیویتی از onCreate شروع به اجرا شدن می کنه و این حالت زمانی اتفاق میفته که حافظه ی گوشی کمه و برنامه هایی با اولویت بالاتر به حافظه نیاز دارن تو این شرایط اکتیویتی به وضعیت onPause یا onStop میره بعد برای اجرا به onCreate برمیگرده</strong>
@@ -107,10 +104,13 @@ onStop() -&gt; onCreate()
       </div>
     </article>
   </div>
-  <div id="footer_container"> </div>
 </div>
 
-<script type="text/javascript" src="/resources/js/main.js"></script>
+<footer>
+
+</footer>
+
+<script type="module" src="/resources/js/main.js"></script>
 
 </body>
 </html>

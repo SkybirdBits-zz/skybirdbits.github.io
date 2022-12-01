@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html dir="rtl" lang="fa">
+<html lang="fa">
 <head>
     <meta charset="UTF-8">
 
@@ -17,66 +17,53 @@
     <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
           integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" rel="stylesheet"/>
 
-    <script crossorigin="anonymous"
-            integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
-
-    <script crossorigin="anonymous"
-            integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
-            src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-
 
     <title>خانه</title>
 </head>
 <body>
-
-<div class="container-fluid">
-
-    <header>
-
-        <div aria-labelledby="sidebar_label" class="offcanvas offcanvas-end " id="sidebar" tabindex="-1">
-            <div class="offcanvas-header">
+<header>
+    <div aria-labelledby="sidebar_label" class="offcanvas offcanvas-end " id="sidebar" tabindex="-1">
+        <div class="offcanvas-header">
 
 
-                <button aria-label="close" class="material-icons md-bt md-bt-dark" data-bs-dismiss="offcanvas"
-                        type="button">
-                    arrow_forward
-                </button>
+            <a class="text-decoration-none link-light" href="https://skybirdbits.github.io" id="sidebar_label">
+                <span>Skybirdbits</span>
+            </a>
 
-                <h5 class="md-text-gray300">لیست مقاله ها</h5>
+            <h5 class="md-text-gray300">لیست مقاله ها</h5>
 
-                <a class="text-decoration-none link-light" href="https://skybirdbits.github.io" id="sidebar_label">
-                    <span>Skybirdbits</span>
-                </a>
+            <button aria-label="close" class="material-icons md-bt md-bt-dark" data-bs-dismiss="offcanvas"
+                    type="button">
+                arrow_forward
+            </button>
 
-            </div>
-
-            <div class="offcanvas-body">
-
-                <div class="list-container" id="article_container">
-                </div>
-
-            </div>
         </div>
 
-        <nav class="navbar navbar-dark sticky-top p-3 rtl">
-            <div class="container-fluid">
-                <button class="md-bt md-bt-navbar-toggle material-icons" data-bs-target="#sidebar"
-                        data-bs-toggle="offcanvas"
-                        type="button">
-                    menu
-                </button>
-                <a class="navbar-brand" href="https://skybirdbits.github.io" id="brand">
-                    <span>Skybirdbits</span>
-                </a>
+        <div class="offcanvas-body">
+
+            <div class="list-container" id="article_container">
             </div>
-        </nav>
-    </header>
 
-    <main>
+        </div>
+    </div>
 
-        <div class="container-fluid rtl">
-            <div>
+    <nav class="navbar navbar-dark sticky-top p-3 rtl">
+        <div class="container-fluid">
+            <button class="md-bt md-bt-navbar-toggle material-icons" data-bs-target="#sidebar"
+                    data-bs-toggle="offcanvas"
+                    type="button">
+                menu
+            </button>
+            <a class="navbar-brand" href="https://skybirdbits.github.io" id="brand">
+                <span>Skybirdbits</span>
+            </a>
+        </div>
+    </nav>
+</header>
+
+    <main class="container-fluid">
+
+        <article class="rtl">
                 <h4>
                     آموزش برنامه نویسی
                 </h4>
@@ -87,15 +74,35 @@
                     این وبسایت به صورت فرانت اند ساخته شده و متن بازه، اگه دوست داشتید میتونید کدهاشو ببینید و در بهبودش کمک
                     کنید و در آخر خوشحال میشیم عضو گروه تلگرامیمون بشید.
                 </p>
-            </div>
-        </div>
+
+                <h4>درباره ی این صفحه</h4>
+                <p>این صفحه لیستی از لینک صفحات تمام مقالات این وبسایت رو در اختیار کاربر قرار میده این لینک ها در داخل فایل های json قرار دارن که توسط javascript تجزیه شده و به صورت دینامیک در قسمت لیست مقالات قرار داده میشن
+                    هر کاربری میتونه به راحتی از این فایل ها در پروژه های خودش استفاده کنه البته اگه دلش خواست 😎
+                </p>
+                <p></p>
+                <h5>آدرس فایل های json :</h5>
+
+                <p>
+                    <a class="text-decoration-none" href="https://skybirdbits.github.io/resources/json/java-links.json">مقاله های جاوا</a>
+                    <br/>
+                    <a class="text-decoration-none" href="https://skybirdbits.github.io/resources/json/kotlin-links.json">مقاله های کاتلین</a>
+                    <br/>
+                    <a class="text-decoration-none" href="https://skybirdbits.github.io/resources/json/android-links.json">مقاله های اندروید</a>
+                    <br/>
+                    <a class="text-decoration-none"  href="https://skybirdbits.github.io/resources/json/web-links.json">مقاله های وب</a>
+                </p>
 
 
+                <p>اگه خواستید میتونید نقشه و کدهای وبسایت رو در ادرس زیر ببینید: </p>
+                <strong><a class="text-decoration-none" href="https://github.com/skybirdbits/skybirdbits.github.io">سورس کد</a></strong>
+        </article>
     </main>
 
-    <div id="footer_container"></div>
+<footer>
 
-</div>
+
+</footer>
+
 <script src="resources/js/main.js"></script>
 
 </body>
