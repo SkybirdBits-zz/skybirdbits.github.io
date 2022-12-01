@@ -1,9 +1,8 @@
 .list-container{
-    background-color: #1976d2;
+    background-color: #0277bd;
     border-radius: 8px;
-
     height: auto;
-    padding: 8px;
+    padding: 16px;
 }
 
 .list-container .list{
@@ -13,7 +12,7 @@
 
 .list .list-item {
     margin-right: 24px;
-    color: rgba(249,249,249, 0.80);
+    color: rgba(249,249,249, 0.90);
 }
 
 .list .list-item .list-item-link{
