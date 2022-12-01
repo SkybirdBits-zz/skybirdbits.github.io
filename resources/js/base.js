@@ -1,3 +1,5 @@
+import loadJson as fileloader from './fileloader.js'
+
 const linkCoursesRepo = [
    "/skybirdbits.github.io/resources/json/java-links.json",
    "/skybirdbits.github.io/resources/json/kotlin-links.json",
@@ -23,7 +25,6 @@ function initSidebar(){
     Functions to create list with links to article subjects
     views: createArticleListView(article), createListItemView(link) ,createExpandableButton(article),
     utils: rotate(icon, article), getTransformRotation(degree)
-    json: readJsonFile(url, onResponseOkListener)
 */
 
 
@@ -33,36 +34,22 @@ function loadAllArticleLinks(){
 
     if(articleListViewContainer){
         for(var i =0; i<linkCoursesRepo.length; i++){
-            readJsonFile(linkCoursesRepo[i],function(data){
+           fileloader.loadJson(linkCoursesRepo[i],function(data){
 
-                var articleData = JSON.parse(data);
-                var article = {
-                                id: articleData.id,
-                                title: articleData.title,
-                                links: articleData.links, isExpanded: false
-                               };
+            var articleData = JSON.parse(data);
+            var article = {
+                            id: articleData.id,
+                            title: articleData.title,
+                            links: articleData.links, isExpanded: false
+                           };
 
-                var articleListView = createArticleListView(article);
+            var articleListView = createArticleListView(article);
 
-                articleListViewContainer.appendChild(articleListView);
+            articleListViewContainer.appendChild(articleListView);
 
-            });
+           });
         }
     }
-}
-
-//read a json file with a specific url
-function readJsonFile(url, onResponseOkListener){
-    var request = new XMLHttpRequest();
-    request.overrideMimeType = "application/json";
-    request.open("GET", url , true);
-    request.onreadystatechange = function(){
-        if(request.readyState == 4 && request.status == "200"){
-            onResponseOkListener(request.responseText);
-        }
-    }
-
-    request.send();
 }
 
 //create list view for an article to show its related links
