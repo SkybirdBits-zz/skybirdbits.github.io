@@ -1,5 +1,5 @@
 import {createCodeViews} from './article.js';
-import {initSidebar , loadAllArticleLinkLists , createAndLoadFooterItems} from './base.js';
+import {initSidebar , loadAllArticleLinks , createAndLoadFooterItems} from './base.js';
 
 
 function loadJsFile(url ,integrity,crossOrigin){
@@ -24,7 +24,7 @@ loadJsFile(
 
 window.onload = function(){
     initSidebar();
-    loadAllArticleLinkLists();
+    loadAllArticleLinks();
     createAndLoadFooterItems();
     createCodeViews();
 }
