@@ -10,18 +10,18 @@
 
 <div align="center">
 
-#### صفحات وب آموزش برنامه نویسی به صورت متن باز
+*صفحات وب آموزش برنامه نویسی به صورت متن باز*
 
-#### <a href="https://github.com/skybirdbits/skybirdbits.github.io">سورس کد</a>
+*<a href="https://github.com/skybirdbits/skybirdbits.github.io">سورس کد</a>*
 
-#### <a href="https://skybirdbits.github.io">ادرس سایت</a>
+*<a href="https://skybirdbits.github.io">ادرس سایت</a>*
 
 </div>
 
 
 ### توضیحات
 تمام سورس های صفحات این وبسایت متن بازه از اونجایی که گیت هاب زبان های بک اند رو پشتیبانی نمیکه و صفحات به صورت استاتیک بارگذاری میشن برای همین رو اوردم به فایل های Json روند کار اینجوریه هر صفحه ای که گذاشته میشه لینکش داخل فایل Json بروز میکنیم و به صورت دینامیک در قسمت لیست مقالات اضافه میشه میتونید توی توسعه ی وبسایت مشارکت داشته باشید
-ادرس صفحات در فایل های json جمع‌آوری شده اگر خواستید میتونید از مطالب در پروژه هاتون استفاده کنید.
+ادرس صفحات در فایل های json جمع‌آوری شده در زیر میتونید مشاهده کنید
 
 #### لینک فایل های Json
 <div dir="ltr">
@@ -61,9 +61,9 @@ skybirdbits.github.io/
 ├── resources/
 │   ├── css/
 │   │   ├── article.css
-│   │   ├── list.css
+│   │   ├── base.css
 │   │   ├── main.css
-│   │   ├── md-bt.css
+│   │   ├── bt.css
 │   │   ├── text.css
 │   │   └── utils.css
 │   │
@@ -84,6 +84,9 @@ skybirdbits.github.io/
 │   │   └── (images)* 
 │   │      
 │   ├── js/
+│   │   ├── article.js
+│   │   ├── base.js
+│   │   ├── fileloader.js
 │   │   └── main.js
 │   │
 │   └──json/
@@ -93,7 +96,9 @@ skybirdbits.github.io/
 │       └── web-links.json
 │
 ├── ui-components/
-│   └── shared_footer.html
+│   ├── footer_contents.html
+│   └── header_contents.html
+│
 │
 └── index.html
 ```
@@ -102,13 +107,14 @@ skybirdbits.github.io/
 
 <div>
 
-#### ارتباط با ما
-##### <a href="https://t.me/skybirdbits">تلگرام</a>
+*ارتباط با ما*
 
-#### گروه و کانال تلگرام 
+<a href="https://t.me/skybirdbits">تلگرام</a>
 
-##### <a href="https://t.me/java_kotlin_dev_gp">گروه جاوا کاتلین</a> 
-##### <a href="https://t.me/java_kotlin_dev">کانال جاوا کاتلین</a>
+
+*گروه و کانال تلگرام*
+
+<a href="https://t.me/java_kotlin_dev_gp">گروه جاوا کاتلین</a> <a href="https://t.me/java_kotlin_dev">کانال جاوا کاتلین</a>
 
 
 </div>
