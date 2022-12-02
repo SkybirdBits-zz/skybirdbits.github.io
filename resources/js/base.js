@@ -1,5 +1,3 @@
-import * as fileloader from './fileloader.js'
-
 const linkCoursesRepo = [
    "https://skybirdbits.github.io/resources/json/java-links.json",
    "https://skybirdbits.github.io/resources/json/kotlin-links.json",
@@ -20,35 +18,34 @@ function initSidebar(){
         }
 }
 
-
 /*
     Functions to create list with links to article subjects
     views: createArticleListView(article), createListItemView(link) ,createExpandableButton(article),
     utils: rotate(icon, article), getTransformRotation(degree)
 */
 
-
 //retrieve links stored in json files inside path: /resources/json
 function loadAllArticleLinks(){
+
     const articleListViewContainer = document.getElementById('article_container');
 
     if(articleListViewContainer){
         for(var i =0; i<linkCoursesRepo.length; i++){
-           fileloader.loadJson(linkCoursesRepo[i],function(data){
 
-            var articleData = JSON.parse(data);
+        $.getJSON(linkCoursesRepo[i], function(data){
+
             var article = {
-                            id: articleData.id,
-                            title: articleData.title,
-                            links: articleData.links,
+                            id: data.id,
+                            title: data.title,
+                            links: data.links,
                             isExpanded: false
                            };
-
             var articleListView = createArticleListView(article);
-
             articleListViewContainer.appendChild(articleListView);
 
-           });
+            }).fail(function(){
+                articleListViewContainer.innerText = "Links did not Load";
+            });
         }
     }
 }
@@ -63,7 +60,7 @@ function createArticleListView(article){
     subjectListContainer.classList.add('collapse');
     subjectListContainer.id = article.id;
 
-    var unorderedList = document.createElement('ol');
+    var unorderedList = document.createElement('ul');
     unorderedList.classList.add('list');
 
     var links = article.links;
@@ -128,51 +125,4 @@ function createListItemView(link){
    return item;
 }
 
-
-//create and load items of footer
-function createAndLoadFooterItems(){
-    let footer = document.querySelector('footer');
-
-    let brandLicenseContainer = createFooterItemContainer('brand-license-container');
-
-    let itemBrandLicense = createFooterItem("2022 Skybirdbits, GPL","https://github.com/skybirdbits/" )
-    brandLicenseContainer.appendChild(itemBrandLicense);
-
-    let telegramLinksContainer = createFooterItemContainer('telegram-links-container');
-
-    let itemTelegramChannel = createFooterItem("کانال تلگرام", "https://t.me/java_kotlin_dev");
-    let itemTelegramGroup = createFooterItem("گروه تلگرام" ,"https://t.me/java_kotlin_dev_gp");
-
-    telegramLinksContainer.append(itemTelegramChannel, itemTelegramGroup);
-
-    let socialMediaContainer = createFooterItemContainer('social-media-container');
-
-    let itemLinkedIn = createFooterItem("Linkedin","https://linkedin.com/in/skybirdbits")
-    let itemGithub = createFooterItem("Github","https://github.com/skybirdbits")
-
-    socialMediaContainer.append(itemLinkedIn, itemGithub);
-
-    footer.append(brandLicenseContainer, telegramLinksContainer, socialMediaContainer);
-}
-
-function createFooterItemContainer(styleClassName){
-    let container = document.createElement('div');
-    container.classList.add('footer-item-container', styleClassName);
-    return container;
-}
-
-function createFooterItem(text, href){
-    let item = document.createElement('a');
-    item.innerText = text;
-    item.href = href;
-    item.classList.add('footer-item');
-    return item;
-}
-
-function base(){
-    createAndLoadFooterItems();
-    initSidebar();
-    loadAllArticleLinkLists();
-}
-
-export {initSidebar , loadAllArticleLinks , createAndLoadFooterItems};
+export {initSidebar , loadAllArticleLinks};
