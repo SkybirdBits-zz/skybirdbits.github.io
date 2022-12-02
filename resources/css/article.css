@@ -18,7 +18,7 @@
 .article-foot{
     display: flex;
     flex-wrap: wrap;
-    background-color: #e0e0e0;
+    background-color: #eeeeee;
     margin: 30px auto;
     padding: 8px;
     direction: rtl;
