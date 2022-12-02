@@ -16,20 +16,4 @@ function loadStylesheet(url , integrity, crossOrigin){
     document.head.appendChild(link);
 }
 
-
-//read a json file with a specific url
-function loadJson(url, onResponseOkListener){
-    var request = new XMLHttpRequest();
-    request.overrideMimeType = "application/json";
-    request.open("GET", url , true);
-    request.onreadystatechange = function(){
-        if(request.readyState == 4 && request.status == "200"){
-            onResponseOkListener(request.responseText);
-        }
-    }
-
-    request.send();
-}
-
-
-export {loadJavaScript, loadStylesheet, loadJson};
+export {loadJavaScript, loadStylesheet};
