@@ -1,5 +1,5 @@
 import {createCodeViews} from './article.js';
-import {initSidebar , loadAllArticleLinks , createAndLoadFooterItems} from './base.js';
+import {initSidebar , loadAllArticleLinks} from './base.js';
 import * as fileloader from './fileloader.js';
 
 fileloader.loadStylesheet(
@@ -21,8 +21,11 @@ fileloader.loadJavaScript(
 );
 
 window.onload = function(){
-    initSidebar();
-    loadAllArticleLinks();
-    createAndLoadFooterItems();
+    $('header').load('/ui-components/header-contents.html', function(){
+        initSidebar();
+        loadAllArticleLinks();
+    });
+    $('footer').load('/ui-components/footer-contents.html');
+
     createCodeViews();
 }
