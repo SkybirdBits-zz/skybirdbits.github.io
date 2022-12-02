@@ -21,11 +21,10 @@
 
 <header></header>
 
-<div class="container-fluid">
+<main>
 
     <div class="page-wrap">
-
-
+        <div class="article-head">
             <h1>
                 استفاده از Data Binding در اندروید
             </h1>
@@ -41,135 +40,127 @@
                      src="/resources/image/android/data_binding_cover.png">
 
             </figure>
+        </div>
 
         <article>
+            <blockquote>
+                تعریف: یک کتابخونه که با استفاده ازش میتونید UI رو به داده های برنامه وصل کنید و view ها رو بدون
+                نیاز به کد نویسی اپدیت کنید
+            </blockquote>
+
+            <h3>
+                فعال سازی Data Binding :
+            </h3>
+
+            <p>درون پوشه ی app داخل فایل build.gradle داخل android بنویسید:</p>
+
+            <p>Root Project -> app -> build.gradle</p>
+
+            <div class="code-container">
+                android{
+
+                ...
+
+                buildFeatures{
+                dataBinding true
+                }
+
+                }
+            </div>
 
 
-            <div class="container">
+            <h3>
+                استفاده از Data Binding :
+            </h3>
 
-                <blockquote>
-                    تعریف: یک کتابخونه که با استفاده ازش میتونید UI رو به داده های برنامه وصل کنید و view ها رو بدون
-                    نیاز به کد نویسی اپدیت کنید
-                </blockquote>
+            <p><strong>مثال:</strong></p>
 
-                <h3>
-                    فعال سازی Data Binding :
-                </h3>
+            <p>
+                فرض کنید یک کلاس داریم به اسم
+                <strong>TestFragment</strong>
+                و یک فایل xml به اسم
+                <strong>fragment_test</strong>
+                برای استفاده از Data Binding سه مرحله رو باید انجام بدیم
+            </p>
 
-                <p>درون پوشه ی app داخل فایل build.gradle داخل android بنویسید:</p>
-
-                <p>Root Project -> app -> build.gradle</p>
-
-                <div class="code-container">
-android{
-
-  ...
-
-  buildFeatures{
-      dataBinding true
-  }
-
-}
-        </div>
+            <figure class="figure figure-wrapper">
+                <img alt="مراحل استفاده از data binding در فایل xml"
+                     class="rounded figure-img"
+                     src="/resources/image/android/data_binding_using.png">
+            </figure>
 
 
-                <h3>
-                    استفاده از Data Binding :
-                </h3>
-
-                <p><strong>مثال:</strong></p>
-
-                <p>
-                    فرض کنید یک کلاس داریم به اسم
-                    <strong>TestFragment</strong>
-                    و یک فایل xml به اسم
-                    <strong>fragment_test</strong>
-                    برای استفاده از Data Binding سه مرحله رو باید انجام بدیم
-                </p>
-
-                <figure class="figure figure-wrapper">
-                    <img alt="مراحل استفاده از data binding در فایل xml"
-                         class="rounded figure-img"
-                         src="/resources/image/android/data_binding_using.png">
-                </figure>
+            <p><strong>۱- ایجاد تگ layout :</strong></p>
+            <p>
+                این تگو باید قبل از هر تگ دیگه ای ایجاد کنیم
+            </p>
 
 
-                <p><strong>۱- ایجاد تگ layout :</strong></p>
-                <p>
-                    این تگو باید قبل از هر تگ دیگه ای ایجاد کنیم
-                </p>
+            <p><strong>۲- ایجاد و مقداردهی داده هایی که میخوایم view ها رو بهشون وصل کنیم :</strong></p>
+            <p>
+                ابتدا متغیر(ها) رو مانند شکل بالا داخل تگ data تعریف میکنیم
+                سپس داخل متد onCreateView مربوط به کلاس Fragment مانند زیر اونا رو مقدار دهی میکنیم
+            </p>
+
+            <div class="code-container">
+                override fun onCreateView(
+                inflater: LayoutInflater,
+                container: ViewGroup?,
+                savedInstanceState: Bundle?
+                ):View {
+
+                val binding = FragmentTestBinding.inflate(inflater, container ,false)
+
+                binding.viewmodel = myViewModel
+
+                return binding.root
+                }
+            </div>
+
+            <p>
+                در قطعه کد بالا ابتدا با استفاده از کلاس FragmentTestBinding که خودکار ساخته شده فایل
+                fragment_test.xml رو inflate کردیم
+                سپس متغیر viewmodel رو که در فایل xml تعریف کرده بودیم صدا و مقداردهی کردیم
+                در نهایت root که در اینجا LinearLayout هست رو برگردوندیم
+            </p>
+
+            <p><strong>۳- وصل کردن view به داده ها:</strong></p>
+
+            <p>
+                با استفاده از syntax
+                <b dir="ltr">@{ ... }</b>
+                ویو رو به داده ها وصل میکنیم
+            </p>
 
 
-                <p><strong>۲- ایجاد و مقداردهی داده هایی که میخوایم view ها رو بهشون وصل کنیم :</strong></p>
-                <p>
-                    ابتدا متغیر(ها) رو مانند شکل بالا داخل تگ data تعریف میکنیم
-                    سپس داخل متد onCreateView مربوط به کلاس Fragment مانند زیر اونا رو مقدار دهی میکنیم
-                </p>
+            <p>
+                تا اینجای کار با Data Binding آشنا شدیم یاد گرفتیم چطور باید فعالش کنیم و چطور ازش استفاده کنیم
+                یه موضوع دیگه از Data Binding به اسم BindingAdapter هست که بعدا سر یه فرصت مناسب بهش میپردازیم
+                🌸🌸🌸
+            </p>
+        </article>
 
-                <div class="code-container">
-  override fun onCreateView(
-      inflater: LayoutInflater,
-      container: ViewGroup?,
-      savedInstanceState: Bundle?
-  ):View {
+        <div class="article-foot">
 
-    val binding = FragmentTestBinding.inflate(inflater, container ,false)
+            <div class="d-block">
+                <h5>مطالب مرتبط:</h5>
 
-    binding.viewmodel = myViewModel
-
-    return binding.root
-  }
-        </div>
-
-                <p>
-                    در قطعه کد بالا ابتدا با استفاده از کلاس FragmentTestBinding که خودکار ساخته شده فایل
-                    fragment_test.xml رو inflate کردیم
-                    سپس متغیر viewmodel رو که در فایل xml تعریف کرده بودیم صدا و مقداردهی کردیم
-                    در نهایت root که در اینجا LinearLayout هست رو برگردوندیم
-                </p>
-
-                <p><strong>۳- وصل کردن view به داده ها:</strong></p>
-
-                <p>
-                    با استفاده از syntax
-                    <b dir="ltr">@{ ... }</b>
-                    ویو رو به داده ها وصل میکنیم
-                </p>
-
-
-                <p>
-                    تا اینجای کار با Data Binding آشنا شدیم یاد گرفتیم چطور باید فعالش کنیم و چطور ازش استفاده کنیم
-                    یه موضوع دیگه از Data Binding به اسم BindingAdapter هست که بعدا سر یه فرصت مناسب بهش میپردازیم
-                    🌸🌸🌸
-                </p>
-
-
-
-                <div class="related-articles">
-
-                    <div class="d-block">
-                        <h5>مطالب مرتبط:</h5>
-
-                        <div class="d-flex flex-wrap">
+                <div class="d-flex flex-wrap">
                         <span class="p-1">
                             <a class="text-decoration-none" href="navigation.html">استفاده از نویگیشن در اندروید</a>
                         </span>
-                         <span class="p-1">
+                        <span class="p-1">
                           <a class="text-decoration-none" href="data-binding-navigation-sample.html">استفاده از Data Binding و Navigation در یک پروژه ی اندرویدی</a>
                         </span>
-
-                        </div>
-
-                    </div>
 
                 </div>
 
             </div>
 
-        </article>
+        </div>
 
     </div>
-</div>
+</main>
 
 <footer></footer>
 

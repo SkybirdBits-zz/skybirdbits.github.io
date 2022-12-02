@@ -11,6 +11,9 @@
 main{
     position: relative;
     min-height: 64vh;
+    width: 100vw;
+    background-color: #ffffff;
+    padding-bottom: 128px;
 }
 
 .figure {

@@ -1,4 +1,4 @@
-.article-header{
+.article-head{
     word-wrap: break-word;
     padding: 8px;
 }
@@ -15,10 +15,10 @@
     margin-right: 16px;
 }
 
-.related-articles{
+.article-foot{
     display: flex;
     flex-wrap: wrap;
-    background-color: #f5f5f5;
+    background-color: #e0e0e0;
     margin: 30px auto;
     padding: 8px;
     direction: rtl;
