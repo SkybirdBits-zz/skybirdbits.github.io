@@ -1,11 +1,10 @@
 button, a, p, h1, h2,h3 ,h4, h5, h6, blockquote, strong {
     font-family: Samim;
-    padding: 4px;
+    padding: 8px;
     direction: rtl;
 }
 
 h1, h2, h3, h4, h5, h6{
-    padding: 16px;
     font-weight: bold;
 }
 
@@ -29,10 +28,16 @@ blockquote {
 
 .class-name{
     color: #ad1457;
-
 }
 
-.numbers{
+.digit{
     color: #1750eb;
+}
 
+.annotation{
+    color: #9e880d;
+}
+
+.comment{
+    color: #8c8c8c;
 }

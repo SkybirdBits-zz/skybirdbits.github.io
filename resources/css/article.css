@@ -1,6 +1,7 @@
 .article-head{
     word-wrap: break-word;
     padding: 8px;
+    direction: rtl;
 }
 
 .page-wrap{
@@ -27,10 +28,10 @@
 
 .code-container{
     border-radius: 4px;
-    background: #f5f5f5;
+    background: #eeeeee;
     margin-bottom: 16px;
     font-family: "JetBrains Mono";
-
+    margin: auto 8px;
 }
 
 .code-container .code-wrap{

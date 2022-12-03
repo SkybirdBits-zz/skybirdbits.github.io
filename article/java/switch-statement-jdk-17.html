@@ -51,29 +51,28 @@
             <p><strong>مثال:</strong></p>
 
             <div class="code-container">
-                int myInteger = ...
+int myInteger = ...
 
-                switch(myInteger){
-                case i0: {
-                ...
-                break;
-                }
-                case i2: {
-                ...
-                break;
-                }
+switch(myInteger){
+    case i0: {
+    ...
+    break;
+    }
+    case i2: {
+    ...
+    break;
+    }
 
-                ...
+    ...
 
-                case ik: {
-                ...
-                break;
-                }
-                default: {
-                ...
-                }
-                }
-
+    case ik: {
+    ...
+    break;
+    }
+    default: {
+    ...
+    }
+}
             </div>
 
 
@@ -85,29 +84,29 @@
             <p><strong>مثال:</strong></p>
 
             <div class="code-container">
-                String myString = ...
+String myString = ...
 
-                switch(myString){
-                case s0 : {
-                ...
-                break;
-                }
-                case s1: {
-                ...
-                break;
-                }
+switch(myString){
+    case s0 : {
+    ...
+    break;
+    }
+    case s1: {
+    ...
+    break;
+    }
 
-                ...
+    ...
 
-                case sk: {
-                ...
-                break;
-                }
+    case sk: {
+    ...
+    break;
+    }
 
-                default: {
-                ...
-                }
-                }
+    default: {
+    ...
+    }
+}
             </div>
 
             <p>در JDK 17 چه اتفاقی برای سوییچ افتاده؟ بیایید باهم بررسی کنیم :)</p>
@@ -124,30 +123,30 @@
             <p><strong>مثال:</strong></p>
 
             <div class="code-container">
-                String myString = ...
+String myString = ...
 
-                MyType myType = switch(myString){
+MyType myType = switch(myString){
 
-                case s0: {
-                ...
-                yield myValue;
-                }
-                case s1: {
-                ...
-                yield myValue;
-                }
+    case s0: {
+    ...
+    yield myValue;
+    }
+    case s1: {
+    ...
+    yield myValue;
+    }
 
-                ...
+    ...
 
-                case sk: {
-                ...
-                yield myValue;
-                }
-                default: {
-                ...
-                yield myValue;
-                }
-                };
+    case sk: {
+    ...
+    yield myValue;
+    }
+    default: {
+    ...
+    yield myValue;
+    }
+};
             </div>
 
 
@@ -161,42 +160,42 @@
             <p><strong>مثال:</strong></p>
 
             <div class="code-container">
-                String myString = ...
+String myString = ...
 
-                MyType myType = switch(myString){
+MyType myType = switch(myString){
 
-                case s0, s4: {
-                ...
-                yield myValue;
-                }
+    case s0, s4: {
+    ...
+    yield myValue;
+    }
 
-                case s1, s3, s5: {
-                ...
-                yield myValue;
-                }
+    case s1, s3, s5: {
+    ...
+    yield myValue;
+    }
 
-                ...
+    ...
 
-                case sk: {
-                ...
-                yield myValue;
-                }
+    case sk: {
+    ...
+    yield myValue;
+    }
 
-                default: {
-                ...
-                yield myValue;
-                }
-                };
+    default: {
+    ...
+    yield myValue;
+    }
+};
             </div>
 
 
             <p>در کد بالا:</p>
 
-            <pre>
+            <div class="code-container">
  case s0, s4:{
         ...
     }
-        </pre>
+            </div>
 
             <p>یعنی اگر s0 یا s2 درست بود بلاک را اجرا کن...</p>
 
@@ -209,32 +208,32 @@
             <p><strong>مثال:</strong></p>
 
             <div class="code-container">
-                String myString = ...
+String myString = ...
 
-                MyType myType = switch(myString){
+MyType myType = switch(myString){
 
-                case s0 , s4 -&gt; {
-                ...
-                yield myValue;
-                }
+    case s0 , s4 -&gt; {
+    ...
+    yield myValue;
+    }
 
-                case s1, s3 , s5 -&gt; {
-                ...
-                yield myValue;
-                }
+    case s1, s3 , s5 -&gt; {
+    ...
+    yield myValue;
+    }
 
-                ...
+    ...
 
-                case sk -&gt; {
-                ...
-                yield myValue;
-                }
+    case sk -&gt; {
+    ...
+    yield myValue;
+    }
 
-                default -&gt; {
-                ...
-                yield myValue;
-                }
-                };
+    default -&gt; {
+    ...
+    yield myValue;
+    }
+};
             </div>
 
 

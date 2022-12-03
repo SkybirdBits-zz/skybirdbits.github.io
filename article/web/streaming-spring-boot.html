@@ -9,9 +9,9 @@
     <meta content="width:device-width, initial-scale=1" name="viewport"/>
     <title>استریم کردن video و audio در اسپرینگ بوت</title>
 
-    <link href="/resources/css/main.css" rel="stylesheet">
+    <link href="/skybirdbits.github.io/resources/css/main.css" rel="stylesheet">
     <link href="/resources/favicon.png" rel="icon" type="image/x-icon">
-    <script src="/resources/js/main.js" type="module"></script>
+    <script src="/skybirdbits.github.io/resources/js/main.js" type="module"></script>
 
 </head>
 <body>
@@ -221,9 +221,8 @@ public class StreamingService {
         return Paths.get(filePath).getFileName().toString();
     }
 
-    /**
-     * Range class which splits requested range from the client and creates new range
-     **/
+
+    // Range class which splits requested range from the client and creates new range
     private static class Range {
         private final String acceptRanges;
         private final long[] arrayRange;
