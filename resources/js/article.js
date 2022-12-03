@@ -1,9 +1,9 @@
-const keyword = /(?<!([A-Za-z\d_\"=]|\/\/.*))(public|private|protected|void|return|static|instanceof|for|while|do|if|switch|override|fun|var|val|companion|data|false|true|null|class|short|byte|int|long|double|float|boolean|throw|throws|try|catch|finally|final|static|interface|enum|abstract|import|this|super|new)(?![A-Za-z\d_\"=])/g;
-const string = /(?<!\/\/.*)["']([a-zA-Z-=.\s\d]*|\[.*\]|(\/.+\/)|(\/{1}.+\/{0,1})|\{.*\})["']/g;
-const className = /(?<![a-zA-Z\d"'_@\/-]|\/\/.*)[A-Z][a-zA-Z\d]*(?![A-Za-z_/]*"')/g;
-const digit = /(?<![A-Za-z\d\"_])\d+/g;
-const annotation = /(?<![a-zA-Z\d"'_@\/-])@[A-Z][a-zA-Z\d]*/g
-const comment = /\/\/.*/g
+const keyword = /(?<!([^\s,(]{1}|\/\/.*))(public|private|protected|void|return|static|instanceof|for|while|do|if|switch|override|fun|var|val|companion|data|false|true|null|class|short|byte|int|long|double|float|boolean|throw|throws|try|catch|finally|final|static|interface|enum|abstract|import|this|super|new|package)(?![\w\d]|[^\s)]{1})/g;
+const string = /(?<!\/\/.*)(["']([^+]*)["'])|(["'](@\+.*)["'])/g;
+const className = /(?<![^\s./-<,(]|(\/\/.*))[A-Z]{1}[\w\d]*(?!([^\s.,>:("]){1})/g;
+const digit = /(?<![^\s,(])\d+(?![\w\d]|[^\s),;]{1})/g;
+const annotation = /(?<![^\s]{1})@[A-Z]{1}[a-zA-Z\d]*/g
+const comment = /(?<!(http{1}.*))\/\/.*/g
 
 const elements = document.querySelectorAll('.code-container');
 
