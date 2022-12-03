@@ -104,15 +104,15 @@
 
 
             <div class="code-container">
-                &lt;resources&gt;
-                &lt;string name="app_name"&gt;Login Demo&lt;/string&gt;
-                &lt;string name="login_label_description"&gt;Please login to your profile&lt;/string&gt;
-                &lt;string name="welcome"&gt;Welcome&lt;/string&gt;
-                &lt;string name="logout"&gt;Logout&lt;/string&gt;
-                &lt;string name="id"&gt;Id:&lt;/string&gt;
-                &lt;string name="user"&gt;User:&lt;/string&gt;
-                &lt;string name="login"&gt;Login&lt;/string&gt;
-                &lt;/resources&gt;
+&lt;resources&gt;
+    &lt;string name="app_name"&gt;Login Demo&lt;/string&gt;
+    &lt;string name="login_label_description"&gt;Please login to your profile&lt;/string&gt;
+    &lt;string name="welcome"&gt;Welcome&lt;/string&gt;
+    &lt;string name="logout"&gt;Logout&lt;/string&gt;
+    &lt;string name="id"&gt;Id:&lt;/string&gt;
+    &lt;string name="user"&gt;User:&lt;/string&gt;
+    &lt;string name="login"&gt;Login&lt;/string&gt;
+&lt;/resources&gt;
             </div>
 
 
@@ -125,56 +125,56 @@
             <p><strong>fragment_login.xml</strong></p>
 
             <div class="code-container">
-                &lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
 
-                &lt;layout xmlns:android="http://schemas.android.com/apk/res/android"&gt;
+&lt;layout xmlns:android="http://schemas.android.com/apk/res/android"&gt;
 
-                &lt;LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:gravity="center"
-                &gt;
+    &lt;LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        &gt;
 
-                &lt;TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="8dp"
-                android:layout_margin="16dp"
-                android:text="@string/login_label_description"
-                android:gravity="center"
-                /&gt;
+        &lt;TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:layout_margin="16dp"
+            android:text="@string/login_label_description"
+            android:gravity="center"
+            /&gt;
 
-                &lt;EditText
-                android:id="@+id/username_input"
-                android:layout_width="280dp"
-                android:layout_height="wrap_content"
-                android:inputType="textAutoComplete"
-                android:layout_margin="8dp"
-                /&gt;
-
-
-                &lt;EditText
-                android:id="@+id/password_input"
-                android:layout_width="280dp"
-                android:layout_height="wrap_content"
-                android:inputType="textPassword"
-                android:layout_margin="8dp"
-                app:hintEnabled="true"
-                app:helperText="Input" /&gt;
+        &lt;EditText
+            android:id="@+id/username_input"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:inputType="textAutoComplete"
+            android:layout_margin="8dp"
+            /&gt;
 
 
-                &lt;Button
-                android:id="@+id/login_button"
-                android:layout_width="280dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:text="@string/login"
-                /&gt;
+        &lt;EditText
+            android:id="@+id/password_input"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:layout_margin="8dp"
+            app:hintEnabled="true"
+            app:helperText="Input" /&gt;
 
-                &lt;/LinearLayout&gt;
 
-                &lt;/layout&gt;
+        &lt;Button
+            android:id="@+id/login_button"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="@string/login"
+            /&gt;
+
+    &lt;/LinearLayout&gt;
+
+&lt;/layout&gt;
             </div>
 
 
@@ -182,108 +182,107 @@
 
 
             <div class="code-container">
-                &lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+
+&lt;layout&gt;
+
+    &lt;data&gt;
+        &lt;variable
+        name="username"
+        type="String" /&gt;
+
+        &lt;variable
+        name="userId"
+        type="String" /&gt;
+    &lt;/data&gt;
+
+    &lt;androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"&gt;
 
 
-                &lt;layout&gt;
-
-                &lt;data&gt;
-                &lt;variable
-                name="username"
-                type="String" /&gt;
-
-                &lt;variable
-                name="userId"
-                type="String" /&gt;
-                &lt;/data&gt;
-
-                &lt;androidx.constraintlayout.widget.ConstraintLayout
-                xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"&gt;
+        &lt;TextView
+            android:id="@+id/welcome_text_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/welcome"
+            android:textSize="32sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" /&gt;
 
 
-                &lt;TextView
-                android:id="@+id/welcome_text_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:text="@string/welcome"
-                android:textSize="32sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" /&gt;
+        &lt;TextView
+            android:id="@+id/id_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:padding="8dp"
+            android:text="@string/id"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/welcome_text_label" /&gt;
 
 
-                &lt;TextView
-                android:id="@+id/id_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:padding="8dp"
-                android:text="@string/id"
-                android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/welcome_text_label" /&gt;
+        &lt;TextView
+            android:id="@+id/textview_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:padding="8dp"
+            android:text="@{userId}"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@id/id_label"
+            app:layout_constraintTop_toBottomOf="@id/welcome_text_label"
+            tools:text="hfuiae214a" /&gt;
 
 
-                &lt;TextView
-                android:id="@+id/textview_id"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="16dp"
-                android:padding="8dp"
-                android:text="@{userId}"
-                android:textSize="16sp"
-                app:layout_constraintStart_toEndOf="@id/id_label"
-                app:layout_constraintTop_toBottomOf="@id/welcome_text_label"
-                tools:text="hfuiae214a" /&gt;
+        &lt;TextView
+            android:id="@+id/username_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:padding="8dp"
+            android:text="@string/user"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/id_label" /&gt;
+
+        &lt;TextView
+            android:id="@+id/textview_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="monospace"
+            android:padding="8dp"
+            android:text="@{username}"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@id/username_label"
+            app:layout_constraintTop_toBottomOf="@id/id_label"
+            tools:text="Rawhide95" /&gt;
 
 
-                &lt;TextView
-                android:id="@+id/username_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:padding="8dp"
-                android:text="@string/user"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/id_label" /&gt;
+        &lt;com.google.android.material.button.MaterialButton
+            android:id="@+id/logout_button"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/logout"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textview_id" /&gt;
 
-                &lt;TextView
-                android:id="@+id/textview_username"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="16dp"
-                android:fontFamily="monospace"
-                android:padding="8dp"
-                android:text="@{username}"
-                android:textSize="16sp"
-                app:layout_constraintStart_toEndOf="@id/username_label"
-                app:layout_constraintTop_toBottomOf="@id/id_label"
-                tools:text="Rawhide95" /&gt;
+    &lt;/androidx.constraintlayout.widget.ConstraintLayout&gt;
 
 
-                &lt;com.google.android.material.button.MaterialButton
-                android:id="@+id/logout_button"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/logout"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/textview_id" /&gt;
-
-                &lt;/androidx.constraintlayout.widget.ConstraintLayout&gt;
-
-
-                &lt;/layout&gt;
+&lt;/layout&gt;
             </div>
 
 
@@ -309,24 +308,24 @@
             <p><strong>LoginFragment.kt</strong></p>
 
             <div class="code-container">
-                package com.skybirdbits.logindemo
+package com.skybirdbits.logindemo
 
-                import androidx.fragment.app.Fragment
+import androidx.fragment.app.Fragment
 
 
-                class LoginFragment: Fragment() {
-                }
+class LoginFragment: Fragment() {
+}
             </div>
 
             <p><strong>ProfileFragment.kt</strong></p>
 
             <div class="code-container">
-                package com.skybirdbits.logindemo
+package com.skybirdbits.logindemo
 
-                import androidx.fragment.app.Fragment
+import androidx.fragment.app.Fragment
 
-                class ProfileFragment: Fragment() {
-                }
+class ProfileFragment: Fragment() {
+}
             </div>
 
             <h5>۳- ایجاد فایل NavGraph :</h5>
@@ -339,49 +338,52 @@
             <p><strong>main_nav_graph.xml</strong></p>
 
             <div class="code-container">
-                &lt;?xml version="1.0" encoding="utf-8"?&gt;
-                &lt;navigation xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:id="@+id/main_nav_graph"
-                app:startDestination="@id/loginFragment"&gt;
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/loginFragment"&gt;
 
-                &lt;fragment
-                android:id="@+id/loginFragment"
-                android:name="com.skybirdbits.logindemo.LoginFragment"
-                android:label="LoginFragment"
-                tools:layout="@layout/fragment_login"&gt;
-                &lt;action
+    &lt;fragment
+        android:id="@+id/loginFragment"
+        android:name="com.skybirdbits.logindemo.LoginFragment"
+        android:label="LoginFragment"
+        tools:layout="@layout/fragment_login"&gt;
+            &lt;action
                 android:id="@+id/from_loginFragment_to_profileFragment"
                 app:destination="@id/profileFragment"
                 app:popUpTo="@id/loginFragment"
                 app:popUpToInclusive="true"&gt;
 
                 &lt;argument
-                android:name="usrname"
-                app:argType="string" app:nullable="false" /&gt;
+                    android:name="usrname"
+                    app:argType="string"
+                    app:nullable="false" /&gt;
+
                 &lt;argument
-                android:name="id"
-                app:argType="string" app:nullable="false"/&gt;
+                    android:name="id"
+                    app:argType="string"
+                    app:nullable="false"/&gt;
 
-                &lt;/action&gt;
-                &lt;/fragment&gt;
+            &lt;/action&gt;
+    &lt;/fragment&gt;
 
-                &lt;fragment
-                android:id="@+id/profileFragment"
-                android:name="com.skybirdbits.logindemo.ProfileFragment"
-                android:label="ProfileFragment"
-                tools:layout="@layout/fragment_profile" &gt;
+    &lt;fragment
+        android:id="@+id/profileFragment"
+        android:name="com.skybirdbits.logindemo.ProfileFragment"
+        android:label="ProfileFragment"
+        tools:layout="@layout/fragment_profile" &gt;
 
-                &lt;action
-                android:id="@+id/from_profileFragment_to_loginFragment"
-                app:destination="@id/loginFragment"
-                app:popUpTo="@id/profileFragment"
-                app:popUpToInclusive="true" /&gt;
+        &lt;action
+            android:id="@+id/from_profileFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/profileFragment"
+            app:popUpToInclusive="true" /&gt;
 
-                &lt;/fragment&gt;
+    &lt;/fragment&gt;
 
-                &lt;/navigation&gt;
+&lt;/navigation&gt;
             </div>
 
 
@@ -412,25 +414,23 @@
 
 
             <div class="code-container">
-                &lt;?xml version="1.0" encoding="utf-8"?&gt;
-                &lt;merge xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                tools:context=".MainActivity"&gt;
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;merge xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".MainActivity"&gt;
 
+    &lt;androidx.fragment.app.FragmentContainerView
+        android:id="@+id/nav_host_fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        app:navGraph="@navigation/main_nav_graph"
+        app:defaultNavHost="true" /&gt;
 
-                &lt;androidx.fragment.app.FragmentContainerView
-                android:id="@+id/nav_host_fragment_container"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:name="androidx.navigation.fragment.NavHostFragment"
-                app:navGraph="@navigation/main_nav_graph"
-                app:defaultNavHost="true"
-                /&gt;
-
-                &lt;/merge&gt;
+&lt;/merge&gt;
             </div>
 
             <p>توضیح:</p>
@@ -460,53 +460,53 @@
             <p><strong>LoginFragment.kt</strong></p>
 
             <div class="code-container">
-                package com.skybirdbits.logindemo
+package com.skybirdbits.logindemo
 
-                import android.os.Bundle
-                import android.view.LayoutInflater
-                import android.view.View
-                import android.view.ViewGroup
-                import android.widget.Toast
-                import androidx.fragment.app.Fragment
-                import androidx.navigation.fragment.findNavController
-                import com.google.android.material.snackbar.Snackbar
-                import com.skybirdbits.logindemo.databinding.FragmentLoginBinding
-                import kotlin.random.Random
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.google.android.material.snackbar.Snackbar
+import com.skybirdbits.logindemo.databinding.FragmentLoginBinding
+import kotlin.random.Random
 
-                class LoginFragment: Fragment() {
-
-
-                override fun onCreateView(
-                inflater: LayoutInflater,
-                container: ViewGroup?,
-                savedInstanceState: Bundle?
-                ): View {
-                val binding = FragmentLoginBinding.inflate(inflater, container , false)
+class LoginFragment: Fragment() {
 
 
-                val usernameInput = binding.usernameInput
-                val passwordInput = binding.passwordInput
+    override fun onCreateView(
+    inflater: LayoutInflater,
+    container: ViewGroup?,
+    savedInstanceState: Bundle?
+    ): View {
+    val binding = FragmentLoginBinding.inflate(inflater, container , false)
 
 
-                binding.loginButton.setOnClickListener {
-                val username = usernameInput.text.toString()
-                val password = passwordInput.text.toString()
-                val id = Random(1000)
-
-                if(password.isNotBlank() && username.isNotBlank()) {
-                Snackbar.make(binding.root, "Welcome $username" , Snackbar.LENGTH_SHORT).show()
-                val action =
-                LoginFragmentDirections.fromLoginFragmentToProfileFragment(username, id.nextLong().toString())
-                findNavController().navigate(action)
-                }else {
-                Toast.makeText(context , "Username and Password Should not be empty!", Toast.LENGTH_SHORT).show()
-                }
-                }
+    val usernameInput = binding.usernameInput
+    val passwordInput = binding.passwordInput
 
 
-                return binding.root
-                }
-                }
+    binding.loginButton.setOnClickListener {
+    val username = usernameInput.text.toString()
+    val password = passwordInput.text.toString()
+    val id = Random(1000)
+
+        if(password.isNotBlank() && username.isNotBlank()) {
+            Snackbar.make(binding.root, "Welcome $username" , Snackbar.LENGTH_SHORT).show()
+            val action =
+            LoginFragmentDirections.fromLoginFragmentToProfileFragment(username, id.nextLong().toString())
+            findNavController().navigate(action)
+        }else {
+            Toast.makeText(context , "Username and password should not be empty!", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+
+    return binding.root
+    }
+}
             </div>
 
 
@@ -538,44 +538,43 @@
 
 
             <div class="code-container">
-                package com.skybirdbits.logindemo
+package com.skybirdbits.logindemo
 
-                import android.os.Bundle
-                import android.view.LayoutInflater
-                import android.view.View
-                import android.view.ViewGroup
-                import android.widget.Toast
-                import androidx.fragment.app.Fragment
-                import androidx.navigation.fragment.findNavController
-                import com.google.android.material.snackbar.Snackbar
-                import com.skybirdbits.logindemo.databinding.FragmentProfileBinding
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.google.android.material.snackbar.Snackbar
+import com.skybirdbits.logindemo.databinding.FragmentProfileBinding
 
-                class ProfileFragment: Fragment() {
+class ProfileFragment: Fragment() {
 
+    override fun onCreateView(
+    inflater: LayoutInflater,
+    container: ViewGroup?,
+    savedInstanceState: Bundle?
+    ): View {
 
-                override fun onCreateView(
-                inflater: LayoutInflater,
-                container: ViewGroup?,
-                savedInstanceState: Bundle?
-                ): View {
-                val binding = FragmentProfileBinding.inflate(inflater, container, false)
+    val binding = FragmentProfileBinding.inflate(inflater, container, false)
 
-                val username = requireArguments().getString("usrname")
-                val id = requireArguments().getString("id")
+    val username = requireArguments().getString("usrname")
+    val id = requireArguments().getString("id")
 
-                binding.username = username
-                binding.userId = id
+    binding.username = username
+    binding.userId = id
 
+    binding.logoutButton.setOnClickListener {
+        val action = ProfileFragmentDirections.fromProfileFragmentToLoginFragment()
+        findNavController().navigate(action)
+        Snackbar.make(binding.root,"You've been logged out", Snackbar.LENGTH_SHORT).show()
+    }
 
-                binding.logoutButton.setOnClickListener {
-                val action = ProfileFragmentDirections.fromProfileFragmentToLoginFragment()
-                findNavController().navigate(action)
-                Snackbar.make(binding.root,"You've been logged out", Snackbar.LENGTH_SHORT).show()
-                }
-
-                return binding.root
-                }
-                }
+        return binding.root
+    }
+}
             </div>
 
 
