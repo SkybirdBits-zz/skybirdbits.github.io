@@ -1,7 +1,9 @@
-const keywords = /(?<![A-Za-z\d_\"=])(public|private|protected|void|return|static|instanceof|for|while|do|if|switch|override|fun|var|val|companion|data|false|true|null|class)(?![A-Za-z\d_\"=])/g;
-const string = /".*"|'.*'/g;
-const className = /(?<![a-z\d\"_])[A-Z][a-zA-Z\d]*(?![A-Za-z_]*\")/g;
-const numbers = /(?<![A-Za-z\d\"_])\d+/g;
+const keyword = /(?<!([A-Za-z\d_\"=]|\/\/.*))(public|private|protected|void|return|static|instanceof|for|while|do|if|switch|override|fun|var|val|companion|data|false|true|null|class|short|byte|int|long|double|float|boolean|throw|throws|try|catch|finally|final|static|interface|enum|abstract|import|this|super|new)(?![A-Za-z\d_\"=])/g;
+const string = /(?<!\/\/.*)["']([a-zA-Z-=.\s\d]*|\[.*\]|(\/.+\/)|(\/{1}.+\/{0,1})|\{.*\})["']/g;
+const className = /(?<![a-zA-Z\d"'_@\/-]|\/\/.*)[A-Z][a-zA-Z\d]*(?![A-Za-z_/]*"')/g;
+const digit = /(?<![A-Za-z\d\"_])\d+/g;
+const annotation = /(?<![a-zA-Z\d"'_@\/-])@[A-Z][a-zA-Z\d]*/g
+const comment = /\/\/.*/g
 
 const elements = document.querySelectorAll('.code-container');
 
@@ -54,10 +56,7 @@ function createCodeViewContents(codeLines){
 
     for(var lineIndex = 0; lineIndex < codeLines.length; lineIndex++){
         let line = codeLines[lineIndex];
-        line = styleAllStrings(line);
-        line = styleAllKeywords(line);
-        line = styleAllClassNames(line);
-        line = styleAllNumbers(line);
+        line = styleAllSensitiveWords(line);
         insertLine(tBody, line, lineIndex);
     }
 
@@ -68,29 +67,20 @@ function createCodeViewContents(codeLines){
     return codeWrap;
 }
 
-function styleAllStrings(text){
-    return text.replaceAll(string, function(word){
-        return "<span class=\"string\">" + word + "</span>";
-    });
+function styleAllSensitiveWords(textLine){
+        textLine = styleSensitiveWords(textLine, string, "string");
+        textLine = styleSensitiveWords(textLine, keyword, "keyword");
+        textLine = styleSensitiveWords(textLine, className, "class-name");
+        textLine = styleSensitiveWords(textLine, digit, "digit")
+        textLine = styleSensitiveWords(textLine, annotation, "annotation")
+        textLine = styleSensitiveWords(textLine, comment, "comment");
+        return textLine;
 }
 
-function styleAllKeywords(text){
-    return text.replaceAll(keywords, function(word){
-        return "<span class=\"keyword\">" + word + "</span>";
+function styleSensitiveWords(text, regex ,styleClassName){
+    return text.replaceAll(regex, function(word){
+        return `<span class=\"${styleClassName}\">${word}</span>`;
     });
-}
-
-
-function styleAllClassNames(text){
-    return text.replaceAll(className, function(word){
-        return "<span class=\"class-name\">"+ word + "</span>";
-    });
-}
-
-function styleAllNumbers(text){
-    return text.replaceAll(numbers, function(word){
-            return "<span class=\"numbers\">"+  word + "</span>"
-        });
 }
 
 //create a row to insert code line
