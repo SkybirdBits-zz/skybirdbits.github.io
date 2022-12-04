@@ -1,7 +1,7 @@
 <div dir="rtl" class="font-family: Samim;">
 <p align="center">
     <a href="https://skybirdbits.github.io">
-        <img width="200" height="200" src="https://skybirdbits.github.io/resources/logo.png"/>
+        <img width="200" height="200" src="https://skybirdbits.github.io/resources/favicon.png"/>
     </a>
 </p>
 
