@@ -19,6 +19,7 @@
 .article-foot{
     display: flex;
     flex-wrap: wrap;
+    min-height: 150px;
     background-color: #eeeeee;
     margin: 30px auto;
     padding: 8px;
