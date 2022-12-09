@@ -1,7 +1,7 @@
-const keyword = /(?<!([^\s,(]{1}|\/\/.*))(public|private|protected|void|return|static|instanceof|for|while|do|if|switch|override|fun|var|val|companion|data|false|true|null|class|short|byte|int|long|double|float|boolean|throw|throws|try|catch|finally|final|static|interface|enum|abstract|import|this|super|new|package)(?![\w\d]|[^\s)]{1})/g;
+const keyword = /(?<!([^\s,(}]{1}|\/\/.*))(public|private|protected|void|return|static|instanceof|for|while|do|if|else|switch|case|override|fun|var|val|companion|data|false|true|null|class|short|byte|int|long|double|float|boolean|throw|throws|try|catch|finally|final|static|interface|enum|abstract|import|this|super|new|package)(?![\w\d]|[^\s)\{\(;]{1})/g;
 const string = /(?<!\/\/.*)(["']([^+]*)["'])|(["'](@\+.*)["'])/g;
 const className = /(?<![^\s./-<,(]|(\/\/.*))[A-Z]{1}[\w\d]*(?!([^\s.,>:("]){1})/g;
-const digit = /(?<![^\s,(])\d+(?![\w\d]|[^\s),;]{1})/g;
+const digit = /(?<![^\s,(]|(\w\s))\d+(?![\w\d]|[^\s),;]{1})/g;
 const annotation = /(?<![^\s]{1})@[A-Z]{1}[a-zA-Z\d]*/g
 const comment = /(?<!(http{1}.*))\/\/.*/g
 
