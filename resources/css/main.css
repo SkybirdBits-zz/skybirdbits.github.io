@@ -7,13 +7,14 @@
 @import url("utils.css");
 @import url("article.css");
 
-
 main{
     position: relative;
     min-height: 64vh;
     width: 100vw;
     background-color: #ffffff;
     padding-bottom: 128px;
+    font-variant-ligatures: none;
+
 }
 
 .figure {
