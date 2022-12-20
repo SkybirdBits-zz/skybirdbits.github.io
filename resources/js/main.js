@@ -1,4 +1,4 @@
-import {createCodeViews} from './article.js';
+import {createCodeViews, scrollTopVisibility} from './article.js';
 import {initSidebar , loadAllArticleLinks} from './base.js';
 import * as fileloader from './fileloader.js';
 
@@ -29,3 +29,6 @@ window.onload = function(){
 
     createCodeViews();
 }
+
+
+window.onscroll = scrollTopVisibility;

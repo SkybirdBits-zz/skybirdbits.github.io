@@ -7,6 +7,9 @@ const comment = /(?<!(http{1}.*))\/\/.*/g
 
 const elements = document.querySelectorAll('.code-container');
 
+const scrollButtonContainer = document.querySelector('.scroll-top-container')
+const header = document.querySelector('header');
+
 function createCodeViews(){
 
     for(var i =0; i<elements.length; i++){
@@ -119,4 +122,26 @@ function collectTextCodes(codeViewContents){
     return text;
 }
 
-export {createCodeViews};
+
+let currentScrollY = 0;
+
+var scrollTopVisibility = function(){
+
+    if(window.scrollY == 0){
+        scrollButtonContainer.style.visibility = "hidden";
+    }else{
+
+        if(window.scrollY < currentScrollY){
+
+           if(document.documentElement.scrollTop > header.offsetHeight)
+                scrollButtonContainer.style.visibility = "visible";
+
+        }else {
+           scrollButtonContainer.style.visibility = "hidden";
+        }
+    }
+
+    currentScrollY = window.scrollY;
+}
+
+export {createCodeViews, scrollTopVisibility};
