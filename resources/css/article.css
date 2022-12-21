@@ -138,6 +138,7 @@
     bottom: 64px;
     background: white;
     border-radius: 18px;
+    visibility: hidden;
 }
 
 .scroll-top-container:hover{
