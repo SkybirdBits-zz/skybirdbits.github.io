@@ -99,11 +99,11 @@
                 <p>RootProject -> app -> build.gradle</p>
 
                 <div class="code-container">
-                    dependencies{
-                    ...
-                    implementation "androidx.navigation:navigation-fragment-ktx:2.5.1"
-                    implementation "androidx.navigation:navigation-ui-ktx:2.5.1"
-                    }
+dependencies{
+    ...
+    implementation "androidx.navigation:navigation-fragment-ktx:2.5.1"
+    implementation "androidx.navigation:navigation-ui-ktx:2.5.1"
+}
                 </div>
 
                 <h5>
@@ -119,12 +119,11 @@
                 </p>
 
                 <div class="code-container">
-                    dependencies {
-                    ...
-                    classpath
-                    "androidx.navigation.safeargs.kotlin:androidx.navigation.safeargs.kotlin.gradle.plugin:$nav_version"
-
-                    }
+dependencies {
+    ...
+    classpath "androidx.navigation.safeargs.kotlin:androidx.navigation.safeargs.kotlin.gradle.plugin:$nav_version"
+    ...
+}
                 </div>
 
                 <div class="code-container">
@@ -170,16 +169,16 @@
                     دو فیلد id و startDestination باشه</p>
 
                 <div class="code-container">
-                    &lt;navigation
-                    xmlns:android="http://schemas.android.com/apk/res/android"
-                    xmlns:app="http://schemas.android.com/apk/res-auto"
-                    xmlns:tools="http://schemas.android.com/tools"
-                    android:id="..."
-                    app:startDestination="..."&gt;
+&lt;navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="..."
+    app:startDestination="..."&gt;
 
-                    ...
+    ...
 
-                    &lt;/navigation&gt;
+&lt;/navigation&gt;
                 </div>
 
                 <p>فیلد id شامل ای دی برای navigation است</p>
@@ -192,11 +191,11 @@
 
 
                 <div class="code-container">
-                    &lt;fragment
-                    android:id="..."
-                    android:name="..."
-                    android:label="..."
-                    tools:layout="..." /&gt;
+&lt;fragment
+    android:id="..."
+    android:name="..."
+    android:label="..."
+    tools:layout="..." /&gt;
                 </div>
 
                 <p>فیلد id شامل آی دی برای fragment است</p>
@@ -213,14 +212,14 @@
 
 
                 <div class="code-container">
-                    &lt;fragment ... &gt;
-                    ...
-                    &lt;action
-                    android:id="..."
-                    app:destination="..."&gt;
-                    ...
-                    &lt;/action&gt;
-                    &lt;/fragment&gt;
+&lt;fragment ... &gt;
+    ...
+    &lt;action
+    android:id="..."
+    app:destination="..."&gt;
+    ...
+    &lt;/action&gt;
+&lt;/fragment&gt;
                 </div>
 
                 <p>فیلد id شامل آی دی برای action است</p>
@@ -235,14 +234,14 @@
                     این عنصرو باید به عنوان فرزند action تعریف کنیم</p>
 
                 <div class="code-container">
-                    &lt;action ... &gt;
+&lt;action ... &gt;
 
-                    &lt;argument
-                    android:name="..."
-                    app:argType="..."
-                    app:nullable="..." /&gt;
+    &lt;argument
+    android:name="..."
+    app:argType="..."
+    app:nullable="..." /&gt;
 
-                    &lt;/action&gt;
+&lt;/action&gt;
                 </div>
 
 
@@ -262,38 +261,38 @@
                 <p>سپس مانند نمونه ی زیر destination ها و مسیر های بینشونو تعریف میکنیم:</p>
 
                 <div class="code-container">
-                    &lt;navigation xmlns:android="http://schemas.android.com/apk/res/android"
-                    xmlns:app="http://schemas.android.com/apk/res-auto"
-                    xmlns:tools="http://schemas.android.com/tools"
-                    android:id="@+id/main_nav_graph"
-                    app:startDestination="@id/destination0"&gt;
+&lt;navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/main_nav_graph"
+            app:startDestination="@id/destination0"&gt;
 
-                    &lt;fragment
-                    android:id="@+id/firstFragment"
-                    android:name="packageName.FirstFragment"
-                    android:label="FirstFragment Label"
-                    tools:layout="@layout/fragment_first"&gt;
+            &lt;fragment
+                android:id="@+id/firstFragment"
+                android:name="packageName.FirstFragment"
+                android:label="FirstFragment Label"
+                tools:layout="@layout/fragment_first"&gt;
 
-                    &lt;action
-                    android:id="@+id/from_FirstFragment_to_SecondFragment"
-                    android:destination="@fragment1"&gt;
+            &lt;action
+                android:id="@+id/from_FirstFragment_to_SecondFragment"
+                android:destination="@fragment1"&gt;
 
-                    &lt;argument
-                    android:name="argName"
-                    app:argType="object"
-                    app:nullable="false"/&gt;
+            &lt;argument
+                android:name="argName"
+                app:argType="object"
+                app:nullable="false"/&gt;
 
-                    &lt;/action&gt;
+            &lt;/action&gt;
 
-                    &lt;/fragment&gt;
+            &lt;/fragment&gt;
 
-                    &lt;fragment
-                    android:id="@+id/secondFragment"
-                    android:name="packagename.SecondFragment"
-                    android:label="Fragment1 Label"
-                    tools:layout="@layout/fragment_second"/&gt;
+            &lt;fragment
+                android:id="@+id/secondFragment"
+                android:name="packagename.SecondFragment"
+                android:label="Fragment1 Label"
+                tools:layout="@layout/fragment_second"/&gt;
 
-                    &lt;/navigation&gt;
+&lt;/navigation&gt;
                 </div>
 
                 <p>اگه کد هاتون مثل بالا باشه مانند تصویر زیر را باید در تب design ببینید</p>
@@ -324,13 +323,13 @@
                     main_activity تعریف میکنند</p>
 
                 <div class="code-container">
-                    &lt;androidx.fragment.app.FragmentContainerView
-                    android:id="..."
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:name="androidx.navigation.fragment.NavHostFragment"
-                    app:navGraph="..."
-                    app:defaultNavHost="true" /&gt;
+&lt;androidx.fragment.app.FragmentContainerView
+    android:id="..."
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:name="androidx.navigation.fragment.NavHostFragment"
+    app:navGraph="..."
+    app:defaultNavHost="true" /&gt;
                 </div>
 
 
@@ -369,29 +368,29 @@
                 <p>برای اینکه بخوایم کاربر با زدن یک کلید از یک فرگمنت به فرگمنت دیگه ای بره مثل زیر عمل می کنیم</p>
 
                 <div class="code-container">
-                    class FirstFragment: Fragment(){
+class FirstFragment: Fragment(){
 
-                    ...
+    ...
 
-                    override fun onCreateView(
-                    inflater: LayoutInflater,
-                    container: ViewGroup?,
-                    savedInstanceState: Bundle?
-                    ): View? {
+    override fun onCreateView(
+    inflater: LayoutInflater,
+    container: ViewGroup?,
+    savedInstanceState: Bundle?
+    ): View? {
 
-                    ...
+        ...
 
-                    button.setOnClickListener {
-                    val action = FirstFragmentDirections.fromFirstFragmentToSecondFragment(arg0 , arg1, ... argn)
-                    findNavController().navigate(action)
-                    }
+        button.setOnClickListener {
+        val action = FirstFragmentDirections.fromFirstFragmentToSecondFragment(arg0 , arg1, ... argn)
+        findNavController().navigate(action)
+        }
 
-                    return view
-                    }
+        return view
+    }
 
-                    ...
+    ...
 
-                    }
+}
                 </div>
 
 
