@@ -38,15 +38,27 @@
             </address>
 
             <figure class="figure figure-wrapper">
-
                 <img alt="عبارت لامبدا"
                      class="rounded figure-img"
                      src="/resources/image/kotlin/lambda_expression_cover.png">
-
             </figure>
+
+            <div class="toc">
+                <h5 class="p-2 mx-2">دسترسی سریع</h5>
+
+                <div class="list-group">
+                    <a class="list-group-item list-group-item-action" href="#sub0">بررسی یه ویژگی از کاتلین</a>
+                        <a class="list-group-item list-group-item-action" href="#sub1">عبارت لامبدا (lambda-expression) در کاتلین</a>
+                        <a class="list-group-item list-group-item-action" href="#sub2">توابع بی نام ( anonymous functions ) در کاتلین</a>
+                </div>
+            </div>
+
         </div>
         <article>
-                <h3>بررسی یه ویژگی از کاتلین: </h3>
+
+            <div id="sub0" class="subsection">
+                <h3>بررسی یه ویژگی از کاتلین</h3>
+
                 <blockquote>
                     در کاتلین همه چیز دارای مقدار است؛ از متغیر ها گرفته تا توابع تقریبا هر عبارت و تابعی که وجود داره
                     دارای
@@ -87,11 +99,12 @@ private fun myMethod(){
 //correct
 val result = myMethod()
                 </div>
+            </div>
 
-
-                <h2>
-                    عبارت لامبدا (lambda-expression) در کاتلین:
-                </h2>
+            <div id="sub1" class="subsection">
+                <h3>
+                    عبارت لامبدا (lambda-expression) در کاتلین
+                </h3>
 
                 <p>
                     برای تعریف متغیر هایی از جنس لامبدا مانند متغیر های معمولی عمل میکنیم:
@@ -245,9 +258,9 @@ println(result)
                     </strong>
                 </p>
 
-                <h3>
+                <h5>
                     برچسب زدن به عبارت لامبدا:
-                </h3>
+                </h5>
 
 
                 <p>
@@ -267,10 +280,11 @@ println(result)
                     برچسب<strong dir="ltr">mylambda@{...}</strong> اسم دلخواهیه که به عنوان برچسب برای عبارت تعریف
                     میکنیم.
                 </p>
+            </div>
 
-
-                <h3>
-                    توابع بی نام ( anonymous functions ) :
+            <div id="sub2" class="subsection">
+                <h3 id="subsec2">
+                    توابع بی نام ( anonymous functions ) در کاتلین
                 </h3>
 
 
@@ -353,6 +367,7 @@ val age = 24
 val message = myAnonymous(name , age)
 println(message)
                 </div>
+            </div>
 
                 <p>
                     یکی از ویژگی هایی که کاتلینو با جاوا متمایز کرده قدرت functionality کاتلینه؛ در این مقاله با توابع
@@ -361,6 +376,12 @@ println(message)
         </article>
     </div>
 </main>
+
+<div class="scroll-top-container">
+    <a class="text-decoration-none link-dark material-icons" href="#">
+        arrow_drop_up
+    </a>
+</div>
 
 <footer></footer>
 

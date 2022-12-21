@@ -10,11 +10,11 @@
 
     <title>استفاده از Data Binding در اندروید</title>
 
-    <meta property="og:title" content="استفاده از Data Binding در اندروید"/>
-    <meta property="og:description" content="آموزش افزودن و استفاده از کتابخانه ی data binding در اندروید"/>
-    <meta property="og:image" content="https://skybirdbits.github.io/resources/favicon.png" />
-    <meta property="og:url" content="https://skybirdbits.github.io/article/android/data-binding.html" />
-    <meta property="og:type" content="article">
+    <meta content="استفاده از Data Binding در اندروید" property="og:title"/>
+    <meta content="آموزش افزودن و استفاده از کتابخانه ی data binding در اندروید" property="og:description"/>
+    <meta content="https://skybirdbits.github.io/resources/favicon.png" property="og:image"/>
+    <meta content="https://skybirdbits.github.io/article/android/data-binding.html" property="og:url"/>
+    <meta content="article" property="og:type">
 
     <link href="/resources/css/main.css" rel="stylesheet">
     <link href="/resources/favicon.png" rel="icon" type="image/x-icon">
@@ -23,7 +23,6 @@
 
 </head>
 <body>
-
 
 <header></header>
 
@@ -40,12 +39,19 @@
             </address>
 
             <figure class="figure figure-wrapper">
-
                 <img alt="data binding"
                      class="rounded figure-img"
                      src="/resources/image/android/data_binding_cover.png">
-
             </figure>
+
+            <div class="toc">
+                <h5 class="p-2 mx-2">دسترسی سریع</h5>
+                <div class="list-group">
+                    <a class="list-group-item list-group-item-action" href="#sub0">فعال سازی Data Binding</a>
+                    <a class="list-group-item list-group-item-action" href="#sub1">استفاده از Data Binding</a>
+                </div>
+            </div>
+
         </div>
 
         <article>
@@ -54,89 +60,93 @@
                 نیاز به کد نویسی اپدیت کنید
             </blockquote>
 
-            <h3>
-                فعال سازی Data Binding :
-            </h3>
+            <div class="subsection" id="sub0">
+                <h3>
+                    فعال سازی Data Binding
+                </h3>
 
-            <p>درون پوشه ی app داخل فایل build.gradle داخل android بنویسید:</p>
+                <p>درون پوشه ی app داخل فایل build.gradle داخل android بنویسید:</p>
 
-            <p>Root Project -> app -> build.gradle</p>
+                <p>Root Project -> app -> build.gradle</p>
 
-            <div class="code-container">
-android{
+                <div class="code-container">
+                    android{
 
-    ...
+                    ...
 
-    buildFeatures{
-    dataBinding true
-    }
+                    buildFeatures{
+                    dataBinding true
+                    }
 
-}
+                    }
+                </div>
+
             </div>
 
+            <div class="subsection" id="sub1">
+                <h3>
+                    استفاده از Data Binding
+                </h3>
 
-            <h3>
-                استفاده از Data Binding :
-            </h3>
+                <p><strong>مثال:</strong></p>
 
-            <p><strong>مثال:</strong></p>
+                <p>
+                    فرض کنید یک کلاس داریم به اسم
+                    <strong>TestFragment</strong>
+                    و یک فایل xml به اسم
+                    <strong>fragment_test</strong>
+                    برای استفاده از Data Binding سه مرحله رو باید انجام بدیم
+                </p>
 
-            <p>
-                فرض کنید یک کلاس داریم به اسم
-                <strong>TestFragment</strong>
-                و یک فایل xml به اسم
-                <strong>fragment_test</strong>
-                برای استفاده از Data Binding سه مرحله رو باید انجام بدیم
-            </p>
-
-            <figure class="figure figure-wrapper">
-                <img alt="مراحل استفاده از data binding در فایل xml"
-                     class="rounded figure-img"
-                     src="/resources/image/android/data_binding_using.png">
-            </figure>
-
-
-            <p><strong>۱- ایجاد تگ layout :</strong></p>
-            <p>
-                این تگو باید قبل از هر تگ دیگه ای ایجاد کنیم
-            </p>
+                <figure class="figure figure-wrapper">
+                    <img alt="مراحل استفاده از data binding در فایل xml"
+                         class="rounded figure-img"
+                         src="/resources/image/android/data_binding_using.png">
+                </figure>
 
 
-            <p><strong>۲- ایجاد و مقداردهی داده هایی که میخوایم view ها رو بهشون وصل کنیم :</strong></p>
-            <p>
-                ابتدا متغیر(ها) رو مانند شکل بالا داخل تگ data تعریف میکنیم
-                سپس داخل متد onCreateView مربوط به کلاس Fragment مانند زیر اونا رو مقدار دهی میکنیم
-            </p>
+                <p><strong>۱- ایجاد تگ layout :</strong></p>
+                <p>
+                    این تگو باید قبل از هر تگ دیگه ای ایجاد کنیم
+                </p>
 
-            <div class="code-container">
-override fun onCreateView(
-inflater: LayoutInflater,
-container: ViewGroup?,
-savedInstanceState: Bundle?
-):View {
 
-    val binding = FragmentTestBinding.inflate(inflater, container ,false)
+                <p><strong>۲- ایجاد و مقداردهی داده هایی که میخوایم view ها رو بهشون وصل کنیم :</strong></p>
+                <p>
+                    ابتدا متغیر(ها) رو مانند شکل بالا داخل تگ data تعریف میکنیم
+                    سپس داخل متد onCreateView مربوط به کلاس Fragment مانند زیر اونا رو مقدار دهی میکنیم
+                </p>
 
-    binding.viewmodel = myViewModel
+                <div class="code-container">
+                    override fun onCreateView(
+                    inflater: LayoutInflater,
+                    container: ViewGroup?,
+                    savedInstanceState: Bundle?
+                    ):View {
 
-    return binding.root
-}
+                    val binding = FragmentTestBinding.inflate(inflater, container ,false)
+
+                    binding.viewmodel = myViewModel
+
+                    return binding.root
+                    }
+                </div>
+
+                <p>
+                    در قطعه کد بالا ابتدا با استفاده از کلاس FragmentTestBinding که خودکار ساخته شده فایل
+                    fragment_test.xml رو inflate کردیم
+                    سپس متغیر viewmodel رو که در فایل xml تعریف کرده بودیم صدا و مقداردهی کردیم
+                    در نهایت root که در اینجا LinearLayout هست رو برگردوندیم
+                </p>
+
+                <p><strong>۳- وصل کردن view به داده ها:</strong></p>
+
+                <p>
+                    با استفاده از syntax
+                    <b dir="ltr">@{ ... }</b>
+                    ویو رو به داده ها وصل میکنیم
+                </p>
             </div>
-
-            <p>
-                در قطعه کد بالا ابتدا با استفاده از کلاس FragmentTestBinding که خودکار ساخته شده فایل
-                fragment_test.xml رو inflate کردیم
-                سپس متغیر viewmodel رو که در فایل xml تعریف کرده بودیم صدا و مقداردهی کردیم
-                در نهایت root که در اینجا LinearLayout هست رو برگردوندیم
-            </p>
-
-            <p><strong>۳- وصل کردن view به داده ها:</strong></p>
-
-            <p>
-                با استفاده از syntax
-                <b dir="ltr">@{ ... }</b>
-                ویو رو به داده ها وصل میکنیم
-            </p>
 
 
             <p>
@@ -155,7 +165,7 @@ savedInstanceState: Bundle?
                         <span class="p-1">
                             <a class="text-decoration-none" href="navigation.html">استفاده از نویگیشن در اندروید</a>
                         </span>
-                        <span class="p-1">
+                    <span class="p-1">
                           <a class="text-decoration-none" href="data-binding-navigation-sample.html">استفاده از Data Binding و Navigation در یک پروژه ی اندرویدی</a>
                         </span>
 
@@ -167,6 +177,18 @@ savedInstanceState: Bundle?
 
     </div>
 </main>
+
+<div class="scroll-top-container">
+    <a class="text-decoration-none link-dark material-icons" href="#top">
+        arrow_drop_up
+    </a>
+</div>
+
+<div class="scroll-top-container">
+    <a class="text-decoration-none link-dark material-icons" href="#">
+        arrow_drop_up
+    </a>
+</div>
 
 <footer></footer>
 

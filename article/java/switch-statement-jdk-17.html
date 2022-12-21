@@ -3,16 +3,18 @@
 <head>
     <meta content="ie=edge" http-equiv="x-ua-compatible"/>
     <meta content="برنامه نویسی جاوا، کلید واژه ی سوییچ، کلید واژه ها در جاوا، دستور سوییچ در جاوا" name="keywords"/>
-    <meta content="بررسی تغییرات سوییچ قبل از jdk 1.8 تا jdk 17 lts در هر ورژن از جاوا دستور سوییچ در جاوا چه تغییراتی کرده و چه قابلیت هایی پیدا کرده" name="description"/>
+    <meta content="بررسی تغییرات سوییچ قبل از jdk 1.8 تا jdk 17 lts در هر ورژن از جاوا دستور سوییچ در جاوا چه تغییراتی کرده و چه قابلیت هایی پیدا کرده"
+          name="description"/>
     <meta charset="UTF-8"/>
     <meta content="width:device-width, initial-scale=1" name="viewport"/>
     <title>بررسی تغییرات سوییچ تا JDK 17 LTS</title>
 
-    <meta property="og:title" content="بررسی تغییرات سوییچ تا JDK 17 LTS"/>
-    <meta property="og:description" content="بررسی تغییرات سوییچ قبل از jdk 1.8 تا jdk 17 lts در هر ورژن از جاوا دستور سوییچ در جاوا چه تغییراتی کرده و چه قابلیت هایی پیدا کرده"/>
-    <meta property="og:image" content="https://skybirdbits.github.io/resources/favicon.png" />
-    <meta property="og:url" content="https://skybirdbits.github.io/article/java/switch-statement-jdk-17.html" />
-    <meta property="og:type" content="article">
+    <meta content="بررسی تغییرات سوییچ تا JDK 17 LTS" property="og:title"/>
+    <meta content="بررسی تغییرات سوییچ قبل از jdk 1.8 تا jdk 17 lts در هر ورژن از جاوا دستور سوییچ در جاوا چه تغییراتی کرده و چه قابلیت هایی پیدا کرده"
+          property="og:description"/>
+    <meta content="https://skybirdbits.github.io/resources/favicon.png" property="og:image"/>
+    <meta content="https://skybirdbits.github.io/article/java/switch-statement-jdk-17.html" property="og:url"/>
+    <meta content="article" property="og:type">
 
     <link href="/resources/css/main.css" rel="stylesheet">
     <link href="/resources/favicon.png" rel="icon" type="image/x-icon">
@@ -37,8 +39,15 @@
             <figure class="figure figure-wrapper">
                 <img alt="دستور سویچ در jdk 17"
                      class="rounded figure-img" src="/resources/image/java/switch_statement_jdk17_cover.png"/>
-
             </figure>
+            <div class="toc">
+                <h5 class="p-2 mx-2">دسترسی سریع</h5>
+                <div class="list-group">
+                    <a class="list-group-item list-group-item-action" href="#sub0">JDK < 1.8</a>
+                    <a class="list-group-item list-group-item-action" href="#sub1">JDK >= 1.8</a>
+                    <a class="list-group-item list-group-item-action" href="#sub2">JDK >= 17</a>
+                </div>
+            </div>
         </div>
         <article>
 
@@ -49,205 +58,217 @@
             <p><strong>توجه: در این مقاله i0, i1, i2, ... , ik و سمبل هایی از این قبیل فرضی هستن که میتوان هر مقدار
                 دلخواهی رو بجاشون در نظر بگیریم</strong></p>
 
-            <h3>JDK < 1.8:</h3>
+            <div class="subsection" id="sub0">
+                <h3>JDK < 1.8</h3>
 
-            <p>قبل از JDK 1.8 شما فقط میتوانستید اعداد integer را به عنوان پارامتر داخل سوییچ پاس کنید</p>
+                <p>قبل از JDK 1.8 شما فقط میتوانستید اعداد integer را به عنوان پارامتر داخل سوییچ پاس کنید</p>
 
+                <p><strong>مثال:</strong></p>
 
-            <p><strong>مثال:</strong></p>
+                <div class="code-container">
+                    int myInteger = ...
 
-            <div class="code-container">
-int myInteger = ...
+                    switch(myInteger){
+                    case i0: {
+                    ...
+                    break;
+                    }
+                    case i2: {
+                    ...
+                    break;
+                    }
 
-switch(myInteger){
-    case i0: {
-    ...
-    break;
-    }
-    case i2: {
-    ...
-    break;
-    }
+                    ...
 
-    ...
+                    case ik: {
+                    ...
+                    break;
+                    }
+                    default: {
+                    ...
+                    }
+                    }
+                </div>
 
-    case ik: {
-    ...
-    break;
-    }
-    default: {
-    ...
-    }
-}
             </div>
 
+            <div class="subsection" id="sub1">
+                <h3>JDK >= 1.8</h3>
 
-            <h3>JDK >= 1.8: </h3>
-
-            <p>از JDK 1.8 به بعد علاوه بر integer از string و enum هم پشتیبانی شد</p>
+                <p>از JDK 1.8 به بعد علاوه بر integer از string و enum هم پشتیبانی شد</p>
 
 
-            <p><strong>مثال:</strong></p>
+                <p><strong>مثال:</strong></p>
 
-            <div class="code-container">
-String myString = ...
+                <div class="code-container">
+                    String myString = ...
 
-switch(myString){
-    case s0 : {
-    ...
-    break;
-    }
-    case s1: {
-    ...
-    break;
-    }
+                    switch(myString){
+                    case s0 : {
+                    ...
+                    break;
+                    }
+                    case s1: {
+                    ...
+                    break;
+                    }
 
-    ...
+                    ...
 
-    case sk: {
-    ...
-    break;
-    }
+                    case sk: {
+                    ...
+                    break;
+                    }
 
-    default: {
-    ...
-    }
-}
+                    default: {
+                    ...
+                    }
+                    }
+                </div>
+
+                <p>در JDK 17 چه اتفاقی برای سوییچ افتاده؟ بیایید باهم بررسی کنیم :)</p>
+
             </div>
 
-            <p>در JDK 17 چه اتفاقی برای سوییچ افتاده؟ بیایید باهم بررسی کنیم :)</p>
+            <div class="subsection" id="sub2">
+
+                <h3>JDK >= 17</h3>
+
+                <h5>۱-قابلیت بازگرداندن مقدار توسط سوییچ: </h5>
 
 
-            <h3>JDK > 17:</h3>
-
-            <h4>۱-قابلیت بازگرداندن مقدار توسط سوییچ: </h4>
+                <p>شما میتوانید هر چیزی را با کلید واژه ی yield برگردانید</p>
 
 
-            <p>شما میتوانید هر چیزی را با کلید واژه ی yield برگردانید</p>
+                <p><strong>مثال:</strong></p>
+
+                <div class="code-container">
+                    String myString = ...
+
+                    MyType myType = switch(myString){
+
+                    case s0: {
+                    ...
+                    yield myValue;
+                    }
+                    case s1: {
+                    ...
+                    yield myValue;
+                    }
+
+                    ...
+
+                    case sk: {
+                    ...
+                    yield myValue;
+                    }
+                    default: {
+                    ...
+                    yield myValue;
+                    }
+                    };
+                </div>
 
 
-            <p><strong>مثال:</strong></p>
+                <p>نکته: در این مثال myValue از نوع MyType هست و MyType متغیر فرضیه</p>
 
-            <div class="code-container">
-String myString = ...
 
-MyType myType = switch(myString){
+                <h5>۲-پشتیبانی از چند برچسبی: </h5>
 
-    case s0: {
-    ...
-    yield myValue;
-    }
-    case s1: {
-    ...
-    yield myValue;
-    }
+                <p> در هر case میتوانید چند برچسب را مورد بررسی قرار بدید</p>
 
-    ...
+                <p><strong>مثال:</strong></p>
 
-    case sk: {
-    ...
-    yield myValue;
-    }
-    default: {
-    ...
-    yield myValue;
-    }
-};
+                <div class="code-container">
+                    String myString = ...
+
+                    MyType myType = switch(myString){
+
+                    case s0, s4: {
+                    ...
+                    yield myValue;
+                    }
+
+                    case s1, s3, s5: {
+                    ...
+                    yield myValue;
+                    }
+
+                    ...
+
+                    case sk: {
+                    ...
+                    yield myValue;
+                    }
+
+                    default: {
+                    ...
+                    yield myValue;
+                    }
+                    };
+                </div>
+
+
+                <p>در کد بالا:</p>
+
+                <div class="code-container">
+                    case s0, s4:{
+                    ...
+                    }
+                </div>
+
+                <p>یعنی اگر s0 یا s2 درست بود بلاک را اجرا کن...</p>
+
+
+                <h5>۳- علامت فلش:</h5>
+
+                <p>میتوانیم در case ها به‌جای دو نقطه از فلش استفاده کنیم</p>
+
+
+                <p><strong>مثال:</strong></p>
+
+                <div class="code-container">
+                    String myString = ...
+
+                    MyType myType = switch(myString){
+
+                    case s0 , s4 -&gt; {
+                    ...
+                    yield myValue;
+                    }
+
+                    case s1, s3 , s5 -&gt; {
+                    ...
+                    yield myValue;
+                    }
+
+                    ...
+
+                    case sk -&gt; {
+                    ...
+                    yield myValue;
+                    }
+
+                    default -&gt; {
+                    ...
+                    yield myValue;
+                    }
+                    };
+                </div>
+
             </div>
-
-
-            <p>نکته: در این مثال myValue از نوع MyType هست و MyType متغیر فرضیه</p>
-
-
-            <h4>۲-پشتیبانی از چند برچسبی: </h4>
-
-            <p> در هر case میتوانید چند برچسب را مورد بررسی قرار بدید</p>
-
-            <p><strong>مثال:</strong></p>
-
-            <div class="code-container">
-String myString = ...
-
-MyType myType = switch(myString){
-
-    case s0, s4: {
-    ...
-    yield myValue;
-    }
-
-    case s1, s3, s5: {
-    ...
-    yield myValue;
-    }
-
-    ...
-
-    case sk: {
-    ...
-    yield myValue;
-    }
-
-    default: {
-    ...
-    yield myValue;
-    }
-};
-            </div>
-
-
-            <p>در کد بالا:</p>
-
-            <div class="code-container">
- case s0, s4:{
-        ...
-    }
-            </div>
-
-            <p>یعنی اگر s0 یا s2 درست بود بلاک را اجرا کن...</p>
-
-
-            <h4>۳- علامت فلش:</h4>
-
-            <p>میتوانیم در case ها به‌جای دو نقطه از فلش استفاده کنیم</p>
-
-
-            <p><strong>مثال:</strong></p>
-
-            <div class="code-container">
-String myString = ...
-
-MyType myType = switch(myString){
-
-    case s0 , s4 -&gt; {
-    ...
-    yield myValue;
-    }
-
-    case s1, s3 , s5 -&gt; {
-    ...
-    yield myValue;
-    }
-
-    ...
-
-    case sk -&gt; {
-    ...
-    yield myValue;
-    }
-
-    default -&gt; {
-    ...
-    yield myValue;
-    }
-};
-            </div>
-
 
             <p> جاوا تا این نسخه بروزرسانی های مختلفی درونش به وجود اومده که بهبود سوییچ یکی از این بروزرسانی ها در
                 جاواست</p>
         </article>
     </div>
 </main>
+
+<div class="scroll-top-container">
+    <a class="text-decoration-none link-dark material-icons" href="#top">
+        arrow_drop_up
+    </a>
+</div>
 
 <footer></footer>
 

@@ -16,6 +16,12 @@
     margin-right: 16px;
 }
 
+
+.subsection{
+    margin: 32px 0 32px 0;
+    padding: 4px 6px 4px 6px;
+}
+
 .article-foot{
     display: flex;
     flex-wrap: wrap;
@@ -32,7 +38,7 @@
     background: #eeeeee;
     margin-bottom: 16px;
     font-family: "JetBrains Mono";
-    margin: auto 8px;
+    margin: 16px 4px;
 }
 
 .code-container .code-wrap{
@@ -102,35 +108,22 @@
     direction:rtl;
 }
 
-.toc-container{
+.toc .list-group{
+    border: none !important;
+    border-radius: 0px;
+}
+
+.toc .list-group-item{
+    border: none !important;
+    border-top: 1px solid #bcbcbc !important;
+
+}
+
+.toc{
+    margin-top: 64px;
+    margin-bottom: 32px;
     border: 1px solid #bcbcbc;
-    border-radius: 4px;
-    margin: 32px 0px 16px 0px;
-}
-
-.toc-head{
-    margin-right: 24px;
-    padding: 16px 8px 4px 0px;
-}
-
-.toc-container .toc {
-    list-style-type: circle;
-}
-
-.toc-container .toc .toc-item{
-    position: relative;
-    width: 100%;
-    margin-right: 16px;
-    padding: 4px 0px 4px 0px;
-}
-
-.toc-container .toc .toc-item .toc-item-link {
-    text-decoration: none;
-    color: #212121;
-}
-
-.toc-container .toc .toc-item .toc-item-link:hover{
-    color: #0277bd;
+    border-radius: 8px;
 }
 
 .scroll-top-container{
@@ -138,14 +131,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    border: 1px solid #bcbcbc;
     width: 36px;
     height: 36px;
     right: 32px;
     bottom: 100px;
-    background: #eeeeee;
+    background: white;
     border-radius: 18px;
 }
 
 .scroll-top-container:hover{
-    background: #bcbcbc;
+    background: #eeeeee;
 }

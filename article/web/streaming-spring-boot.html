@@ -30,15 +30,30 @@
 
         <div class="article-head">
             <h1>استریم کردن video و audio در اسپرینگ بوت</h1>
-            <address>
-                <a class="author text-muted text-decoration-none" rel="author">یونس سلیمانی</a>
-            </address>
 
             <figure class="figure figure-wrapper">
                 <img alt="استریم کردن داده ها در اسپرینگ"
                      class="rounded figure-img" src="/resources/image/web/streaming_spring_boot_cover.png"/>
-
             </figure>
+
+            <address>
+                <a class="author text-muted text-decoration-none" rel="author">یونس سلیمانی</a>
+            </address>
+
+
+            هدر های کلاینت به سرور
+
+            هدر های سرور به کلاینت
+            پیاده‌سازی header ها
+
+            <div class="toc">
+                <h5 class="p-2 mx-2">دسترسی سریع</h5>
+                <div class="list-group">
+                    <a class="list-group-item list-group-item-action" href="#sub0">هدر های سرور به کلاینت</a>
+                    <a class="list-group-item list-group-item-action" href="#sub1">هدر های کلاینت به سرور</a>
+                    <a class="list-group-item list-group-item-action" href="#sub2">پیاده سازی header ها در کد</a>
+                </div>
+            </div>
 
         </div>
 
@@ -51,7 +66,8 @@
                     در این مقاله میخوایم نحوه ی پیاده‌سازی این مدل از پخش رو در اسپرینگ اموزش بدیم
                 </p>
 
-                <h3>۱-هدر های سرور به کلاینت: </h3>
+            <div id="sub0" class="subsection">
+                <h3>هدر های سرور به کلاینت</h3>
 
                 <blockquote>این هدر ها رو سرور به کلاینت ارسال می کنه و در این بخش مورد استفاده قرار میگیرن</blockquote>
 
@@ -107,9 +123,10 @@ Content-Length: 2048
                 <div class="code-container">
 Content-Type: audio/mpeg
                 </div>
+            </div>
 
-
-                <h3>۲-هدر های کلاینت به سرور:</h3>
+            <div id="sub1" class="subsection">
+                <h3>هدر های کلاینت به سرور</h3>
 
                 <blockquote>این هدر ها رو کلاینت به سرور ارسال می کنه و در این بخش مورد استفاده قرار میگیرن</blockquote>
 
@@ -129,9 +146,11 @@ Range: bytes rangeEnd-rangeStart
                 <div class="code-container">
 Range: bytes rangeStart-
                 </div>
+            </div>
 
+            <div id="sub2" class="subsection">
 
-                <h3>۳-پیاده سازی header ها در کد</h3>
+                <h3>پیاده سازی header ها در کد</h3>
 
                 <p>حالا نوبت به استفاده از این هدر ها در کد است</p>
 
@@ -317,7 +336,7 @@ public class StreamingController {
 
 }
                 </div>
-
+            </div>
 
                 <p class="mt-5">هدر های مختلفی با کاربرد های مختلف داریم در این مقاله از اونایی استفاده کردیم که برای
                     پیاده‌سازی کدهای استریمینگ بهشون نیاز داشتیم؛ امیدارم براتون مفید واقع شده باشه</p>
@@ -325,6 +344,12 @@ public class StreamingController {
         </article>
     </div>
 </main>
+
+<div class="scroll-top-container">
+    <a class="text-decoration-none link-dark material-icons" href="#">
+        arrow_drop_up
+    </a>
+</div>
 
 <footer></footer>
 

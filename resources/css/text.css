@@ -1,7 +1,7 @@
 button, a, p, h1, h2,h3 ,h4, h5, h6, blockquote, strong {
     font-family: Samim;
-    padding: 8px;
     direction: rtl;
+    padding: 4px 0 4px 0;
 }
 
 h1, h2, h3, h4, h5, h6{

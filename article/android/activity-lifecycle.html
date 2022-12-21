@@ -6,13 +6,13 @@
     <meta content="بررسی چرخه ی اکتیویتی و متد های مرتبط با چرخه در اندروید" name="description"/>
     <meta charset="UTF-8"/>
     <meta content="width:device-width, initial-scale=1" name="viewport"/>
-    <title>چرخه ی یک Activity در اندروید</title>
+    <title>چرخه ی حیات Activity در اندروید</title>
 
-    <meta property="og:title" content="چرخه ی یک Activity در اندروید"/>
-    <meta property="og:description" content="بررسی چرخه ی اکتیویتی و متد های مرتبط با چرخه در اندروید"/>
-    <meta property="og:image" content="https://skybirdbits.github.io/resources/favicon.png" />
-    <meta property="og:url" content="https://skybirdbits.github.io/article/android/activity-lifecycle.html" />
-    <meta property="og:type" content="article">
+    <meta content="چرخه ی یک Activity در اندروید" property="og:title"/>
+    <meta content="بررسی چرخه ی اکتیویتی و متد های مرتبط با چرخه در اندروید" property="og:description"/>
+    <meta content="https://skybirdbits.github.io/resources/favicon.png" property="og:image"/>
+    <meta content="https://skybirdbits.github.io/article/android/activity-lifecycle.html" property="og:url"/>
+    <meta content="article" property="og:type">
 
     <link href="/resources/css/main.css" rel="stylesheet">
     <link href="/resources/favicon.png" rel="icon" type="image/x-icon">
@@ -20,29 +20,39 @@
 
 
 </head>
+<body>
 
 <header></header>
 
-<body>
 <main>
 
 
     <div class="page-wrap">
 
         <div class="article-head">
-            <h1>چرخه ی Activity در اندروید</h1>
+            <h1>چرخه ی حیات Activity در اندروید</h1>
             <address>
                 <a class="author text-muted text-decoration-none" rel="author">یونس سلیمانی</a>
             </address>
 
             <figure class="figure figure-wrapper">
-                <img alt="چرخه ی یک اکتیویتی در اندروید"
+                <img alt="چرخه ی حیات اکتیویتی در اندروید"
                      class="rounded figure-img" src="/resources/image/android/activity_lifecycle_cover.png"/>
             </figure>
+
+            <div class="toc">
+                <h5 class="p-2 mx-2">دسترسی سریع</h5>
+                <div class="list-group">
+                    <a class="list-group-item list-group-item-action" href="#sub0">پیش نیاز</a>
+                    <a class="list-group-item list-group-item-action" href="#sub1">وضعیت های یک اکتیویتی</a>
+                </div>
+            </div>
+
         </div>
         <article>
 
-                <h3>پیش نیاز:</h3>
+            <div class="subsection" id="sub0">
+                <h3>پیش نیاز</h3>
                 <h4>قسمت های یک برنامه ی اندرویدی:</h4>
 
                 <p>یه برنامه ی اندرویدی سه قسمت کلی داره که هنگام شروع برنامه به ترتیب اجرا میشن:</p>
@@ -79,8 +89,10 @@
                 <p>یک برنامه ی اندرویدی می تونه یک یا چند اکتیویتی داشته باشه اکتیویتی ها به عنوان مجری اصلی کد های ما
                     به حساب میان (مثل متد main در برنامه های کنسولی جاوا) پس از Application به اولین اکتیویتی که شروع به
                     فعالیت میکنه main activity گفته میشه</p>
+            </div>
 
-                <h3>وضعیت های یک اکتیویتی :</h3>
+            <div class="subsection" id="sub1">
+                <h3>وضعیت های یک اکتیویتی</h3>
 
                 <figure class="figure figure-wrapper">
                     <img alt="چرخه ی یک اکتیویتی"
@@ -119,10 +131,16 @@ onStop() -&gt; onCreate()
                 <p> در تصویر نمونه ی override کردن هر وضعیت برای اجرای کد به زبان کاتلین نوشته شده دیگه خودتون به عنوان
                     برنامه نویس باید تصمیم بگیرید کد هاتونو تو کدوم وضعیت اجرا کنید...</p>
 
+            </div>
         </article>
     </div>
 </main>
 
+<div class="scroll-top-container">
+    <a class="text-decoration-none link-dark material-icons" href="#">
+        arrow_drop_up
+    </a>
+</div>
 
 <footer></footer>
 
